@@ -33,15 +33,6 @@ Thank you!
 ## Product Vision
 A place where conference attendees can express their satisfaction with the different aspects of the conference, giving feedback to the organizers in real time, through an intuitive, interactive and interesting interface.
 
-**We favor a catchy and concise statement, ideally one sentence.**
-
-To learn more about how to write a good product vision, please see also:
-* [How To Create A Convincing Product Vision To Guide Your Team, by uxstudioteam.com](https://uxstudioteam.com/ux-blog/product-vision/)
-* [Product Management: Product Vision, by ProductPlan](https://www.productplan.com/glossary/product-vision/)
-* [Vision, by scrumbook.org](http://scrumbook.org/value-stream/vision.html)
-* [How to write a vision, by dummies.com](https://www.dummies.com/business/marketing/branding/how-to-write-vision-and-mission-statements-for-your-brand/)
-* [20 Inspiring Vision Statement Examples (2019 Updated), by lifehack.org](https://www.lifehack.org/articles/work/20-sample-vision-statement-for-the-new-startup.html)
-
 ---
 ## Elevator Pitch
 Draft a small text to help you quickly introduce and describe your product in a short time and a few words (~800 characters), a technique usually known as elevator pitch.
