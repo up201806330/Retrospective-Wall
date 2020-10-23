@@ -84,6 +84,7 @@ After the user story text, you should add a draft of the corresponding user inte
 
 ![First look of the Wall](./UI_1.png)
 ![Liking / Disliking Bubbles](./UI_2.png)
+![Expanding bubble to see comments](./UI_4.png)
 ![Feedback notification](./UI_3.png)
 
 **Acceptance tests**.
