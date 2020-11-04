@@ -59,12 +59,25 @@ Briefly describe each use case mentioning the following:
 
 * **Actor**. Meeting's attendees and Meeting's host
 * **Description**. Provide a brief description of the reason for and outcome of this use case, or a high-level description of the sequence of actions and the outcome of executing the use case. 
+
 The RetrospectiveWall aims to gather reviews about the meeting. A meeting attendee can give his own feedback, as also comment on others people's feedaback and like or dislike it. The attendee can also express himself anonymously if he wishes to.
-As a user you start by chosing the meeting you want to give opinion on, then you must choose from different topics to select what your feedback is about(Conection, Content...). You can also add tags to your feedback so you can better categorise it.
-The meeting host can create his own feedback questions to 
+As a user you start by chosing from different topics to select what your feedback is about(Conection, Content...). You can also add tags to your feedback so you can better categorise it
+The meeting host can create his own questions to get feedback on a specific topic he wants.
 * **Preconditions and Postconditions**. Include any activities that must take place, or any conditions that must be true, before the use case can be started (preconditions). Describe also the state of the system at the conclusion of the use case execution (postconditions). 
+The meeting needs to occur so that people can give their feedaback.
 
 * **Normal Flow**. Provide a detailed description of the user actions and system responses that will take place during execution of the use case under normal, expected conditions. This dialog sequence will ultimately lead to accomplishing the goal stated in the use case name and description. This is best done as a numbered list of actions performed by the actor, alternating with responses provided by the system. 
+A- actor / S- System
+S- at the end of the meeting loads a page where it shows all the feedback topics.
+A- chooses from what topic he wishes to give feedback on, or comment on existing posts, or simply read them.
+S- By clicking on the topic, loads a new page that shows bubles (that vary in size dued to their likes/dislikes) containing people's feedback (only the tittle ???).
+A- chooses wich feedback bubble he wants to open up and see or creates a new buble
+Case: Actor chooses to open an existing buble
+     S- Shows the entire text written inside the chosen bubble, with like/dislik e and comment option
+     A- can choose from liking the bubble (making it bigger) or disliking it (making it smaller), and can comment on the feedback to add extra information, or show disagreement with the opinion given.
+Case: Actor chooses to create new bubble
+      S- Opens the creating feedback page, with space for title, text and tags to be written
+      A- Must choose a title for his feedback, write his feedback in the textbox and add tags to it if any seem to match his text subject.
 * **Alternative Flows and Exceptions**. Document other, legitimate usage scenarios that can take place within this use case, stating any differences in the sequence of steps that take place. In addition, describe any anticipated error conditions that could occur during execution of the use case, and define how the system is to respond to those conditions. 
 
 ![useCase](./useCases.png)
