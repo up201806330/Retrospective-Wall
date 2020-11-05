@@ -90,8 +90,7 @@ class _BubbleNew extends State<BubbleNew> {
             child: ElevatedButton(
               onPressed: () {
                 Bubble b = createBubble(controller.text, isAnonymous, _value);
-                b.addBubble();
-                Navigator.pop(context);
+                Navigator.pop(context, b);
               },
               child: Text("Submit"),
             ),

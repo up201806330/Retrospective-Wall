@@ -2,8 +2,20 @@ import 'package:flutter/material.dart';
 import 'app.dart';
 import 'bubble.dart';
 
-class Bubbles extends StatelessWidget {
+class Bubbles extends StatefulWidget {
+
   @override
+  _Bubbles createState() => _Bubbles();
+}
+
+
+class _Bubbles extends State<Bubbles> {
+  @override
+
+  void addBubble(Bubble b) {
+    allBubbles.add(b);
+  }
+
   Widget build(BuildContext context) {
     final bubbles = Bubble.fetchAll();
 
@@ -17,8 +29,6 @@ class Bubbles extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 _onNewBubblePress(context);
-                // Bubble b = createBubble(controller.text, isAnonymous, _value);
-                // Navigator.pop(context, b);
               },
               child: Text("New Bubble"),
             ),
@@ -27,7 +37,7 @@ class Bubbles extends StatelessWidget {
               child: ListView(
               children:
                 bubbles.map( (bubble) => GestureDetector(
-                  child: Text(bubble.category.toString()),
+                  child: Text(bubble.text),
                   onTap: () => _onBubbleTap(context, bubble.id),
                 ))
                 .toList(),
@@ -36,9 +46,6 @@ class Bubbles extends StatelessWidget {
           ],
           
         )
-        
-        
-        
       )
     );
   }
@@ -47,9 +54,13 @@ class Bubbles extends StatelessWidget {
     Navigator.pushNamed(context, BubbleDetailRoute, arguments: {'id': bubbleID});
   }
 
-  _onNewBubblePress(BuildContext context) {
-    Navigator.pushNamed(context, BubbleNewRoute);
-    
+  _onNewBubblePress(BuildContext context) async {
+    final result = await Navigator.pushNamed(context, BubbleNewRoute);
+
+    setState(() {
+      addBubble(result);
+    });
+
   }
 
 }

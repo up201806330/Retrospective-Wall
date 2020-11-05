@@ -11,10 +11,6 @@ class Bubble {
 
   Bubble(this.id, this.text, this.isAnonymous, this.category);
 
-  // void addBubble(Bubble toAdd) {
-  //   allBubbles.add(toAdd);
-  // }
-
   void addBubble() {
     allBubbles.add(this);
   }
