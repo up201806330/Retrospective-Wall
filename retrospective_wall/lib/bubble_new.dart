@@ -2,25 +2,25 @@ import 'package:flutter/material.dart';
 import 'bubble.dart';
 
 class BubbleNew extends StatefulWidget {
-
   @override
   _BubbleNew createState() => _BubbleNew();
 }
 
 class _BubbleNew extends State<BubbleNew> {
-
   TextEditingController controller = new TextEditingController();
 
   int _value = 1;
 
   bool isAnonymous = false;
 
-  Bubble createBubble(String text, bool isAnonymous, int value){
+  bool _textNotEmpty = false;
+
+  Bubble createBubble(String text, bool isAnonymous, int value) {
     return new Bubble(1, text, isAnonymous, value);
   }
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("Add Bubble"),
@@ -57,22 +57,21 @@ class _BubbleNew extends State<BubbleNew> {
                     ),
                   ],
                   onChanged: (value) {
-                    setState((){
+                    setState(() {
                       _value = value;
                     });
-                  }
-              ),
+                  }),
             ),
           ),
           CheckboxListTile(
-              title: Text("Anonymous Review: "),
-              value: isAnonymous,
-              onChanged: (newValue) {
-                setState(() {
-                  isAnonymous = newValue;
-                });
-              },
-              controlAffinity: ListTileControlAffinity.leading,
+            title: Text("Anonymous Review: "),
+            value: isAnonymous,
+            onChanged: (newValue) {
+              setState(() {
+                isAnonymous = newValue;
+              });
+            },
+            controlAffinity: ListTileControlAffinity.leading,
           ),
           TextField(
             keyboardType: TextInputType.multiline,
