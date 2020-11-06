@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'feedback_text.dart';
 import 'bubble.dart';
 
 class BubbleNew extends StatefulWidget {
@@ -9,14 +10,15 @@ class BubbleNew extends StatefulWidget {
 
 class _BubbleNew extends State<BubbleNew> {
 
-  TextEditingController controller = new TextEditingController();
+  TextEditingController controllerHeading = new TextEditingController();
+  TextEditingController controllerText = new TextEditingController();
 
   int _value = 1;
 
   bool isAnonymous = false;
 
-  Bubble createBubble(String text, bool isAnonymous, int value){
-    return new Bubble(1, text, isAnonymous, value);
+  Bubble createBubble(String title, String text, bool isAnonymous, int value) {
+    return new Bubble(allBubbles.length + 1, title, isAnonymous, value, FeedbackText('Summary', text));
   }
 
   @override
@@ -75,10 +77,22 @@ class _BubbleNew extends State<BubbleNew> {
               controlAffinity: ListTileControlAffinity.leading,
           ),
           TextField(
+            keyboardType: TextInputType.text,
+            minLines: 1,
+            maxLines: 2,
+            controller: controllerHeading,
+            textAlign: TextAlign.left,
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              hintText: 'Enter the heading',
+              hintStyle: TextStyle(color: Colors.grey),
+            ),
+          ),
+          TextField(
             keyboardType: TextInputType.multiline,
             minLines: 5,
             maxLines: 10,
-            controller: controller,
+            controller: controllerText,
             textAlign: TextAlign.left,
             decoration: InputDecoration(
               border: InputBorder.none,
@@ -89,7 +103,7 @@ class _BubbleNew extends State<BubbleNew> {
           Center(
             child: ElevatedButton(
               onPressed: () {
-                Bubble b = createBubble(controller.text, isAnonymous, _value);
+                Bubble b = createBubble(controllerHeading.text, controllerText.text, isAnonymous, _value);
                 Navigator.pop(context, b);
               },
               child: Text("Submit"),

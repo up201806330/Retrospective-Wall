@@ -1,6 +1,9 @@
+import 'package:retrospective_wall/feedback_text.dart';
+import 'feedback_text.dart';
+
 List<Bubble> allBubbles = [
-  Bubble(1, 'text 1', true, 1),
-  Bubble(2, 'text 2', true, 3)
+  Bubble(1, 'Feedback 1', true, 1, FeedbackText('Summary', 'Food was bad here first')),
+  Bubble(2, 'Feedback 2', true, 3, FeedbackText('Summary', 'Food was bad'))
 ];
 
 class Bubble {
@@ -8,14 +11,16 @@ class Bubble {
   String text;
   bool isAnonymous;
   int category;
+  final FeedbackText feedbackText;
 
-  Bubble(this.id, this.text, this.isAnonymous, this.category);
-
+  Bubble(this.id, this.text, this.isAnonymous, this.category, this.feedbackText);
+  
   void addBubble() {
     allBubbles.add(this);
   }
 
   static List<Bubble> fetchAll() {
+    print(allBubbles.length);               // <--------- print here
     return allBubbles;
   }
   // static List<Bubble> fetchAll() {
