@@ -65,8 +65,9 @@ As a user you start by chosing from different topics to select what your feedbac
 The meeting host can create his own questions to get feedback on a specific topic he wants.
 * **Preconditions and Postconditions**. Include any activities that must take place, or any conditions that must be true, before the use case can be started (preconditions). Describe also the state of the system at the conclusion of the use case execution (postconditions). 
 The meeting needs to occur so that people can give their feedaback.
+After all the feedback is given, every user and meeting host can go and access it, in order to analyse the reviews.
 
-* **Normal Flow**. Provide a detailed description of the user actions and system responses that will take place during execution of the use case under normal, expected conditions. This dialog sequence will ultimately lead to accomplishing the goal stated in the use case name and description. This is best done as a numbered list of actions performed by the actor, alternating with responses provided by the system. 
+* **Normal Flow**. Provide a detailed description of the user actions and system responses that will take place during execution of the use case under normal, expected conditions. This dialog sequence will ultimately lead to accomplishing the goal stated in the use case name and description. This is best done as a numbered list of actions performed by the actor, alternating with responses provided by the system.///
 A- actor / S- System
 S- at the end of the meeting loads a page where it shows all the feedback topics.
 A- chooses from what topic he wishes to give feedback on, or comment on existing posts, or simply read them.
