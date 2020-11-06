@@ -62,10 +62,11 @@ The RetrospectiveWall aims to gather reviews about the meeting. A meeting attend
 As a user you start by chosing from different topics to select what your feedback is about(Conection, Content...). You can also add tags to your feedback so you can better categorise it
 The meeting host can create his own questions to get feedback on a specific topic he wants.
 * **Preconditions and Postconditions**. Include any activities that must take place, or any conditions that must be true, before the use case can be started (preconditions). Describe also the state of the system at the conclusion of the use case execution (postconditions). 
-The meeting needs to occur so that people can give their feedaback.
+   * The meeting needs to occur so that people can give their feedaback.
+   * After the execution all users and host can go review the feedback that was sent.
 
 * **Normal Flow**. Provide a detailed description of the user actions and system responses that will take place during execution of the use case under normal, expected conditions. This dialog sequence will ultimately lead to accomplishing the goal stated in the use case name and description. This is best done as a numbered list of actions performed by the actor, alternating with responses provided by the system. 
-- **(Normal FLow)** (A- actor / S- System)
+- **Normal FLow** (A- actor / S- System)
   - S- at the end of the meeting loads a page where it shows all the feedback topics.
   - A- chooses from what topic he wishes to give feedback on, or comment on existing posts, or simply read them.
   - S- By clicking on the topic, loads a new page that shows bubles (that vary in size dued to their likes/dislikes) containing people's feedback (only the tittle ???).
@@ -78,7 +79,9 @@ The meeting needs to occur so that people can give their feedaback.
     - A- Must choose a title for his feedback, write his feedback in the textbox and add tags to it if any seem to match his text subject.
     
 * **Alternative Flows and Exceptions**. Document other, legitimate usage scenarios that can take place within this use case, stating any differences in the sequence of steps that take place. In addition, describe any anticipated error conditions that could occur during execution of the use case, and define how the system is to respond to those conditions. 
-
+  -If the user exits feedback creation page while writing it, it gets canceled.
+  -
+ 
 ![useCase](./Docs/useCases.png)
 
 #### Create Feedback bubble
