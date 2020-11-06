@@ -79,8 +79,7 @@ The meeting host can create his own questions to get feedback on a specific topi
     - A- Must choose a title for his feedback, write his feedback in the textbox and add tags to it if any seem to match his text subject.
     
 * **Alternative Flows and Exceptions**. Document other, legitimate usage scenarios that can take place within this use case, stating any differences in the sequence of steps that take place. In addition, describe any anticipated error conditions that could occur during execution of the use case, and define how the system is to respond to those conditions. 
-  -If the user exits feedback creation page while writing it, it gets canceled.
-  -
+  * If the user exits feedback creation page while writing it, it gets canceled.
  
 ![useCase](./Docs/useCases.png)
 
