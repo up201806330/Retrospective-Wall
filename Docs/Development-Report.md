@@ -67,7 +67,8 @@ The meeting host can create his own questions to get feedback on a specific topi
 The meeting needs to occur so that people can give their feedaback.
 After all the feedback is given, every user and meeting host can go and access it, in order to analyse the reviews.
 
-* **Normal Flow**. Provide a detailed description of the user actions and system responses that will take place during execution of the use case under normal, expected conditions. This dialog sequence will ultimately lead to accomplishing the goal stated in the use case name and description. This is best done as a numbered list of actions performed by the actor, alternating with responses provided by the system.///
+* **Normal Flow**. Provide a detailed description of the user actions and system responses that will take place during execution of the use case under normal, expected conditions. This dialog sequence will ultimately lead to accomplishing the goal stated in the use case name and description. This is best done as a numbered list of actions performed by the actor, alternating with responses provided by the system.
+
 A- actor / S- System
 
 S- at the end of the meeting loads a page where it shows all the feedback topics.
@@ -80,14 +81,15 @@ A- chooses wich feedback bubble he wants to open up and see or creates a new bub
 
 Case: Actor chooses to open an existing buble
 
-     S- Shows the entire text written inside the chosen bubble, with like/dislik e and comment option
+  S- Shows the entire text written inside the chosen bubble, with like/dislik e and comment option
      
-     A- can choose from liking the bubble (making it bigger) or disliking it (making it smaller), and can comment on the feedback to add extra information, or show disagreement with the opinion given.
+  A- can choose from liking the bubble (making it bigger) or disliking it (making it smaller), and can comment on the feedback to add extra information, or show disagreement with the opinion given.
+  
 Case: Actor chooses to create new bubble
 
-      S- Opens the creating feedback page, with space for title, text and tags to be written
+   S- Opens the creating feedback page, with space for title, text and tags to be written
       
-      A- Must choose a title for his feedback, write his feedback in the textbox and add tags to it if any seem to match his text subject.
+   A- Must choose a title for his feedback, write his feedback in the textbox and add tags to it if any seem to match his text subject.
       
 * **Alternative Flows and Exceptions**. Document other, legitimate usage scenarios that can take place within this use case, stating any differences in the sequence of steps that take place. In addition, describe any anticipated error conditions that could occur during execution of the use case, and define how the system is to respond to those conditions. 
 
