@@ -1,5 +1,12 @@
 @startuml useCases
 skinparam linetype polyline
+skinparam usecaseBackgroundColor WhiteSmoke
+skinparam usecaseBorderColor DarkSlateGrey
+skinparam usecaseFontColor Black
+skinparam actorBackgroundColor WhiteSmoke
+skinparam actorBorderColor Black
+skinparam ArrowColor Black
+skinparam actorStyle awesome    
 left to right direction
 
 actor Attendee as a <<Anonymous>>
@@ -7,15 +14,15 @@ package RetrospectiveWall {
     usecase bubble as "Create Feedback Bubble
     --
     - Anonymous or not"
-    usecase category as "Choose category
-    --
-    - Organization personnel
-    - Specific conference
-    - Service (catering, ...)"
-    usecase media as "Upload Media content
-    --
-    - Image
-    - GIF... ¯\_(ツ)_/¯"
+    usecase category as "Choose category"
+    usecase category_include as "
+    Organization personnel
+    Specific conference
+    Service (catering, ...)"
+    usecase media as "Upload Media content"
+    usecase media_include as "
+    Image
+    GIFs"
     usecase "Comment on other bubbles" as comment
 
     usecase notification as "Push notification as reminder to give feedback"
@@ -31,8 +38,10 @@ a -- notification
 manual --- o
 a -- bubble
 a -- like
-bubble <-- category
-bubble <- media
+bubble <-- category : <<include>>
+category <-right- category_include : <<include>>
+bubble <-right-- media
+media <-down- media_include : <<include>>
 bubble <-- comment
 notification <|-- auto
 notification <|-- manual
