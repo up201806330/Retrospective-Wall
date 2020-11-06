@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'feedback_text.dart';
 import 'bubble.dart';
 
 class BubbleNew extends StatefulWidget {
@@ -7,7 +8,8 @@ class BubbleNew extends StatefulWidget {
 }
 
 class _BubbleNew extends State<BubbleNew> {
-  TextEditingController controller = new TextEditingController();
+  TextEditingController controllerHeading = new TextEditingController();
+  TextEditingController controllerText = new TextEditingController();
 
   int _value = 1;
 
@@ -15,8 +17,36 @@ class _BubbleNew extends State<BubbleNew> {
 
   bool _textNotEmpty = false;
 
-  Bubble createBubble(String text, bool isAnonymous, int value) {
-    return new Bubble(1, text, isAnonymous, value);
+  Bubble createBubble(String title, String text, bool isAnonymous, int value) {
+    return new Bubble(allBubbles.length + 1, title, isAnonymous, value,
+        FeedbackText('Summary', text));
+  }
+
+  showAlertDialog(BuildContext context) {
+    // set up the button
+    Widget okButton = FlatButton(
+      child: Text("OK"),
+      onPressed: () {
+        Navigator.of(context).pop();
+      },
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: Text("Text Field Error"),
+      content: Text("Text Field must not be empty."),
+      actions: [
+        okButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
   }
 
   @override
@@ -73,11 +103,23 @@ class _BubbleNew extends State<BubbleNew> {
             },
             controlAffinity: ListTileControlAffinity.leading,
           ),
-          TextField(
+          TextFormField(
+            keyboardType: TextInputType.text,
+            minLines: 1,
+            maxLines: 2,
+            controller: controllerHeading,
+            textAlign: TextAlign.left,
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              hintText: 'Enter the heading',
+              hintStyle: TextStyle(color: Colors.grey),
+            ),
+          ),
+          TextFormField(
             keyboardType: TextInputType.multiline,
             minLines: 5,
             maxLines: 10,
-            controller: controller,
+            controller: controllerText,
             textAlign: TextAlign.left,
             decoration: InputDecoration(
               border: InputBorder.none,
@@ -88,8 +130,13 @@ class _BubbleNew extends State<BubbleNew> {
           Center(
             child: ElevatedButton(
               onPressed: () {
-                Bubble b = createBubble(controller.text, isAnonymous, _value);
-                Navigator.pop(context, b);
+                if (controllerHeading.text.isEmpty) {
+                  showAlertDialog(context);
+                } else {
+                  Bubble b = createBubble(controllerHeading.text,
+                      controllerText.text, isAnonymous, _value);
+                  Navigator.pop(context, b);
+                }
               },
               child: Text("Submit"),
             ),

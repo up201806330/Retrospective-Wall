@@ -29,17 +29,21 @@ class _Bubbles extends State<Bubbles> {
               },
               child: Text("New Bubble"),
             ),
-            Container(
-              height: 200,
-              child: ListView(
-                children: bubbles
-                    .map((bubble) => GestureDetector(
-                          child: Text(bubble.text),
-                          onTap: () => _onBubbleTap(context, bubble.id),
-                        ))
-                    .toList(),
-              ),
-            )
+            Column(children: [
+              Container(
+                padding: const EdgeInsets.fromLTRB(16.0, 10.0, 16.0, 16.0),
+                height: 200,
+                child: ListView(
+                  children: bubbles
+                      .map((bubble) => GestureDetector(
+                            child: Text(bubble.text,
+                                style: Theme.of(context).textTheme.bodyText2),
+                            onTap: () => _onBubbleTap(context, bubble.id),
+                          ))
+                      .toList(),
+                ),
+              )
+            ])
           ],
         )));
   }

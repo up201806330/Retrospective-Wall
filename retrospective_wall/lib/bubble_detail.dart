@@ -13,18 +13,18 @@ class BubbleDetail extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('title ay'),
+        title: Text(bubble.text),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children:
-        []..add(Text(bubble.text)) ),
-        // []..addAll(textSections(bubble)) ),
+        // []..add(Text(bubble.text)) ),
+        []..add(textSections(bubble)) ),
     );
   }
 
-  // List<Widget> textSections(Bubble bubble) {
-  //   return bubble.text.toList();
-  // }
+  Widget textSections(Bubble bubble) {
+    return TextSection(bubble.feedbackText.title, bubble.feedbackText.text);
+  }
 }
