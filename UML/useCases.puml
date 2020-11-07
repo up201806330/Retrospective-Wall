@@ -45,4 +45,5 @@ media <-down- media_include : <<include>>
 bubble <-- comment
 notification <|-- auto
 notification <|-- manual
+
 @enduml
