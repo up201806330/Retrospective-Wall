@@ -53,39 +53,39 @@ In this section, you should describe all kinds of requirements for your module: 
 Start by contextualizing your module, describing the main concepts, terms, roles, scope and boundaries of the application domain addressed by the project.
 
 ### Use case diagram 
--Create a use-case diagram in UML with all high-level use cases possibly addressed by your module.
 
-Give each use case a concise, results-oriented name. Use cases should reflect the tasks the user needs to be able to accomplish using the system. Include an action verb and a noun. 
-
-Briefly describe each use case mentioning the following:
-
-* **Actor**. Meeting's attendees and Meeting's host
-* **Description**. Provide a brief description of the reason for and outcome of this use case, or a high-level description of the sequence of actions and the outcome of executing the use case. 
-
-The RetrospectiveWall aims to gather reviews about the meeting. A meeting attendee can give his own feedback, as also comment on others people's feedaback and like or dislike it. The attendee can also express himself anonymously if he wishes to.
-As a user you start by chosing from different topics to select what your feedback is about(Conection, Content...). You can also add tags to your feedback so you can better categorise it
-The meeting host can create his own questions to get feedback on a specific topic he wants.
-* **Preconditions and Postconditions**. Include any activities that must take place, or any conditions that must be true, before the use case can be started (preconditions). Describe also the state of the system at the conclusion of the use case execution (postconditions). 
-   * The meeting needs to occur so that people can give their feedaback.
-   * After the execution all users and host can go review the feedback that was sent.
-
-* **Normal Flow**. Provide a detailed description of the user actions and system responses that will take place during execution of the use case under normal, expected conditions. This dialog sequence will ultimately lead to accomplishing the goal stated in the use case name and description. This is best done as a numbered list of actions performed by the actor, alternating with responses provided by the system. 
-- **Normal FLow** (A- actor / S- System)
-  - S- at the end of the meeting loads a page where it shows all the feedback topics.
-  - A- chooses from what topic he wishes to give feedback on, or comment on existing posts, or simply read them.
-  - S- By clicking on the topic, loads a new page that shows bubles (that vary in size dued to their likes/dislikes) containing people's feedback (only the tittle ???).
-  - A- chooses wich feedback bubble he wants to open up and see or creates a new buble
-  - Case: Actor chooses to open an existing buble
-    - S- Shows the entire text written inside the chosen bubble, with like/dislik e and comment option
-    - A- can choose from liking the bubble (making it bigger) or disliking it (making it smaller), and can comment on the feedback to add extra information, or show disagreement with the opinion given.
-  - Case: Actor chooses to create new bubble
-    - S- Opens the creating feedback page, with space for title, text and tags to be written 
-    - A- Must choose a title for his feedback, write his feedback in the textbox and add tags to it if any seem to match his text subject.
-    
-* **Alternative Flows and Exceptions**. Document other, legitimate usage scenarios that can take place within this use case, stating any differences in the sequence of steps that take place. In addition, describe any anticipated error conditions that could occur during execution of the use case, and define how the system is to respond to those conditions. 
-  * If the user exits feedback creation page while writing it, it gets canceled.
  
 ![useCase](./Docs/useCases.png)
+
+
+### Like or Dislike Feedback Bubles
+* **Actor**. Attendees
+* **Description**. Choose to either like or deslike an existing bubble in order to enhance (or not) the feedback credibility. (Liking the bubble will make it grow, while disliking it will make it smaller.
+* **Preconditions and Postconditions**. A feedback bubble must exist so that it can be liked/disliked
+* **Normal Flow**
+  - User presses like button on the feedback bubble
+    - System will make that bubble bigger
+  - User presses dislike button on the feedback bubble
+    - System will make that bubble smaller
+    
+### Creating Feedback Pop-up question
+* **Actor**. Metting's host
+* **Description**. Host can create questions that pop after the meeting ends in order to get attendees opinion on a specific subject.
+* **Preconditions and Postconditions**. Metting has to end.
+* **Normal Flow**
+ 
+ - Host creates question
+ - System makes it pop up attendees screen.
+ 
+ ### Cometing on Feedback bubbles
+* **Actor**. Attendee
+* **Description**. Attendees can comment on other's feedback in order to add some information they think might be needed.
+* **Preconditions and Postconditions**. Feedback buble must exist in so that it can be commented.
+* **Normal Flow**
+ 
+ - Attendee chooses wich feedback bubble he wants to comment on.
+ - Attendee is given a text box to write and an option to phone's gallery if he wishes to add a photo or a gif.
+ - Attendee submits his comment.
 
 #### Create Feedback bubble
 - **Actor:** Attendee.
@@ -107,7 +107,24 @@ For each theme, or role, you may add a small description. User stories should be
 
 A user story is a description of desired functionality told from the perspective of the user or customer. A starting template for the description of a user story is 
 
-*As a < user role >, I want < goal > so that < reason >.*
+### Story 1: As a user I want to be able to create a Feedback Bubbles so that I can express my review about the meeting.
+
+### Story 2:As a user I want to be able to choose an area of the board to write on so that I can specify how positive or negative the feedback is.
+
+### Story 3:As a user I want to be able to like or dislike existing feedback bubbles so that I show my agreement/disagreement with others.
+
+### Story 4:As a user I want to able to have the option to hide my identity so that the feedback can be anonymous.
+
+### Story 5:As a user I want to be able to add images or gif to my feedback/comment so that I can better express my opinion.
+
+### Story 6:As a user I want to be able to comment on Feedback Bubbles so that I can add an opinion about an existing feedback review.
+
+### Story 7:As a host I want to be able to create custom Feedback questions so that I can gather opinions about a specific topic or issue.
+
+### Story 8:As a host I want to be able to search feedbacks by category/subject so that I can look for feedback about a specific subject.
+
+### Story 9:As a user I want to associate a specific talk, event or area of the organization to my Feedback so that I can better direct my criticism
+
 
 
 **INVEST in good user stories**. 
