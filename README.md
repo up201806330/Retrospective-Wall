@@ -48,9 +48,7 @@ Take a look at the following links to learn some techniques:
 
 ---
 ## Requirements
-In this section, you should describe all kinds of requirements for your module: functional and non-functional requirements.
 
-Start by contextualizing your module, describing the main concepts, terms, roles, scope and boundaries of the application domain addressed by the project.
 
 ### Use case diagram 
 
@@ -107,23 +105,23 @@ For each theme, or role, you may add a small description. User stories should be
 
 A user story is a description of desired functionality told from the perspective of the user or customer. A starting template for the description of a user story is 
 
-### Story 1: As a user I want to be able to create a Feedback Bubbles so that I can express my review about the meeting.
+#### Story 1: As a user I want to be able to create a Feedback Bubbles so that I can express my review about the meeting.
 
-### Story 2:As a user I want to be able to choose an area of the board to write on so that I can specify how positive or negative the feedback is.
+#### Story 2:As a user I want to be able to choose an area of the board to write on so that I can specify how positive or negative the feedback is.
 
-### Story 3:As a user I want to be able to like or dislike existing feedback bubbles so that I show my agreement/disagreement with others.
+#### Story 3:As a user I want to be able to like or dislike existing feedback bubbles so that I show my agreement/disagreement with others.
 
-### Story 4:As a user I want to able to have the option to hide my identity so that the feedback can be anonymous.
+#### Story 4:As a user I want to able to have the option to hide my identity so that the feedback can be anonymous.
 
-### Story 5:As a user I want to be able to add images or gif to my feedback/comment so that I can better express my opinion.
+#### Story 5:As a user I want to be able to add images or gif to my feedback/comment so that I can better express my opinion.
 
-### Story 6:As a user I want to be able to comment on Feedback Bubbles so that I can add an opinion about an existing feedback review.
+#### Story 6:As a user I want to be able to comment on Feedback Bubbles so that I can add an opinion about an existing feedback review.
 
-### Story 7:As a host I want to be able to create custom Feedback questions so that I can gather opinions about a specific topic or issue.
+#### Story 7:As a host I want to be able to create custom Feedback questions so that I can gather opinions about a specific topic or issue.
 
-### Story 8:As a host I want to be able to search feedbacks by category/subject so that I can look for feedback about a specific subject.
+#### Story 8:As a host I want to be able to search feedbacks by category/subject so that I can look for feedback about a specific subject.
 
-### Story 9:As a user I want to associate a specific talk, event or area of the organization to my Feedback so that I can better direct my criticism
+#### Story 9:As a user I want to associate a specific talk, event or area of the organization to my Feedback so that I can better direct my criticism
 
 
 
