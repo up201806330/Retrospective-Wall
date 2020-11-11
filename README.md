@@ -56,30 +56,30 @@ Take a look at the following links to learn some techniques:
 ![useCase](./Docs/useCases.png)
 
 
-### Like or Dislike Feedback Bubles
+#### Like or Dislike Feedback Bubles
 * **Actor**. Attendees
 * **Description**. Choose to either like or deslike an existing bubble in order to enhance (or not) the feedback credibility. (Liking the bubble will make it grow, while disliking it will make it smaller.
 * **Preconditions and Postconditions**. A feedback bubble must exist so that it can be liked/disliked
-- * **Normal Flow**
+-  **Normal Flow**
   - User presses like button on the feedback bubble
     - System will make that bubble bigger
   - User presses dislike button on the feedback bubble
     - System will make that bubble smaller
     
-### Creating Feedback Pop-up question
+#### Creating Feedback Pop-up question
 * **Actor**. Metting's host
 * **Description**. Host can create questions that pop after the meeting ends in order to get attendees opinion on a specific subject.
 * **Preconditions and Postconditions**. Metting has to end.
-- * **Normal Flow**
+-  **Normal Flow**
  
  - Host creates question
  - System makes it pop up attendees screen.
  
- ### Cometing on Feedback bubbles
+ #### Cometing on Feedback bubbles
 * **Actor**. Attendee
 * **Description**. Attendees can comment on other's feedback in order to add some information they think might be needed.
 * **Preconditions and Postconditions**. Feedback buble must exist in so that it can be commented.
-- * **Normal Flow**
+-  **Normal Flow**
  - Attendee chooses wich feedback bubble he wants to comment on.
  - Attendee is given a text box to write and an option to phone's gallery if he wishes to add a photo or a gif.
  - Attendee submits his comment.
