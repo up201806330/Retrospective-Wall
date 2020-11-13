@@ -1,0 +1,42 @@
+@startuml Architecture
+scale 200
+skinparam linetype polyline
+skinparam componentBackgroundColor WhiteSmoke
+skinparam componentBorderColor DarkSlateGrey
+skinparam componentFontColor Black
+
+skinparam interfaceBackgroundColor WhiteSmoke
+skinparam interfaceBorderColor DarkSlateGrey
+skinparam interfaceFontColor Black
+
+skinparam ArrowColor Black
+
+left to right direction
+
+node "Database Server" as database <<device>>{
+  [Firebase] <<component>> as firebase
+}
+
+node "Client" as client <<device>> {
+  component Flutter as app <<framework>>
+  Interface " " as int1
+  Interface " " as int2
+  Interface " " as int3
+  component Attendee <<component>>
+  component Organization <<component>>
+}
+
+client -[hidden]up-> database
+
+app <|-left- Attendee
+app <|-left- Organization
+
+app -up- int1
+Attendee -up- int2
+Organization -up- int3
+
+int1 <.up. firebase
+int2 <.up. firebase
+int3 <.up. firebase
+
+@enduml

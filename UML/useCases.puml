@@ -1,4 +1,5 @@
 @startuml useCases
+scale 200
 skinparam linetype polyline
 skinparam usecaseBackgroundColor WhiteSmoke
 skinparam usecaseBorderColor DarkSlateGrey

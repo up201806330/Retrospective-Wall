@@ -1,0 +1,17 @@
+@startuml useCases
+scale 200
+skinparam linetype polyline
+skinparam minClassWidth 100
+skinparam classBackgroundColor WhiteSmoke
+skinparam classBorderColor DarkSlateGrey
+skinparam ArrowColor Black
+hide members
+hide circles
+
+class Controller
+class Model
+class View
+
+Model -> Controller
+View -left-> Controller
+@enduml
