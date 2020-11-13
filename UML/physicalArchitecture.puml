@@ -1,4 +1,4 @@
-@startuml Architecture
+@startuml physicalArchitecture
 scale 200
 skinparam linetype polyline
 skinparam componentBackgroundColor WhiteSmoke

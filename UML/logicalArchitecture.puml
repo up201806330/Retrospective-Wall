@@ -1,4 +1,4 @@
-@startuml useCases
+@startuml logicalArchitecture
 scale 200
 skinparam linetype polyline
 skinparam minClassWidth 100
