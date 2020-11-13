@@ -159,7 +159,7 @@ Architecturally, our project is split in two parts:
 - The **Client side**, which consists of both the *Attendee* and the *Organization* apps.
 - The **Server side**, where the *Firebase* database lives and stores all users' data .
 
-The technologies we chose were *Flutter*, so in the end it would be easier to merge with the **open-cx** project, and *Firebase*, since it fit well into our needs and would be simpler than handling the *back-end* ourselves.  
+The technologies we chose were *Flutter*, so in the end it would be easier to merge with the **open-cx** project and our class' work, and *Firebase*, since it fit well into our needs and would be simpler than handling the *back-end* ourselves.  
 
 ### Prototype
 To help on validating all the architectural, design and technological decisions made, we usually implement a vertical prototype, a thin vertical slice of the system.
