@@ -208,6 +208,7 @@ You may add more details after, but the shorter and complete, the better. In ord
 After the user story text, you should add a draft of the corresponding user interfaces, a simple mockup or draft, if applicable.
 
 ![First look of the Wall](./Docs/UI_1.png)
+
 **Acceptance tests**.
 For each user story you should write also the acceptance tests (textually in Gherkin), i.e., a description of scenarios (situations) that will help to confirm that the system satisfies the requirements addressed by the user story.
 
