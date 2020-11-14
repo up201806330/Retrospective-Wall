@@ -117,9 +117,11 @@ A user story is a description of desired functionality told from the perspective
 
 **Then** the app uploads the feedback I just wrote.
 
+***
 #### Story 2:As a user I want to be able to choose an area of the board to write on so that I can specify how positive or negative the feedback is.
 
 
+***
 #### Story 3:Like or Dislike feedback bubbles
 > As a user I want to be able to like or dislike existing feedback bubbles so that I show my agreement/disagreement with others.
 
@@ -133,6 +135,7 @@ A user story is a description of desired functionality told from the perspective
 
 **Then** it grows(1)/diminishes(2) and updates the number of votes.
 
+***
 #### Story 4: Anonymous review
 > As a user I want to able to have the option to hide my identity so that the feedback can be anonymous.
 
@@ -146,6 +149,7 @@ A user story is a description of desired functionality told from the perspective
 
 **Then** when I submit my feedback it will be anonymous.
 
+***
 #### Story 5: Add Images/Gifs
 > As a user I want to be able to add images or gif to my feedback/comment so that I can better express my opinion.
 
@@ -159,6 +163,7 @@ A user story is a description of desired functionality told from the perspective
 
 **Then** I can choose photos or gifs to attach to my feedback.
 
+***
 #### Story 6: Comment Feedback Blubles
 > As a user I want to be able to comment on Feedback Bubbles so that I can add an opinion about an existing feedback review.
 
@@ -172,10 +177,13 @@ A user story is a description of desired functionality told from the perspective
 
 **Then** my comment on that feedback is posted.
 
+***
 #### Story 7:As a host I want to be able to create custom Feedback questions so that I can gather opinions about a specific topic or issue.
 
+***
 #### Story 8:As a host I want to be able to search feedbacks by category/subject so that I can look for feedback about a specific subject.
 
+***
 #### Story 9:As a user I want to associate a specific talk, event or area of the organization to my Feedback so that I can better direct my criticism
 
 
