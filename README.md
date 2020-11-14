@@ -104,17 +104,69 @@ For each theme, or role, you may add a small description. User stories should be
 
 A user story is a description of desired functionality told from the perspective of the user or customer. A starting template for the description of a user story is 
 
-#### Story 1: As a user I want to be able to create a Feedback Bubbles so that I can express my review about the meeting.
+#### Story 1: Feedback Bubbles's creation
+As a user I want to be able to create a Feedback Bubbles so that I can express my review about the meeting.
+![new_feedback](./Docs/new_feedback.png)
+
+**Scenario: Create feedback buble**
+
+**Given** the meeting has ended and I'm on the create feedback page and have finished filling all details (feedback text, tittle, images),
+
+**When** I click Submit button,
+
+**Then** the app uploads the feedback I just wrote.
 
 #### Story 2:As a user I want to be able to choose an area of the board to write on so that I can specify how positive or negative the feedback is.
 
-#### Story 3:As a user I want to be able to like or dislike existing feedback bubbles so that I show my agreement/disagreement with others.
 
-#### Story 4:As a user I want to able to have the option to hide my identity so that the feedback can be anonymous.
+#### Story 3:Like or Dislike feedback bubbles
+As a user I want to be able to like or dislike existing feedback bubbles so that I show my agreement/disagreement with others.
+![like_fb](./Docs/like_fb.png)
 
-#### Story 5:As a user I want to be able to add images or gif to my feedback/comment so that I can better express my opinion.
+**Scenario: Like or Dislike feedback bubles**
 
-#### Story 6:As a user I want to be able to comment on Feedback Bubbles so that I can add an opinion about an existing feedback review.
+**Given** I’m on a certain page of feedbacks
+
+**When** I click the upvote(1)/downvote(2) on a specific feedback bubble,
+
+**Then** it grows(1)/diminishes(2) and updates the number of votes.
+
+#### Story 4: Anonymous review
+As a user I want to able to have the option to hide my identity so that the feedback can be anonymous.
+
+![anon_opt](./Docs/anon_opt.png)
+
+**Scenario: Give feedback anonymously**
+
+**Given** I’m on the create feedback page
+
+**When** I check the anonymous review box,
+
+**Then** when I submit my feedback it will be anonymous.
+
+#### Story 5: Add Images/Gifs
+As a user I want to be able to add images or gif to my feedback/comment so that I can better express my opinion.
+![add_photo](./Docs/add_photo.png)
+
+**Scenario: Add images/gifs to feedback**
+
+**Given** I’m on the create feedback page
+
+**When** I click the photo logo,
+
+**Then** I can choose photos or gifs to attach to my feedback.
+
+#### Story 6: Comment Feedback Blubles
+As a user I want to be able to comment on Feedback Bubbles so that I can add an opinion about an existing feedback review.
+![comment_fb](./Docs/comment_fb.png)
+
+**Scenario: Comment on existing feedbacks**
+
+**Given** I’m on a specific feedback page
+
+**When** I fullfill the textbox space (and add image if desired) and press the arrow logo,
+
+**Then** my comment on that feedback is posted.
 
 #### Story 7:As a host I want to be able to create custom Feedback questions so that I can gather opinions about a specific topic or issue.
 
