@@ -184,7 +184,20 @@ A user story is a description of desired functionality told from the perspective
 #### Story 8:As a host I want to be able to search feedbacks by category/subject so that I can look for feedback about a specific subject.
 
 ***
-#### Story 9:As a user I want to associate a specific talk, event or area of the organization to my Feedback so that I can better direct my criticism
+#### Story 9: Selecting Category of my feedback
+> As a user I want to associate a specific talk, event or area of the organization to my Feedback so that I can better direct my criticism
+
+![select_category](./Docs/select_category.png)
+
+**Scenario: Selecting Category of my feedback**
+
+**Given** I’m on the create feedback page
+
+**When** choose a category for my feedback (from the ones given),
+
+**Then** my feedback becomes associated with that tag.
+
+***
 
 
 
