@@ -105,7 +105,8 @@ For each theme, or role, you may add a small description. User stories should be
 A user story is a description of desired functionality told from the perspective of the user or customer. A starting template for the description of a user story is 
 
 #### Story 1: Feedback Bubbles's creation
-As a user I want to be able to create a Feedback Bubbles so that I can express my review about the meeting.
+> As a user I want to be able to create a Feedback Bubbles so that I can express my review about the meeting.
+
 ![new_feedback](./Docs/new_feedback.png)
 
 **Scenario: Create feedback buble**
@@ -120,7 +121,8 @@ As a user I want to be able to create a Feedback Bubbles so that I can express m
 
 
 #### Story 3:Like or Dislike feedback bubbles
-As a user I want to be able to like or dislike existing feedback bubbles so that I show my agreement/disagreement with others.
+> As a user I want to be able to like or dislike existing feedback bubbles so that I show my agreement/disagreement with others.
+
 ![like_fb](./Docs/like_fb.png)
 
 **Scenario: Like or Dislike feedback bubles**
@@ -132,7 +134,7 @@ As a user I want to be able to like or dislike existing feedback bubbles so that
 **Then** it grows(1)/diminishes(2) and updates the number of votes.
 
 #### Story 4: Anonymous review
-As a user I want to able to have the option to hide my identity so that the feedback can be anonymous.
+> As a user I want to able to have the option to hide my identity so that the feedback can be anonymous.
 
 ![anon_opt](./Docs/anon_opt.png)
 
@@ -145,7 +147,8 @@ As a user I want to able to have the option to hide my identity so that the feed
 **Then** when I submit my feedback it will be anonymous.
 
 #### Story 5: Add Images/Gifs
-As a user I want to be able to add images or gif to my feedback/comment so that I can better express my opinion.
+> As a user I want to be able to add images or gif to my feedback/comment so that I can better express my opinion.
+
 ![add_photo](./Docs/add_photo.png)
 
 **Scenario: Add images/gifs to feedback**
@@ -157,7 +160,8 @@ As a user I want to be able to add images or gif to my feedback/comment so that 
 **Then** I can choose photos or gifs to attach to my feedback.
 
 #### Story 6: Comment Feedback Blubles
-As a user I want to be able to comment on Feedback Bubbles so that I can add an opinion about an existing feedback review.
+> As a user I want to be able to comment on Feedback Bubbles so that I can add an opinion about an existing feedback review.
+
 ![comment_fb](./Docs/comment_fb.png)
 
 **Scenario: Comment on existing feedbacks**
