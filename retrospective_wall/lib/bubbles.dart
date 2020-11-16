@@ -32,7 +32,7 @@ class _Bubbles extends State<Bubbles> {
             Column(children: [
               Container(
                 padding: const EdgeInsets.fromLTRB(16.0, 10.0, 16.0, 16.0),
-                height: 200,
+                height: 500,
                 child: ListView(
                   children: bubbles
                       .map((bubble) => GestureDetector(
