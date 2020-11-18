@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:retrospective_wall/subdivision_detail.dart';
+import 'package:retrospective_wall/login.dart';
 import 'app.dart';
 import 'bubble.dart';
+import 'globals.dart';
 
 class BubblesSubdivision extends StatefulWidget {
   @override
@@ -11,6 +12,33 @@ class BubblesSubdivision extends StatefulWidget {
 class _BubblesSubdivision extends State<BubblesSubdivision> {
   void addBubble(Bubble b) {
     allBubbles.add(b);
+  }
+
+  showAlertDialog(BuildContext context) {
+    // set up the button
+    Widget okButton = FlatButton(
+      child: Text("OK"),
+      onPressed: () {
+        Navigator.of(context).pop();
+      },
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: Text("Not Logged in!"),
+      content: Text("You have to be logged in to create a new bubble."),
+      actions: [
+        okButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
   }
 
   @override
@@ -118,6 +146,16 @@ class _BubblesSubdivision extends State<BubblesSubdivision> {
                   },
                   child: Text("New Bubble"),
                 ),
+                Row(
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        _onLoginPress(context);
+                      },
+                      child: Text("Login"),
+                    ),
+                  ],
+                ),
               ],
             )),
           ],
@@ -130,12 +168,20 @@ class _BubblesSubdivision extends State<BubblesSubdivision> {
   }
 
   _onNewBubblePress(BuildContext context) async {
-    final result = await Navigator.pushNamed(context, BubbleNewRoute);
+    if (!isLoggedIn) {
+      showAlertDialog(context);
+    } else {
+      final result = await Navigator.pushNamed(context, BubbleNewRoute);
 
-    if (result != null) {
-      setState(() {
-        addBubble(result);
-      });
+      if (result != null) {
+        setState(() {
+          addBubble(result);
+        });
+      }
     }
+  }
+
+  _onLoginPress(BuildContext context) {
+    Navigator.pushNamed(context, LoginSignupRoute);
   }
 }

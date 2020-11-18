@@ -16,11 +16,9 @@ class BubbleDetail extends StatelessWidget {
         title: Text(bubble.text),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children:
-        // []..add(Text(bubble.text)) ),
-        []..add(textSections(bubble)) ),
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: []..add(textSections(bubble))),
     );
   }
 

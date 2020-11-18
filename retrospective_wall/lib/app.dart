@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:retrospective_wall/bubbles_subdivisions.dart';
+import 'package:retrospective_wall/login.dart';
 import 'package:retrospective_wall/style.dart';
 import 'package:retrospective_wall/subdivision_detail.dart';
 import 'bubbles.dart';
 import 'bubble_detail.dart';
 import 'bubble_new.dart';
 
-const BubblesRoute = '/';
+//const BubblesRoute = '/';
+const LoginSignupRoute = '/login';
 const BubbleDetailRoute = '/subdivision_detail/bubble_detail';
 const BubbleNewRoute = '/bubble_new';
 const SubdivisionDetailRoute = '/subdivision_detail';
@@ -37,6 +39,9 @@ class App extends StatelessWidget {
           break;
         case BubbleNewRoute:
           screen = BubbleNew();
+          break;
+        case LoginSignupRoute:
+          screen = LoginSignup();
           break;
         default:
           return null;
