@@ -48,7 +48,7 @@ class _Bubbles extends State<Bubbles> {
         )));
   }
 
-  _onBubbleTap(BuildContext context, int bubbleID) {
+  _onBubbleTap(BuildContext context, String bubbleID) {
     Navigator.pushNamed(context, BubbleDetailRoute,
         arguments: {'id': bubbleID});
   }

@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'feedback_text.dart';
 import 'bubble.dart';
@@ -11,14 +12,24 @@ class _BubbleNew extends State<BubbleNew> {
   TextEditingController controllerHeading = new TextEditingController();
   TextEditingController controllerText = new TextEditingController();
 
+  CollectionReference bubblesCollection = FirebaseFirestore.instance.collection("Bubbles");
+
   int _value = 1;
 
   bool isAnonymous = false;
 
-  bool _textNotEmpty = false;
-
   Bubble createBubble(String title, String text, bool isAnonymous, int value) {
-    return new Bubble(allBubbles.length + 1, title, isAnonymous, value,
+
+     bubblesCollection
+          .add({
+            'title': title,
+            'text' : text,
+            'isAnonymous' : isAnonymous,
+            'category' : value
+          }
+      );
+
+    return new Bubble((allBubbles.length + 1).toString(), title, isAnonymous, value,
         FeedbackText('Summary', text));
   }
 
@@ -51,6 +62,7 @@ class _BubbleNew extends State<BubbleNew> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Add Bubble"),

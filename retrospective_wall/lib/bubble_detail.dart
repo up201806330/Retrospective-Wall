@@ -3,7 +3,7 @@ import 'bubble.dart';
 import 'text_section.dart';
 
 class BubbleDetail extends StatelessWidget {
-  final int _bubbleID;
+  final String _bubbleID;
 
   BubbleDetail(this._bubbleID);
 
