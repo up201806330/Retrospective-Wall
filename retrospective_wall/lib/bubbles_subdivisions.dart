@@ -33,6 +33,7 @@ class _BubblesSubdivision extends State<BubblesSubdivision> {
               Center(
                   child: Column(
                 children: [
+                  SizedBox(height: 80),
                   InkWell(
                     child: Container(
                       child: GestureDetector(
@@ -120,11 +121,17 @@ class _BubblesSubdivision extends State<BubblesSubdivision> {
                     ),
                     onTap: () => _onSubdivisionTap(context, 4),
                   ),
-                  ElevatedButton(
-                    onPressed: () {
-                      _onNewBubblePress(context);
-                    },
-                    child: Text("New Bubble"),
+
+                  SizedBox(height: 40),
+
+                  Container(
+                    height: 50,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        _onNewBubblePress(context);
+                      },
+                      child: Text("New Bubble", style: TextStyle(fontSize: 25)),
+                    ),
                   ),
                 ],
               )),

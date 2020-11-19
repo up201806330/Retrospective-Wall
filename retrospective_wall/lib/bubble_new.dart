@@ -162,7 +162,7 @@ class _BubbleNew extends State<BubbleNew> {
                   child: Container(
                     height: 50,
                     child: ElevatedButton(
-                      child: Text("Submit",style: TextStyle(fontSize: 25) ),
+                      child: Text("Submit", style: TextStyle(fontSize: 25) ),
                       onPressed: () {
                         if (controllerHeading.text.isEmpty) {
                           showAlertDialog(context);
