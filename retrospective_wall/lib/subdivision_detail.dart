@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:retrospective_wall/feedback_text.dart';
 import 'app.dart';
 import 'bubble.dart';
 
@@ -14,7 +16,34 @@ class SubdivisionDetail extends StatefulWidget {
 class _SubdivisionDetail extends State<SubdivisionDetail> {
   @override
   Widget build(BuildContext context) {
-    final bubbles = Bubble.fetchByCategory(widget._category);
+    List bubbles = Bubble.fetchByCategory(widget._category);
+
+    /*Stream bubbleCollectionStream = FirebaseFirestore.instance.collection('Bubbles').where('category', isEqualTo: widget._category).snapshots();
+    bubbleCollectionStream.listen((event) {
+        QuerySnapshot snapshot = event;
+        if(snapshot.docs.length < bubbles.length)
+        {
+          print("Will remove");
+          bubbles = [];
+          for(QueryDocumentSnapshot doc in  snapshot.docs)
+          {
+            dynamic data = doc.data();
+            bubbles.add(new Bubble(doc.id, data['tittle'], data['isAnonymous'], data['category'], FeedbackText('Summary',data['text'])));
+          }
+        }
+        else if(snapshot.docs.length > bubbles.length)
+        {
+          for(QueryDocumentSnapshot doc in  snapshot.docs)
+            {
+              dynamic data = doc.data();
+              Bubble b = new Bubble(doc.id, data['tittle'], data['isAnonymous'], data['category'], FeedbackText('Summary',data['text']));
+              if(!bubbles.contains(b)) {
+                bubbles.add(b);
+                print("added "+doc.id);
+              }
+            }
+        }
+    });*/
 
     return Scaffold(
         appBar: AppBar(
@@ -57,7 +86,7 @@ class _SubdivisionDetail extends State<SubdivisionDetail> {
         ));
   }
 
-  _onBubbleTap(BuildContext context, int bubbleID) {
+  _onBubbleTap(BuildContext context, String bubbleID) {
     Navigator.pushNamed(context, BubbleDetailRoute,
         arguments: {'id': bubbleID});
   }

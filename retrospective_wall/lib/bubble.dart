@@ -1,14 +1,10 @@
 import 'package:retrospective_wall/feedback_text.dart';
 import 'feedback_text.dart';
 
-List<Bubble> allBubbles = [
-  Bubble(1, 'Feedback 1', true, 1,
-      FeedbackText('Summary', 'Food was bad here first')),
-  Bubble(2, 'Feedback 2', true, 3, FeedbackText('Summary', 'Food was bad'))
-];
+List<Bubble> allBubbles = [];
 
 class Bubble {
-  final int id;
+  final String id;
   String text;
   bool isAnonymous;
   int category;
@@ -43,7 +39,7 @@ class Bubble {
     return l;
   }
 
-  static Bubble fetchByID(int bubbleID) {
+  static Bubble fetchByID(String bubbleID) {
     List<Bubble> bubbles = Bubble.fetchAll();
     for (var i = 0; i < bubbles.length; i++) {
       if (bubbles[i].id == bubbleID) {

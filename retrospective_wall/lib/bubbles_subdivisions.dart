@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:retrospective_wall/subdivision_detail.dart';
 import 'app.dart';
 import 'bubble.dart';
 
