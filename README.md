@@ -26,7 +26,15 @@ Please contact us!
 
 Thank you!
 
-*team members names*
+Iohan Xavier Sardinha Dutra Soares (up201801011@fe.up.pt)
+
+João António Cardoso Vieira e Basto Sousa (up201806613@fe.up.pt)
+
+João Luís Cardoso Rodrigo (up201705110@fe.up.pt)
+
+Rafael Soares Ribeiro (up201806330@fe.up.pt)
+
+Tomás Costa Fontes (up201806252@fe.up.pt)
 
 ---
 
@@ -38,13 +46,14 @@ A place where conference attendees can express their satisfaction with the diffe
 Have you ever faced any issue in an online conference but didn't know where or who to transmit them to or even found the process difficult and time-consuming?
 We are the Esoterics and our work focus on exactly that: provide a straight-forward way to deliver the atendees' feedback to the organizers, by streamlining the gathering of points of view from the participants via the feedback bubbles. By simply creating a feedback bubble, commenting on an existing issue or even by just pointing out positives of an event, anyone taking part can express their opinion on the event(s) and therefore empowering the people in charge to perform on the fly adjustments to fix the issues that get reported, improving the experience of all parties involved.
 
-
+<!-- 
 Draft a small text to help you quickly introduce and describe your product in a short time and a few words (~800 characters), a technique usually known as elevator pitch.
 
 Take a look at the following links to learn some techniques:
 * [Crafting an Elevator Pitch](https://www.mindtools.com/pages/article/elevator-pitch.htm)
 * [The Best Elevator Pitch Examples, Templates, and Tactics - A Guide to Writing an Unforgettable Elevator Speech, by strategypeak.com](https://strategypeak.com/elevator-pitch-examples/)
-* [Top 7 Killer Elevator Pitch Examples, by toggl.com](https://blog.toggl.com/elevator-pitch-examples/)
+* [Top 7 Killer Elevator Pitch Examples, by toggl.com](https://blog.toggl.com/elevator-pitch-examples/) 
+-->
 
 ---
 ## Requirements
@@ -54,7 +63,6 @@ Take a look at the following links to learn some techniques:
 
  
 ![useCase](./Docs/useCases.png)
-
 
 #### Like or Dislike Feedback Bubles
 * **Actor**. Attendees
@@ -97,12 +105,16 @@ Take a look at the following links to learn some techniques:
 - **Alternative Flows and Exceptions:** The user can leave the creation process *midway through*, which will cancel the creation of the feedback
 
 
+
 ### User stories
+
+<!-- 
 This section will contain the requirements of the product described as **user stories**, organized in a global **[user story map](https://plan.io/blog/user-story-mapping/)** with **user roles** or **themes**.
 
 For each theme, or role, you may add a small description. User stories should be detailed in the tool you decided to use for project management (e.g. trello or github projects).
 
-A user story is a description of desired functionality told from the perspective of the user or customer. A starting template for the description of a user story is 
+A user story is a description of desired functionality told from the perspective of the user or customer. A starting template for the description of a user story is  
+-->
 
 #### Story 1: Feedback Bubbles's creation
 > As a user I want to be able to create a Feedback Bubbles so that I can express my review about the meeting.
@@ -200,12 +212,15 @@ A user story is a description of desired functionality told from the perspective
 ***
 
 
-
+<!-- 
 **INVEST in good user stories**. 
 You may add more details after, but the shorter and complete, the better. In order to decide if the user story is good, please follow the [INVEST guidelines](https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/).
+ -->
 
 **User interface mockups**.
-After the user story text, you should add a draft of the corresponding user interfaces, a simple mockup or draft, if applicable.
+<!-- 
+After the user story text, you should add a draft of the corresponding user interfaces, a simple mockup or draft, if applicable. 
+-->
 
 ![First look of the Wall](./Docs/UI_1.png)
 
@@ -217,7 +232,9 @@ At the end, it is good to add a rough indication of the value of the user story 
 
 ### Domain model
 
+<!-- 
 To better understand the context of the software system, it is very useful to have a simple UML class diagram with all the key concepts (names, attributes) and relationships involved of the problem domain addressed by your module.
+ -->
 
 ---
 
@@ -225,11 +242,13 @@ To better understand the context of the software system, it is very useful to ha
 
 ### Logical architecture
 ![Logical Architecture](./Docs/logicalArchitecture.png)
+<!-- 
 The purpose of this subsection is to document the high-level logical structure of the code, using a UML diagram with logical packages, without the worry of allocating to components, processes or machines.
 
 It can be beneficial to present the system both in a horizontal or vertical decomposition:
 * horizontal decomposition may define layers and implementation concepts, such as the user interface, business logic and concepts; 
 * vertical decomposition can define a hierarchy of subsystems that cover all layers of implementation.
+ -->
 
 ### Physical architecture
 ![Physical Architecture](./Docs/physicalArchitecture.png)
@@ -240,22 +259,26 @@ Architecturally, our project is split in two parts:
 The technologies we chose were *Flutter*, so in the end it would be easier to merge with the **open-cx** project and our class' work, and *Firebase*, since it fit well into our needs and would be simpler than handling the *back-end* ourselves.  
 
 ### Prototype
+
+<!-- 
 To help on validating all the architectural, design and technological decisions made, we usually implement a vertical prototype, a thin vertical slice of the system.
 
 In this subsection please describe in more detail which, and how, user(s) story(ies) were implemented.
-
+ -->
 ---
 
 ## Implementation
+<!-- 
 Regular product increments are a good practice of product management. 
 
 While not necessary, sometimes it might be useful to explain a few aspects of the code that have the greatest potential to confuse software engineers about how it works. Since the code should speak by itself, try to keep this section as short and simple as possible.
 
 Use cross-links to the code repository and only embed real fragments of code when strictly needed, since they tend to become outdated very soon.
+ -->
 
 ---
 ## Test
-
+<!-- 
 There are several ways of documenting testing activities, and quality assurance in general, being the most common: a strategy, a plan, test case specifications, and test checklists.
 
 In this section it is only expected to include the following:
@@ -263,19 +286,24 @@ In this section it is only expected to include the following:
 * test case specifications to verify the functionalities, using unit tests and acceptance tests.
  
 A good practice is to simplify this, avoiding repetitions, and automating the testing actions as much as possible.
+ -->
 
 ---
 ## Configuration and change management
 
+<!-- 
 Configuration and change management are key activities to control change to, and maintain the integrity of, a project’s artifacts (code, models, documents).
 
 For the purpose of ESOF, we will use a very simple approach, just to manage feature requests, bug fixes, and improvements, using GitHub issues and following the [GitHub flow](https://guides.github.com/introduction/flow/).
+ -->
 
 
 ---
 
 ## Project management
 
+
+<!-- 
 Software project management is an art and science of planning and leading software projects, in which software projects are planned, implemented, monitored and controlled.
 
 In the context of ESOF, we expect that each team adopts a project management tool capable of registering tasks, assign tasks to people, add estimations to tasks, monitor tasks progress, and therefore being able to track their projects.
@@ -287,10 +315,14 @@ Example of tools to do this are:
   * [Jira](https://www.atlassian.com/software/jira)
 
 We recommend to use the simplest tool that can possibly work for the team.
+ -->
+
+See our progress through our [project board](https://github.com/FEUP-ESOF-2020-21/open-cx-t5g2-esotericos/projects/1).
 
 
 ---
 
 ## Evolution - contributions to open-cx
-
-Describe your contribution to open-cx (iteration 5), linking to the appropriate pull requests, issues, documentation.
+<!-- 
+Describe your contribution to open-cx (iteration 5), linking to the appropriate pull requests, issues, documentation. 
+-->
