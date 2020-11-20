@@ -5,6 +5,7 @@ class PasswordField extends StatefulWidget {
   _PasswordFieldState createState() => _PasswordFieldState();
 
   bool passwordVisible = false;
+  String password;
 }
 
 class _PasswordFieldState extends State<PasswordField> {
@@ -17,7 +18,6 @@ class _PasswordFieldState extends State<PasswordField> {
       controller: controllerPassword,
       decoration: InputDecoration(
           labelText: "Password",
-          prefixIcon: Icon(Icons.security),
           suffixIcon: IconButton(
             icon: Icon(
               Icons.remove_red_eye,
@@ -27,6 +27,11 @@ class _PasswordFieldState extends State<PasswordField> {
               setState(() => widget.passwordVisible = !widget.passwordVisible);
             },
           )),
+      onSubmitted: (value) {
+        setState(() {
+          widget.password = controllerPassword.text;
+        });
+      },
     );
   }
 }

@@ -3,7 +3,6 @@ import 'package:retrospective_wall/bubbles_subdivisions.dart';
 import 'package:retrospective_wall/login.dart';
 import 'package:retrospective_wall/style.dart';
 import 'package:retrospective_wall/subdivision_detail.dart';
-import 'bubbles.dart';
 import 'bubble_detail.dart';
 import 'bubble_new.dart';
 

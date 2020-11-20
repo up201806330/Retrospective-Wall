@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:retrospective_wall/login.dart';
 import 'app.dart';
 import 'bubble.dart';
 import 'globals.dart';

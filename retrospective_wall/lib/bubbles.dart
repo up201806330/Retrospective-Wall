@@ -8,11 +8,11 @@ class Bubbles extends StatefulWidget {
 }
 
 class _Bubbles extends State<Bubbles> {
-  @override
   void addBubble(Bubble b) {
     allBubbles.add(b);
   }
 
+  @override
   Widget build(BuildContext context) {
     final bubbles = Bubble.fetchAll();
 

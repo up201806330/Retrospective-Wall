@@ -15,8 +15,6 @@ class _BubbleNew extends State<BubbleNew> {
 
   bool isAnonymous = false;
 
-  bool _textNotEmpty = false;
-
   Bubble createBubble(String title, String text, bool isAnonymous, int value) {
     return new Bubble(allBubbles.length + 1, title, isAnonymous, value,
         FeedbackText('Summary', text));
