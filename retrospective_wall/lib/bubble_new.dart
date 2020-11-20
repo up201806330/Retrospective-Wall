@@ -64,6 +64,7 @@ class _BubbleNew extends State<BubbleNew> {
   Widget build(BuildContext context) {
 
     return Scaffold(
+        resizeToAvoidBottomPadding: false,
       appBar: AppBar(
         title: Text("Add Bubble"),
       ),
