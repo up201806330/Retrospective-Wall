@@ -1,7 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'feedback_text.dart';
-import 'bubble.dart';
 
 class BubbleNew extends StatefulWidget {
   @override
@@ -18,19 +16,16 @@ class _BubbleNew extends State<BubbleNew> {
 
   bool isAnonymous = false;
 
-  Bubble createBubble(String title, String text, bool isAnonymous, int value) {
-
+  void createBubble(String title, String text, bool isAnonymous, int value) {
      bubblesCollection
           .add({
             'title': title,
             'text' : text,
             'isAnonymous' : isAnonymous,
-            'category' : value
+            'category' : value,
+            'timestamp': DateTime.now().microsecondsSinceEpoch
           }
       );
-
-    return new Bubble((allBubbles.length + 1).toString(), title, isAnonymous, value,
-        FeedbackText('Summary', text));
   }
 
   showAlertDialog(BuildContext context) {
@@ -180,9 +175,9 @@ class _BubbleNew extends State<BubbleNew> {
                         if (controllerHeading.text.isEmpty) {
                           showAlertDialog(context);
                         } else {
-                          Bubble b = createBubble(controllerHeading.text,
+                          createBubble(controllerHeading.text,
                               controllerText.text, isAnonymous, _value);
-                          Navigator.pop(context, b);
+                          Navigator.pop(context);
                         }
                       },
 

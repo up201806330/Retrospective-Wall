@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'app.dart';
-import 'bubble.dart';
 
 class BubblesSubdivision extends StatefulWidget {
   @override
@@ -8,9 +7,6 @@ class BubblesSubdivision extends StatefulWidget {
 }
 
 class _BubblesSubdivision extends State<BubblesSubdivision> {
-  void addBubble(Bubble b) {
-    allBubbles.add(b);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +28,7 @@ class _BubblesSubdivision extends State<BubblesSubdivision> {
               Center(
                   child: Column(
                 children: [
-                  SizedBox(height: 80),
+                  SizedBox(height: 1),
                   InkWell(
                     child: Container(
                       child: GestureDetector(
@@ -121,7 +117,7 @@ class _BubblesSubdivision extends State<BubblesSubdivision> {
                     onTap: () => _onSubdivisionTap(context, 4),
                   ),
 
-                  SizedBox(height: 40),
+                  SizedBox(height: 1),
 
                   Container(
                     height: 50,
@@ -145,12 +141,6 @@ class _BubblesSubdivision extends State<BubblesSubdivision> {
   }
 
   _onNewBubblePress(BuildContext context) async {
-    final result = await Navigator.pushNamed(context, BubbleNewRoute);
-
-    if (result != null) {
-      setState(() {
-        addBubble(result);
-      });
-    }
+    await Navigator.pushNamed(context, BubbleNewRoute);
   }
 }
