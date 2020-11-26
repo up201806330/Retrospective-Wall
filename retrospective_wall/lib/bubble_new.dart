@@ -1,7 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'feedback_text.dart';
-import 'bubble.dart';
 
 class BubbleNew extends StatefulWidget {
   @override
@@ -12,25 +10,21 @@ class _BubbleNew extends State<BubbleNew> {
   TextEditingController controllerHeading = new TextEditingController();
   TextEditingController controllerText = new TextEditingController();
 
-  CollectionReference bubblesCollection = FirebaseFirestore.instance.collection("Bubbles");
+  CollectionReference bubblesCollection =
+      FirebaseFirestore.instance.collection("Bubbles");
 
   int _value = 1;
 
   bool isAnonymous = false;
 
-  Bubble createBubble(String title, String text, bool isAnonymous, int value) {
-
-     bubblesCollection
-          .add({
-            'title': title,
-            'text' : text,
-            'isAnonymous' : isAnonymous,
-            'category' : value
-          }
-      );
-
-    return new Bubble((allBubbles.length + 1).toString(), title, isAnonymous, value,
-        FeedbackText('Summary', text));
+  void createBubble(String title, String text, bool isAnonymous, int value) {
+    bubblesCollection.add({
+      'title': title,
+      'text': text,
+      'isAnonymous': isAnonymous,
+      'category': value,
+      'timestamp': DateTime.now().microsecondsSinceEpoch
+    });
   }
 
   showAlertDialog(BuildContext context) {
@@ -62,9 +56,8 @@ class _BubbleNew extends State<BubbleNew> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-        resizeToAvoidBottomPadding: false,
+      resizeToAvoidBottomPadding: false,
       appBar: AppBar(
         title: Text("Add Bubble"),
       ),
@@ -73,9 +66,7 @@ class _BubbleNew extends State<BubbleNew> {
             gradient: LinearGradient(
                 begin: Alignment.topRight,
                 end: Alignment.bottomLeft,
-                colors: [Colors.blue.shade50, Colors.blue.shade600]
-            )
-        ),
+                colors: [Colors.blue.shade50, Colors.blue.shade600])),
         child: SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(24.0),
@@ -86,7 +77,6 @@ class _BubbleNew extends State<BubbleNew> {
                   child: Text("Category", style: TextStyle(fontSize: 30)),
                 ),
                 SizedBox(height: 10),
-
                 Container(
                   height: 50,
                   padding: EdgeInsets.all(10.0),
@@ -100,19 +90,23 @@ class _BubbleNew extends State<BubbleNew> {
                         value: _value,
                         items: [
                           DropdownMenuItem(
-                            child: Text("Wishes",style: TextStyle(fontSize: 25)),
+                            child:
+                                Text("Wishes", style: TextStyle(fontSize: 25)),
                             value: 1,
                           ),
                           DropdownMenuItem(
-                            child: Text("Risks",style: TextStyle(fontSize: 25)),
+                            child:
+                                Text("Risks", style: TextStyle(fontSize: 25)),
                             value: 2,
                           ),
                           DropdownMenuItem(
-                            child: Text("Appreciations",style: TextStyle(fontSize: 25)),
+                            child: Text("Appreciations",
+                                style: TextStyle(fontSize: 25)),
                             value: 3,
                           ),
                           DropdownMenuItem(
-                            child: Text("Puzzles",style: TextStyle(fontSize: 25)),
+                            child:
+                                Text("Puzzles", style: TextStyle(fontSize: 25)),
                             value: 4,
                           ),
                         ],
@@ -123,9 +117,7 @@ class _BubbleNew extends State<BubbleNew> {
                         }),
                   ),
                 ),
-
                 SizedBox(height: 20),
-
                 CheckboxListTile(
                   title: Text("Anonymous Review: "),
                   value: isAnonymous,
@@ -136,9 +128,7 @@ class _BubbleNew extends State<BubbleNew> {
                   },
                   controlAffinity: ListTileControlAffinity.leading,
                 ),
-
                 SizedBox(height: 20),
-
                 TextFormField(
                   style: TextStyle(color: Colors.black, fontSize: 25),
                   keyboardType: TextInputType.text,
@@ -152,9 +142,7 @@ class _BubbleNew extends State<BubbleNew> {
                     hintStyle: TextStyle(color: Colors.black, fontSize: 25),
                   ),
                 ),
-
                 SizedBox(height: 20),
-
                 TextFormField(
                   style: TextStyle(color: Colors.black, fontSize: 25),
                   keyboardType: TextInputType.multiline,
@@ -168,24 +156,21 @@ class _BubbleNew extends State<BubbleNew> {
                     hintStyle: TextStyle(color: Colors.black, fontSize: 25),
                   ),
                 ),
-
                 SizedBox(height: 40),
-                
                 Center(
                   child: Container(
                     height: 50,
                     child: ElevatedButton(
-                      child: Text("Submit", style: TextStyle(fontSize: 25) ),
+                      child: Text("Submit", style: TextStyle(fontSize: 25)),
                       onPressed: () {
                         if (controllerHeading.text.isEmpty) {
                           showAlertDialog(context);
                         } else {
-                          Bubble b = createBubble(controllerHeading.text,
+                          createBubble(controllerHeading.text,
                               controllerText.text, isAnonymous, _value);
-                          Navigator.pop(context, b);
+                          Navigator.pop(context);
                         }
                       },
-
                     ),
                   ),
                 ),

@@ -1,26 +1,27 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:retrospective_wall/feedback_text.dart';
 import 'bubble.dart';
 import 'text_section.dart';
 
 class BubbleDetail extends StatelessWidget {
-  final String _bubbleID;
+  final DocumentSnapshot _bubble;
 
-  BubbleDetail(this._bubbleID);
+  BubbleDetail(this._bubble);
 
   @override
   Widget build(BuildContext context) {
-    final bubble = Bubble.fetchByID(_bubbleID);
+
+    Bubble bubble = new Bubble(_bubble.id,_bubble['title'],_bubble['isAnonymous'],_bubble['category'],FeedbackText('Summary',_bubble['text']));
 
     return Scaffold(
       appBar: AppBar(
         title: Text(bubble.text),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children:
-        // []..add(Text(bubble.text)) ),
-        []..add(textSections(bubble)) ),
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: []..add(textSections(bubble))),
     );
   }
 

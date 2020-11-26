@@ -9,12 +9,8 @@ class Bubbles extends StatefulWidget {
 
 class _Bubbles extends State<Bubbles> {
   @override
-  void addBubble(Bubble b) {
-    allBubbles.add(b);
-  }
-
   Widget build(BuildContext context) {
-    final bubbles = Bubble.fetchAll();
+    final bubbles = [];
 
     return Scaffold(
         appBar: AppBar(
@@ -54,12 +50,6 @@ class _Bubbles extends State<Bubbles> {
   }
 
   _onNewBubblePress(BuildContext context) async {
-    final result = await Navigator.pushNamed(context, BubbleNewRoute);
-
-    if (result != null) {
-      setState(() {
-        addBubble(result);
-      });
-    }
+    await Navigator.pushNamed(context, BubbleNewRoute);
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'app.dart';
 import 'bubble.dart';
+import 'globals.dart';
 
 class BubblesSubdivision extends StatefulWidget {
   @override
@@ -8,8 +9,31 @@ class BubblesSubdivision extends StatefulWidget {
 }
 
 class _BubblesSubdivision extends State<BubblesSubdivision> {
-  void addBubble(Bubble b) {
-    allBubbles.add(b);
+  showAlertDialog(BuildContext context) {
+    // set up the button
+    Widget okButton = FlatButton(
+      child: Text("OK"),
+      onPressed: () {
+        Navigator.of(context).pop();
+      },
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: Text("Not Logged in!"),
+      content: Text("You have to be logged in to create a new bubble."),
+      actions: [
+        okButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
   }
 
   @override
@@ -19,124 +43,132 @@ class _BubblesSubdivision extends State<BubblesSubdivision> {
           title: Text('Categories'),
         ),
         body: Container(
-          decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft,
-            colors: [Colors.blue.shade50, Colors.blue.shade600]
-          )
-        ),
-        child: SafeArea(
-            child: Column(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.topRight,
+                    end: Alignment.bottomLeft,
+                    colors: [Colors.blue.shade50, Colors.blue.shade600])),
+            child: SafeArea(
+                child: Column(
               children: [
-              Center(
-                  child: Column(
-                children: [
-                  SizedBox(height: 80),
-                  InkWell(
-                    child: Container(
-                      child: GestureDetector(
-                        child: Text("Wishes",
-                            style: Theme.of(context).textTheme.bodyText2),
-                        // onTap: () => _onSubdivisionTap(
-                        //   context,
-                        //   1,
-                        // ),
-                      ),
-                      margin: new EdgeInsets.all(20.0),
-                      padding: new EdgeInsets.all(20.0),
-                      alignment: Alignment(0.0, 0.3),
-                      decoration: BoxDecoration(
-                        color: Colors.yellow,
-                        border: Border.all(
-                          color: Colors.black,
-                          width: 1,
+                Center(
+                    child: Column(
+                  children: [
+                    SizedBox(height: 1),
+                    InkWell(
+                      child: Container(
+                        child: GestureDetector(
+                          child: Text("Wishes",
+                              style: Theme.of(context).textTheme.bodyText2),
+                          // onTap: () => _onSubdivisionTap(
+                          //   context,
+                          //   1,
+                          // ),
                         ),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                    onTap: () => _onSubdivisionTap(context, 1),
-                  ),
-                  InkWell(
-                    child: Container(
-                      child: GestureDetector(
-                        child: Text("Risks",
-                            style: Theme.of(context).textTheme.bodyText2),
-                        // onTap: () => _onSubdivisionTap(context, 2),
-                      ),
-                      margin: new EdgeInsets.all(20.0),
-                      padding: new EdgeInsets.all(20.0),
-                      alignment: Alignment(0.0, 0.3),
-                      decoration: BoxDecoration(
-                        color: Colors.red,
-                        border: Border.all(
-                          color: Colors.black,
-                          width: 1,
+                        margin: new EdgeInsets.all(20.0),
+                        padding: new EdgeInsets.all(20.0),
+                        alignment: Alignment(0.0, 0.3),
+                        decoration: BoxDecoration(
+                          color: Colors.yellow,
+                          border: Border.all(
+                            color: Colors.black,
+                            width: 1,
+                          ),
+                          borderRadius: BorderRadius.circular(10),
                         ),
-                        borderRadius: BorderRadius.circular(10),
                       ),
+                      onTap: () => _onSubdivisionTap(context, 1),
                     ),
-                    onTap: () => _onSubdivisionTap(context, 2),
-                  ),
-                  InkWell(
-                    child: Container(
-                      child: GestureDetector(
-                        child: Text("Appreciations",
-                            style: Theme.of(context).textTheme.bodyText2),
-                        // onTap: () => _onSubdivisionTap(context, 3),
-                      ),
-                      margin: new EdgeInsets.all(20.0),
-                      padding: new EdgeInsets.all(20.0),
-                      alignment: Alignment(0.0, 0.3),
-                      decoration: BoxDecoration(
-                        color: Colors.lightGreen,
-                        border: Border.all(
-                          color: Colors.black,
-                          width: 1,
+                    InkWell(
+                      child: Container(
+                        child: GestureDetector(
+                          child: Text("Risks",
+                              style: Theme.of(context).textTheme.bodyText2),
+                          // onTap: () => _onSubdivisionTap(context, 2),
                         ),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                    onTap: () => _onSubdivisionTap(context, 3),
-                  ),
-                  InkWell(
-                    child: Container(
-                      child: GestureDetector(
-                        child: Text("Puzzles",
-                            style: Theme.of(context).textTheme.bodyText2),
-                        // onTap: () => _onSubdivisionTap(context, 4),
-                      ),
-                      margin: new EdgeInsets.all(20.0),
-                      padding: new EdgeInsets.all(20.0),
-                      alignment: Alignment(0.0, 0.3),
-                      decoration: BoxDecoration(
-                        color: Colors.lightBlue,
-                        border: Border.all(
-                          color: Colors.black,
-                          width: 1,
+                        margin: new EdgeInsets.all(20.0),
+                        padding: new EdgeInsets.all(20.0),
+                        alignment: Alignment(0.0, 0.3),
+                        decoration: BoxDecoration(
+                          color: Colors.red,
+                          border: Border.all(
+                            color: Colors.black,
+                            width: 1,
+                          ),
+                          borderRadius: BorderRadius.circular(10),
                         ),
-                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      onTap: () => _onSubdivisionTap(context, 2),
+                    ),
+                    InkWell(
+                      child: Container(
+                        child: GestureDetector(
+                          child: Text("Appreciations",
+                              style: Theme.of(context).textTheme.bodyText2),
+                          // onTap: () => _onSubdivisionTap(context, 3),
+                        ),
+                        margin: new EdgeInsets.all(20.0),
+                        padding: new EdgeInsets.all(20.0),
+                        alignment: Alignment(0.0, 0.3),
+                        decoration: BoxDecoration(
+                          color: Colors.lightGreen,
+                          border: Border.all(
+                            color: Colors.black,
+                            width: 1,
+                          ),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      onTap: () => _onSubdivisionTap(context, 3),
+                    ),
+                    InkWell(
+                      child: Container(
+                        child: GestureDetector(
+                          child: Text("Puzzles",
+                              style: Theme.of(context).textTheme.bodyText2),
+                          // onTap: () => _onSubdivisionTap(context, 4),
+                        ),
+                        margin: new EdgeInsets.all(20.0),
+                        padding: new EdgeInsets.all(20.0),
+                        alignment: Alignment(0.0, 0.3),
+                        decoration: BoxDecoration(
+                          color: Colors.lightBlue,
+                          border: Border.all(
+                            color: Colors.black,
+                            width: 1,
+                          ),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      onTap: () => _onSubdivisionTap(context, 4),
+                    ),
+                    SizedBox(height: 1),
+                    Container(
+                      height: 50,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          _onNewBubblePress(context);
+                        },
+                        child: Text(
+                          "New Bubble",
+                          style: TextStyle(fontSize: 25),
+                        ),
                       ),
                     ),
-                    onTap: () => _onSubdivisionTap(context, 4),
-                  ),
-
-                  SizedBox(height: 40),
-
-                  Container(
-                    height: 50,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        _onNewBubblePress(context);
-                      },
-                      child: Text("New Bubble", style: TextStyle(fontSize: 25)),
+                    Row(
+                      children: [
+                        ElevatedButton(
+                          onPressed: () {
+                            _onLoginPress(context);
+                          },
+                          child: Text("Login"),
+                        ),
+                      ],
                     ),
-                  ),
-                ],
-              )),
-            ],
-          )),
-        ));
+                  ],
+                )),
+              ],
+            ))));
   }
 
   _onSubdivisionTap(BuildContext context, int category) {
@@ -145,12 +177,20 @@ class _BubblesSubdivision extends State<BubblesSubdivision> {
   }
 
   _onNewBubblePress(BuildContext context) async {
-    final result = await Navigator.pushNamed(context, BubbleNewRoute);
+    if (!isLoggedIn) {
+      showAlertDialog(context);
+    } else {
+      final result = await Navigator.pushNamed(context, BubbleNewRoute);
 
-    if (result != null) {
-      setState(() {
-        addBubble(result);
-      });
+      if (result != null) {
+        setState(() {
+          addBubble(result);
+        });
+      }
     }
+  }
+
+  _onLoginPress(BuildContext context) {
+    Navigator.pushNamed(context, LoginSignupRoute);
   }
 }

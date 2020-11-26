@@ -2,13 +2,15 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:retrospective_wall/bubble.dart';
 import 'package:retrospective_wall/bubbles_subdivisions.dart';
+import 'package:retrospective_wall/login.dart';
 import 'package:retrospective_wall/style.dart';
 import 'package:retrospective_wall/subdivision_detail.dart';
 import 'bubble_detail.dart';
 import 'bubble_new.dart';
 import 'feedback_text.dart';
 
-const BubblesRoute = '/';
+//const BubblesRoute = '/';
+const LoginSignupRoute = '/login';
 const BubbleDetailRoute = '/subdivision_detail/bubble_detail';
 const BubbleNewRoute = '/bubble_new';
 const SubdivisionDetailRoute = '/subdivision_detail';
@@ -17,17 +19,6 @@ const BubblesSubdivisionRoute = '/';
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
-    CollectionReference bubblesCollection = FirebaseFirestore.instance.collection("Bubbles");
-    bubblesCollection.get().then((QuerySnapshot value){
-      for(QueryDocumentSnapshot doc in value.docs)
-      {
-        Map<String,dynamic> data =  doc.data();
-        allBubbles.add(
-          new Bubble(doc.id, data['title'], data['isAnonymous'], data['category'], FeedbackText('Summary', data['text']))
-        );
-      }
-    });
 
     return MaterialApp(
       onGenerateRoute: _routes(),
@@ -47,10 +38,13 @@ class App extends StatelessWidget {
           screen = SubdivisionDetail(arguments['category']);
           break;
         case BubbleDetailRoute:
-          screen = BubbleDetail(arguments['id']);
+          screen = BubbleDetail(arguments['bubble']);
           break;
         case BubbleNewRoute:
           screen = BubbleNew();
+          break;
+        case LoginSignupRoute:
+          screen = LoginSignup();
           break;
         default:
           return null;
