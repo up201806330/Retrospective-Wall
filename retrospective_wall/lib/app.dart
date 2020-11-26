@@ -18,17 +18,6 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    CollectionReference bubblesCollection = FirebaseFirestore.instance.collection("Bubbles");
-    bubblesCollection.get().then((QuerySnapshot value){
-      for(QueryDocumentSnapshot doc in value.docs)
-      {
-        Map<String,dynamic> data =  doc.data();
-        allBubbles.add(
-          new Bubble(doc.id, data['title'], data['isAnonymous'], data['category'], FeedbackText('Summary', data['text']))
-        );
-      }
-    });
-
     return MaterialApp(
       onGenerateRoute: _routes(),
       theme: _theme(),
@@ -47,7 +36,7 @@ class App extends StatelessWidget {
           screen = SubdivisionDetail(arguments['category']);
           break;
         case BubbleDetailRoute:
-          screen = BubbleDetail(arguments['id']);
+          screen = BubbleDetail(arguments['bubble']);
           break;
         case BubbleNewRoute:
           screen = BubbleNew();
