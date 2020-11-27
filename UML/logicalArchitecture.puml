@@ -12,6 +12,6 @@ class Controller
 class Model
 class View
 
-Model -> Controller
-View -left-> Controller
+Model <- Controller
+View <-right- Controller
 @enduml

@@ -14,29 +14,26 @@ skinparam ArrowColor Black
 left to right direction
 
 node "Database Server" as database <<device>>{
-  [Firebase] <<component>> as firebase
+  [Firebase API] <<component>> as firebaseApi
+  [Firebase Database] <<component>> as firebaseDb
+  Interface " " as int1
 }
 
 node "Client" as client <<device>> {
   component Flutter as app <<framework>>
-  Interface " " as int1
-  Interface " " as int2
-  Interface " " as int3
-  component Attendee <<component>>
-  component Organization <<component>>
+  component "Bubble" as dp <<component>>
+  component "Login & Signup" as login <<component>>
+  component "FlutterFire" as flutterfire <<library>>
 }
 
 client -[hidden]up-> database
 
-app <|-left- Attendee
-app <|-left- Organization
+firebaseApi -down- int1
+int1 <.down. flutterfire
 
-app -up- int1
-Attendee -up- int2
-Organization -up- int3
+firebaseApi <- firebaseDb
 
-int1 <.up. firebase
-int2 <.up. firebase
-int3 <.up. firebase
+flutterfire <.down. dp
+flutterfire <.down. login
 
 @enduml
