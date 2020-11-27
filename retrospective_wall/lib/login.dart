@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'widgets/passwordField.dart';
+import 'widgets/usernameField.dart';
 
 class LoginSignup extends StatefulWidget {
   @override
@@ -9,6 +10,14 @@ class LoginSignup extends StatefulWidget {
 class _LoginState extends State<LoginSignup> {
   TextEditingController controllerHeading = new TextEditingController();
   TextEditingController controllerText = new TextEditingController();
+
+  _onLoginPressed() {
+    Navigator.pop(context, true);
+  }
+
+  _onBackPressed() {
+    Navigator.pop(context, false);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,16 +41,26 @@ class _LoginState extends State<LoginSignup> {
                     colors: [Colors.cyan, Colors.cyanAccent],
                   ),
                 ),
-                height: 200,
-                width: 200,
+                height: 600,
+                width: 400,
                 padding: EdgeInsets.all(20.0),
                 margin: EdgeInsets.all(20.0),
                 child: Center(
                   child: Column(
                     children: [
-                      Text("Username: "),
+                      UsernameField(),
                       PasswordField(),
-                      Text("Submit"),
+                      ElevatedButton(
+                          onPressed: () {
+                            _onLoginPressed();
+                          },
+                          child: Text("Login")),
+                      ElevatedButton(
+                        onPressed: () {
+                          _onBackPressed();
+                        },
+                        child: Text("Back"),
+                      ),
                     ],
                   ),
                 ),
