@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:retrospective_wall/widgets/confirmPasswordField.dart';
 import 'widgets/passwordField.dart';
 import 'widgets/usernameField.dart';
 
-class Login extends StatefulWidget {
+class Signup extends StatefulWidget {
   @override
-  _LoginState createState() => _LoginState();
+  _SignupState createState() => _SignupState();
 }
 
-class _LoginState extends State<Login> {
-  TextEditingController controllerUsername = new TextEditingController();
-  TextEditingController controllerPassword = new TextEditingController();
+class _SignupState extends State<Signup> {
+  Widget usernameField = new UsernameField();
+  Widget passwordField = new PasswordField();
+  Widget confirmPasswordField = new ConfirmPasswordField();
 
-  _onLoginPressed() {
-    // Get users from database
-    // Check if user is valid
+  _onSignupPressed() {
+    // Write to database
     Navigator.pop(context, true);
   }
 
@@ -50,13 +51,14 @@ class _LoginState extends State<Login> {
                 child: Center(
                   child: Column(
                     children: [
-                      UsernameField(),
-                      PasswordField(),
+                      usernameField,
+                      passwordField,
+                      confirmPasswordField,
                       ElevatedButton(
                           onPressed: () {
-                            _onLoginPressed();
+                            _onSignupPressed();
                           },
-                          child: Text("Login")),
+                          child: Text("Signup")),
                       ElevatedButton(
                         onPressed: () {
                           _onBackPressed();
