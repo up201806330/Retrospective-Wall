@@ -180,11 +180,6 @@ class _BubblesSubdivision extends State<BubblesSubdivision> {
                   },
                   child: Text("New Bubble"),
                 ),
-                ElevatedButton(
-                    onPressed: () {
-                      print(isLoggedIn);
-                    },
-                    child: Text("Teste")),
                 isLoggedIn ? logoutButton() : loginSignupButtons(),
               ],
             )),
