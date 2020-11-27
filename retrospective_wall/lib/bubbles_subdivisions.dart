@@ -190,12 +190,6 @@ class _BubblesSubdivision extends State<BubblesSubdivision> {
                           ),
                         ),
                       ),
-                      ElevatedButton(
-                        onPressed: () {
-                          _onNewBubblePress(context);
-                        },
-                        child: Text("New Bubble"),
-                      ),
                       isLoggedIn ? logoutButton() : loginSignupButtons(),
                     ],
                   )),
@@ -213,13 +207,7 @@ class _BubblesSubdivision extends State<BubblesSubdivision> {
     if (!isLoggedIn) {
       showAlertDialog(context);
     } else {
-      final result = await Navigator.pushNamed(context, BubbleNewRoute);
-
-      if (result != null) {
-        setState(() {
-          addBubble(result);
-        });
-      }
+      await Navigator.pushNamed(context, BubbleNewRoute);
     }
   }
 
