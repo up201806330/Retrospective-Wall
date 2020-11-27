@@ -40,6 +40,41 @@ class _BubblesSubdivision extends State<BubblesSubdivision> {
     );
   }
 
+  Widget logoutButton() {
+    return Column(
+      children: [
+        Text("Logged in!"),
+        ElevatedButton(
+            child: Text("Logout"),
+            onPressed: () {
+              _onLogoutPress(context);
+            }),
+      ],
+    );
+  }
+
+  Widget loginSignupButtons() {
+    return Center(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ElevatedButton(
+            onPressed: () {
+              _onLoginPress(context);
+            },
+            child: Text("Login"),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              _onSignupPress(context);
+            },
+            child: Text("Signup"),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -145,16 +180,12 @@ class _BubblesSubdivision extends State<BubblesSubdivision> {
                   },
                   child: Text("New Bubble"),
                 ),
-                Row(
-                  children: [
-                    ElevatedButton(
-                      onPressed: () {
-                        _onLoginPress(context);
-                      },
-                      child: Text("Login"),
-                    ),
-                  ],
-                ),
+                ElevatedButton(
+                    onPressed: () {
+                      print(isLoggedIn);
+                    },
+                    child: Text("Teste")),
+                isLoggedIn ? logoutButton() : loginSignupButtons(),
               ],
             )),
           ],
@@ -180,7 +211,23 @@ class _BubblesSubdivision extends State<BubblesSubdivision> {
     }
   }
 
-  _onLoginPress(BuildContext context) {
-    Navigator.pushNamed(context, LoginSignupRoute);
+  _onLoginPress(BuildContext context) async {
+    print("Login");
+    final result = await Navigator.pushNamed(context, LoginSignupRoute);
+
+    print(result);
+    setState(() {
+      isLoggedIn = result;
+    });
+  }
+
+  _onLogoutPress(BuildContext context) {
+    setState(() {
+      isLoggedIn = false;
+    });
+  }
+
+  _onSignupPress(BuildContext context) {
+    //Navigator.pushNamed(context, LoginSignupRoute);
   }
 }
