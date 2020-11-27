@@ -8,9 +8,10 @@ import 'package:retrospective_wall/subdivision_detail.dart';
 import 'bubble_detail.dart';
 import 'bubble_new.dart';
 import 'feedback_text.dart';
+import 'package:retrospective_wall/signup.dart';
 
-//const BubblesRoute = '/';
-const LoginSignupRoute = '/login';
+const LoginRoute = '/login';
+const SignupRoute = '/signup';
 const BubbleDetailRoute = '/subdivision_detail/bubble_detail';
 const BubbleNewRoute = '/bubble_new';
 const SubdivisionDetailRoute = '/subdivision_detail';
@@ -19,7 +20,6 @@ const BubblesSubdivisionRoute = '/';
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
       onGenerateRoute: _routes(),
       theme: _theme(),
@@ -43,8 +43,11 @@ class App extends StatelessWidget {
         case BubbleNewRoute:
           screen = BubbleNew();
           break;
-        case LoginSignupRoute:
-          screen = LoginSignup();
+        case LoginRoute:
+          screen = Login();
+          break;
+        case SignupRoute:
+          screen = Signup();
           break;
         default:
           return null;

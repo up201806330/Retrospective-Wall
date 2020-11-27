@@ -231,9 +231,12 @@ class _BubblesSubdivision extends State<BubblesSubdivision> {
 
   _onLoginPress(BuildContext context) async {
     print("Login");
-    final result = await Navigator.pushNamed(context, LoginSignupRoute);
+    final result = await Navigator.pushNamed(context, LoginRoute);
 
-    print(result);
+    if (result == null) {
+      isLoggedIn = false;
+      return;
+    }
     setState(() {
       isLoggedIn = result;
     });
@@ -246,6 +249,6 @@ class _BubblesSubdivision extends State<BubblesSubdivision> {
   }
 
   _onSignupPress(BuildContext context) {
-    //Navigator.pushNamed(context, LoginSignupRoute);
+    Navigator.pushNamed(context, SignupRoute);
   }
 }
