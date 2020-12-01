@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'app.dart';
 import 'bubble.dart';
@@ -6,6 +7,8 @@ import 'globals.dart';
 class BubblesSubdivision extends StatefulWidget {
   @override
   _BubblesSubdivision createState() => _BubblesSubdivision();
+
+  UserCredential user;
 }
 
 class _BubblesSubdivision extends State<BubblesSubdivision> {
@@ -36,10 +39,16 @@ class _BubblesSubdivision extends State<BubblesSubdivision> {
     );
   }
 
+  Widget logoutMessage() {
+    if (widget.user != null) {
+      return Text("Logged in as " + widget.user.user.email);
+    }
+  }
+
   Widget logoutButton() {
     return Column(
       children: [
-        Text("Logged in!"),
+        logoutMessage(),
         ElevatedButton(
             child: Text("Logout"),
             onPressed: () {
@@ -220,7 +229,8 @@ class _BubblesSubdivision extends State<BubblesSubdivision> {
       return;
     }
     setState(() {
-      isLoggedIn = result;
+      isLoggedIn = true;
+      widget.user = result;
     });
   }
 
@@ -230,7 +240,16 @@ class _BubblesSubdivision extends State<BubblesSubdivision> {
     });
   }
 
-  _onSignupPress(BuildContext context) {
-    Navigator.pushNamed(context, SignupRoute);
+  _onSignupPress(BuildContext context) async {
+    final result = await Navigator.pushNamed(context, SignupRoute);
+
+    if (result == null) {
+      isLoggedIn = false;
+      return;
+    }
+    setState(() {
+      isLoggedIn = true;
+      widget.user = result;
+    });
   }
 }
