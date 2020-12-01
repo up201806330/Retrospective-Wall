@@ -11,8 +11,8 @@ class BubbleDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    Bubble bubble = new Bubble(_bubble.id,_bubble['title'],_bubble['isAnonymous'],_bubble['category'],FeedbackText('Summary',_bubble['text']));
+    Bubble bubble = new Bubble(_bubble.id, _bubble['title'], _bubble['user'],
+        _bubble['category'], FeedbackText('Summary', _bubble['text']));
 
     return Scaffold(
       appBar: AppBar(
@@ -26,6 +26,7 @@ class BubbleDetail extends StatelessWidget {
   }
 
   Widget textSections(Bubble bubble) {
-    return TextSection(bubble.feedbackText.title, bubble.feedbackText.text);
+    return TextSection(
+        bubble.feedbackText.title, bubble.feedbackText.text, bubble.user);
   }
 }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'app.dart';
 import 'bubble.dart';
 import 'globals.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class BubblesSubdivision extends StatefulWidget {
   @override
@@ -235,6 +236,7 @@ class _BubblesSubdivision extends State<BubblesSubdivision> {
   }
 
   _onLogoutPress(BuildContext context) {
+    FirebaseAuth.instance.signOut();
     setState(() {
       isLoggedIn = false;
     });

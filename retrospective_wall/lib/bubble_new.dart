@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class BubbleNew extends StatefulWidget {
   @override
@@ -18,10 +19,16 @@ class _BubbleNew extends State<BubbleNew> {
   bool isAnonymous = false;
 
   void createBubble(String title, String text, bool isAnonymous, int value) {
+    String user;
+    if (isAnonymous) {
+      user = 'anonymous';
+    } else {
+      user = FirebaseAuth.instance.currentUser.email;
+    }
     bubblesCollection.add({
       'title': title,
       'text': text,
-      'isAnonymous': isAnonymous,
+      'user': user,
       'category': value,
       'timestamp': DateTime.now().microsecondsSinceEpoch
     });
