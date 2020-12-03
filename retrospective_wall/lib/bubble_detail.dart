@@ -11,23 +11,22 @@ class BubbleDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    Bubble bubble = new Bubble(_bubble.id,_bubble['title'],_bubble['isAnonymous'],_bubble['category'],FeedbackText('Summary',_bubble['text']));
+    Bubble bubble = new Bubble(_bubble.id, _bubble['title'], _bubble['user'],
+        _bubble['category'], FeedbackText('Summary', _bubble['text']));
 
     return Scaffold(
       appBar: AppBar(
         title: Text(bubble.text),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children:
-        // []..add(Text(bubble.text)) ),
-        []..add(textSections(bubble)) ),
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: []..add(textSections(bubble))),
     );
   }
 
   Widget textSections(Bubble bubble) {
-    return TextSection(bubble.feedbackText.title, bubble.feedbackText.text);
+    return TextSection(
+        bubble.feedbackText.title, bubble.feedbackText.text, bubble.user);
   }
 }

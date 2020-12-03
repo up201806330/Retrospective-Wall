@@ -2,13 +2,16 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:retrospective_wall/bubble.dart';
 import 'package:retrospective_wall/bubbles_subdivisions.dart';
+import 'package:retrospective_wall/login.dart';
 import 'package:retrospective_wall/style.dart';
 import 'package:retrospective_wall/subdivision_detail.dart';
 import 'bubble_detail.dart';
 import 'bubble_new.dart';
 import 'feedback_text.dart';
+import 'package:retrospective_wall/signup.dart';
 
-const BubblesRoute = '/';
+const LoginRoute = '/login';
+const SignupRoute = '/login/signup';
 const BubbleDetailRoute = '/subdivision_detail/bubble_detail';
 const BubbleNewRoute = '/bubble_new';
 const SubdivisionDetailRoute = '/subdivision_detail';
@@ -17,7 +20,6 @@ const BubblesSubdivisionRoute = '/';
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
       onGenerateRoute: _routes(),
       theme: _theme(),
@@ -40,6 +42,12 @@ class App extends StatelessWidget {
           break;
         case BubbleNewRoute:
           screen = BubbleNew();
+          break;
+        case LoginRoute:
+          screen = Login();
+          break;
+        case SignupRoute:
+          screen = Signup();
           break;
         default:
           return null;

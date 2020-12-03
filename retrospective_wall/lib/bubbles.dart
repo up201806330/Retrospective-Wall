@@ -8,7 +8,6 @@ class Bubbles extends StatefulWidget {
 }
 
 class _Bubbles extends State<Bubbles> {
-
   @override
   Widget build(BuildContext context) {
     final bubbles = [];
@@ -51,7 +50,6 @@ class _Bubbles extends State<Bubbles> {
   }
 
   _onNewBubblePress(BuildContext context) async {
-      await Navigator.pushNamed(context, BubbleNewRoute);
-    }
+    await Navigator.pushNamed(context, BubbleNewRoute);
+  }
 }
-

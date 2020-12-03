@@ -4,9 +4,9 @@ import 'feedback_text.dart';
 class Bubble {
   final String id;
   String text;
-  bool isAnonymous;
+  String user;
   int category;
   final FeedbackText feedbackText;
 
-  Bubble(this.id, this.text, this.isAnonymous, this.category, this.feedbackText);
+  Bubble(this.id, this.text, this.user, this.category, this.feedbackText);
 }
