@@ -7,8 +7,6 @@ import 'text_section.dart';
 
 import 'feedback_stats.dart';
 
-import 'package:like_button/like_button.dart';
-
 class BubbleDetail extends StatefulWidget {
   final DocumentSnapshot _bubble;
 
