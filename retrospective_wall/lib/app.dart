@@ -11,7 +11,7 @@ import 'feedback_text.dart';
 import 'package:retrospective_wall/signup.dart';
 
 const LoginRoute = '/login';
-const SignupRoute = '/signup';
+const SignupRoute = '/login/signup';
 const BubbleDetailRoute = '/subdivision_detail/bubble_detail';
 const BubbleNewRoute = '/bubble_new';
 const SubdivisionDetailRoute = '/subdivision_detail';

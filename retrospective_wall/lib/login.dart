@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:retrospective_wall/app.dart';
 
 // teste@gmail.com    teste123
 
@@ -26,7 +27,7 @@ class _LoginState extends State<Login> {
           child: Row(
             children: [
               Icon(Icons.error_outline_sharp),
-              Expanded(child: Text(_error)),
+              Expanded(child: Text(_error, style: TextStyle(fontSize: 15.0))),
               IconButton(
                 icon: Icon(Icons.close),
                 onPressed: () {
@@ -82,59 +83,67 @@ class _LoginState extends State<Login> {
             colors: [Colors.lightBlue, Colors.lightBlueAccent, Colors.blue],
           ),
         ),
-        child: ListView(
-          children: [
-            Center(
-              child: Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [Colors.cyan, Colors.cyanAccent],
-                  ),
-                ),
-                height: 600,
-                width: 400,
-                padding: EdgeInsets.all(20.0),
-                margin: EdgeInsets.all(20.0),
-                child: Form(
-                  key: _formKey,
-                  child: Column(
-                    children: [
-                      showAlert(),
-                      TextFormField(
-                        validator: (input) {
-                          if (input.isEmpty) {
-                            return 'Please type an email';
-                          }
-                        },
-                        onSaved: (input) => _email = input,
-                        decoration: InputDecoration(
-                          labelText: "Email",
-                        ),
+        child: Center(
+          child: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [Colors.cyan, Colors.cyanAccent],
+              ),
+            ),
+            height: 400,
+            width: 400,
+            padding: EdgeInsets.all(20.0),
+            margin: EdgeInsets.all(20.0),
+            child: Center(
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  children: [
+                    showAlert(),
+                    TextFormField(
+                      validator: (input) {
+                        if (input.isEmpty) {
+                          return 'Please type an email';
+                        }
+                      },
+                      onSaved: (input) => _email = input,
+                      decoration: InputDecoration(
+                        labelText: "Email",
                       ),
-                      TextFormField(
-                        validator: (input) {
-                          if (input.length < 6) {
-                            return "Password too weak";
-                          }
-                        },
-                        onSaved: (input) => _password = input,
-                        decoration: InputDecoration(
-                          labelText: "Password",
-                        ),
-                        obscureText: true,
+                    ),
+                    TextFormField(
+                      validator: (input) {
+                        if (input.length < 6) {
+                          return "Password too weak";
+                        }
+                      },
+                      onSaved: (input) => _password = input,
+                      decoration: InputDecoration(
+                        labelText: "Password",
                       ),
-                      ElevatedButton(
-                        onPressed: signIn,
-                        child: Text("Sign in"),
-                      ),
-                    ],
-                  ),
+                      obscureText: true,
+                    ),
+                    ElevatedButton(
+                      onPressed: signIn,
+                      child: Text("Sign in"),
+                    ),
+                    InkWell(
+                        child: new Text('Create an account',
+                            style: TextStyle(
+                              color: Colors.black,
+                              decoration: TextDecoration.underline,
+                              fontSize: 20.0,
+                            )),
+                        onTap: () {
+                          Navigator.pushNamed(context, SignupRoute);
+                        }),
+                  ],
                 ),
               ),
             ),
-          ],
+          ),
         ),
       ),
     );

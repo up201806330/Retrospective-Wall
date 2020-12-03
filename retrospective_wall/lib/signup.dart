@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -13,6 +15,7 @@ class _SignupState extends State<Signup> {
   String _email;
   String _password;
   String _error;
+  String _username;
 
   _onSignupPressed() {
     // Write to database
@@ -32,7 +35,7 @@ class _SignupState extends State<Signup> {
           child: Row(
             children: [
               Icon(Icons.error_outline_sharp),
-              Expanded(child: Text(_error)),
+              Expanded(child: Text(_error, style: TextStyle(fontSize: 15.0))),
               IconButton(
                 icon: Icon(Icons.close),
                 onPressed: () {
@@ -58,6 +61,7 @@ class _SignupState extends State<Signup> {
         print("Signing up");
         credential = await FirebaseAuth.instance
             .createUserWithEmailAndPassword(email: _email, password: _password);
+        FirebaseAuth.instance.currentUser.updateProfile(displayName: _username);
       } on FirebaseAuthException catch (e) {
         credential = null;
         setState(() {
@@ -84,73 +88,80 @@ class _SignupState extends State<Signup> {
             colors: [Colors.lightBlue, Colors.lightBlueAccent, Colors.blue],
           ),
         ),
-        child: ListView(
-          children: [
-            Center(
-              child: Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [Colors.cyan, Colors.cyanAccent],
-                  ),
-                ),
-                height: 600,
-                width: 400,
-                padding: EdgeInsets.all(20.0),
-                margin: EdgeInsets.all(20.0),
-                child: Form(
-                  key: _formKey,
-                  child: Column(
-                    children: [
-                      showAlert(),
-                      TextFormField(
-                        validator: (input) {
-                          if (input.isEmpty) {
-                            return 'Please type an email';
-                          }
-                        },
-                        onSaved: (input) => _email = input,
-                        decoration: InputDecoration(
-                          labelText: "Email",
-                        ),
-                      ),
-                      TextFormField(
-                        key: passwordKey,
-                        validator: (input) {
-                          if (input.length < 6) {
-                            return "Password too weak";
-                          }
-                        },
-                        onSaved: (input) => _password = input,
-                        decoration: InputDecoration(
-                          labelText: "Password",
-                        ),
-                        obscureText: true,
-                      ),
-                      TextFormField(
-                        validator: (input) {
-                          var password = passwordKey.currentState.value;
-                          if (input != password) {
-                            return "Passwords do not match";
-                          }
-                        },
-                        onSaved: (input) => _password = input,
-                        decoration: InputDecoration(
-                          labelText: "Confirm password",
-                        ),
-                        obscureText: true,
-                      ),
-                      ElevatedButton(
-                        onPressed: signUp,
-                        child: Text("Sign Up"),
-                      ),
-                    ],
-                  ),
-                ),
+        child: Center(
+          child: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [Colors.cyan, Colors.cyanAccent],
               ),
             ),
-          ],
+            height: 400,
+            width: 400,
+            padding: EdgeInsets.all(20.0),
+            margin: EdgeInsets.all(20.0),
+            child: Form(
+              key: _formKey,
+              child: Column(
+                children: [
+                  showAlert(),
+                  TextFormField(
+                    validator: (input) {
+                      if (input.isEmpty) {
+                        return 'Please type an username';
+                      }
+                    },
+                    onSaved: (input) => _username = input,
+                    decoration: InputDecoration(
+                      labelText: "Username",
+                    ),
+                  ),
+                  TextFormField(
+                    validator: (input) {
+                      if (input.isEmpty) {
+                        return 'Please type an email';
+                      }
+                    },
+                    onSaved: (input) => _email = input,
+                    decoration: InputDecoration(
+                      labelText: "Email",
+                    ),
+                  ),
+                  TextFormField(
+                    key: passwordKey,
+                    validator: (input) {
+                      if (input.length < 6) {
+                        return "Password too weak";
+                      }
+                    },
+                    onSaved: (input) => _password = input,
+                    decoration: InputDecoration(
+                      labelText: "Password",
+                    ),
+                    obscureText: true,
+                  ),
+                  TextFormField(
+                    validator: (input) {
+                      var password = passwordKey.currentState.value;
+                      if (input != password) {
+                        return "Passwords do not match";
+                      }
+                    },
+                    onSaved: (input) => _password = input,
+                    decoration: InputDecoration(
+                      labelText: "Confirm password",
+                    ),
+                    obscureText: true,
+                  ),
+                  ElevatedButton(
+                    onPressed: signUp,
+                    child: Text("Sign Up"),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ),
       ),
     );

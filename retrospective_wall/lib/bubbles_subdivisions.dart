@@ -42,7 +42,15 @@ class _BubblesSubdivision extends State<BubblesSubdivision> {
 
   Widget logoutMessage() {
     if (widget.user != null) {
-      return Text("Logged in as " + widget.user.user.email);
+      return Container(
+        child: Center(
+            child: Text(
+          "Logged in as " + widget.user.user.displayName,
+          textAlign: TextAlign.center,
+        )),
+        height: 50,
+        width: 120,
+      );
     }
   }
 
@@ -81,11 +89,33 @@ class _BubblesSubdivision extends State<BubblesSubdivision> {
     );
   }
 
+  Widget signInsignOut() {
+    if (!isLoggedIn) {
+      return FlatButton(
+        child: Text('Sign in'),
+        onPressed: () {
+          _onLoginPress(context);
+        },
+      );
+    } else
+      return Row(
+        children: [
+          logoutMessage(),
+          FlatButton(
+              child: Text("Logout"),
+              onPressed: () {
+                _onLogoutPress(context);
+              }),
+        ],
+      );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           title: Text('Categories'),
+          actions: [signInsignOut()],
         ),
         body: Container(
             decoration: BoxDecoration(
@@ -105,10 +135,6 @@ class _BubblesSubdivision extends State<BubblesSubdivision> {
                           child: GestureDetector(
                             child: Text("Wishes",
                                 style: Theme.of(context).textTheme.bodyText2),
-                            // onTap: () => _onSubdivisionTap(
-                            //   context,
-                            //   1,
-                            // ),
                           ),
                           margin: new EdgeInsets.all(20.0),
                           padding: new EdgeInsets.all(20.0),
@@ -129,7 +155,6 @@ class _BubblesSubdivision extends State<BubblesSubdivision> {
                           child: GestureDetector(
                             child: Text("Risks",
                                 style: Theme.of(context).textTheme.bodyText2),
-                            // onTap: () => _onSubdivisionTap(context, 2),
                           ),
                           margin: new EdgeInsets.all(20.0),
                           padding: new EdgeInsets.all(20.0),
@@ -150,7 +175,6 @@ class _BubblesSubdivision extends State<BubblesSubdivision> {
                           child: GestureDetector(
                             child: Text("Appreciations",
                                 style: Theme.of(context).textTheme.bodyText2),
-                            // onTap: () => _onSubdivisionTap(context, 3),
                           ),
                           margin: new EdgeInsets.all(20.0),
                           padding: new EdgeInsets.all(20.0),
@@ -200,7 +224,6 @@ class _BubblesSubdivision extends State<BubblesSubdivision> {
                           ),
                         ),
                       ),
-                      isLoggedIn ? logoutButton() : loginSignupButtons(),
                     ],
                   )),
                 ],
@@ -222,7 +245,6 @@ class _BubblesSubdivision extends State<BubblesSubdivision> {
   }
 
   _onLoginPress(BuildContext context) async {
-    print("Login");
     final result = await Navigator.pushNamed(context, LoginRoute);
 
     if (result == null) {
