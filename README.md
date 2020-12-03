@@ -1,6 +1,6 @@
-# openCX-*your module name* Development Report
+# openCX-RetrospectiveWall Development Report
 
-Welcome to the documentation pages of the *your (sub)product name* of **openCX**!
+Welcome to the documentation pages of the *RetrospectiveWall* of **openCX**!
 
 You can find here detailed about the (sub)product, hereby mentioned as module, from a high-level vision to low-level implementation decisions, a kind of Software Development Report (see [template](https://github.com/softeng-feup/open-cx/blob/master/docs/templates/Development-Report.md)), organized by discipline (as of RUP): 
 
@@ -266,7 +266,7 @@ A user story is a description of desired functionality told from the perspective
 #### Story 9: Listing of bubbles in subsection
 > As a user I want to be able to see the Feedback Bubbles that exist so far per category so that I know if my "idea" for feedback has already been expressed by someone else.
 
-![select_category](./Docs/select_category.png)
+![subsections](./Docs/subsections.png)
 
 #### Acceptance test:
 
@@ -284,16 +284,16 @@ A user story is a description of desired functionality told from the perspective
 <!-- 
 **INVEST in good user stories**. 
 You may add more details after, but the shorter and complete, the better. In order to decide if the user story is good, please follow the [INVEST guidelines](https://xp123.com/articles/invest-in-good-stories-and-smart-tasks/).
- -->
+
 
 **User interface mockups**.
-<!-- 
+
 After the user story text, you should add a draft of the corresponding user interfaces, a simple mockup or draft, if applicable. 
--->
+
 
 ![First look of the Wall](./Docs/UI_1.png)
 
-<!-- **Acceptance tests**.
+**Acceptance tests**.
 For each user story you should write also the acceptance tests (textually in Gherkin), i.e., a description of scenarios (situations) that will help to confirm that the system satisfies the requirements addressed by the user story.
 
 **Value and effort**.
