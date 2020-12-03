@@ -64,7 +64,6 @@ class _FeedbackStats extends State<FeedbackStats> {
 
   @override
   Widget build(BuildContext context) {
-    print(hasChecked);
     if (!hasChecked) {
       Future<Null> preferences = FirebaseFirestore.instance
           .collection('UsersPreferences')
@@ -301,6 +300,10 @@ class _FeedbackStats extends State<FeedbackStats> {
       _bubble.reference
           .update({'nLikes': likeCounter, 'nDislikes': dislikeCounter});
     }
+
+    setState(() {
+      hasChecked = false;
+    });
 
     return true;
   }
