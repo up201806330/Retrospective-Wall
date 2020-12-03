@@ -83,7 +83,7 @@ Take a look at the following links to learn some techniques:
   - Host creates question
   - System makes it pop up attendees screen.
  
- #### Cometing on Feedback bubbles
+ #### Comenting on Feedback bubbles
 * **Actor**. Attendee
 * **Description**. Attendees can comment on other's feedback in order to add some information they think might be needed.
 * **Preconditions and Postconditions**. Feedback buble must exist in so that it can be commented.
@@ -117,97 +117,166 @@ A user story is a description of desired functionality told from the perspective
 -->
 
 #### Story 1: Feedback Bubbles's creation
-> As a user I want to be able to create a Feedback Bubbles so that I can express my review about the meeting.
+> As a user I want to be able to create Feedback Bubbles so that I can express my review about the meeting.
 
 ![new_feedback](./Docs/new_feedback.png)
 
+## Acceptance test:
+
 **Scenario: Create feedback buble**
 
-**Given** the meeting has ended and I'm on the create feedback page and have finished filling all details (feedback text, tittle, images),
+**Given** that a meeting has ended and *an attendee* is on the *create feedback* 
 
-**When** I click Submit button,
+**When** they fill out all the details (feedback text, title, category),
 
-**Then** the app uploads the feedback I just wrote.
+**And** click the *Submit* button,
 
-***
-#### Story 2:As a user I want to be able to choose an area of the board to write on so that I can specify how positive or negative the feedback is.
-
+**Then** the app uploads the feedback they just wrote.
 
 ***
-#### Story 3:Like or Dislike feedback bubbles
+#### Story 2:Like or Dislike feedback bubbles
 > As a user I want to be able to like or dislike existing feedback bubbles so that I show my agreement/disagreement with others.
 
 ![like_fb](./Docs/like_fb.png)
 
+####  Acceptance test:
+
 **Scenario: Like or Dislike feedback bubles**
 
-**Given** I’m on a certain page of feedbacks
+**Given** that *an attendee* is on the page of a *specific* feedback
 
-**When** I click the upvote(1)/downvote(2) on a specific feedback bubble,
+**When** they click the upvote(1)/downvote(2) buttons,
 
-**Then** it grows(1)/diminishes(2) and updates the number of votes.
+**Then** the app updates the number of votes on the feedback.
 
 ***
-#### Story 4: Anonymous review
+#### Story 3: Anonymous review
 > As a user I want to able to have the option to hide my identity so that the feedback can be anonymous.
 
 ![anon_opt](./Docs/anon_opt.png)
 
+#### Acceptance test:
+
 **Scenario: Give feedback anonymously**
 
-**Given** I’m on the create feedback page
+**Given** that *an attendee* is on the *create feedback* page
 
-**When** I check the anonymous review box,
+**When** they check the *anonymous review* box,
 
-**Then** when I submit my feedback it will be anonymous.
+**And** they click *submit* the feedback
+
+**Then** the app will register it without the users' information.
 
 ***
-#### Story 5: Add Images/Gifs
+#### Story 4: Add Images/Gifs
 > As a user I want to be able to add images or gif to my feedback/comment so that I can better express my opinion.
 
 ![add_photo](./Docs/add_photo.png)
 
+#### Acceptance test:
+
 **Scenario: Add images/gifs to feedback**
 
-**Given** I’m on the create feedback page
+**Given** that *an attendee* is on the *create feedback* page
 
-**When** I click the photo logo,
+**When** they click the photo icon,
 
-**Then** I can choose photos or gifs to attach to my feedback.
+**And** select a valid image,
+
+**Then** the app will store their image in the bubble to be uploaded.
 
 ***
-#### Story 6: Comment Feedback Blubles
+#### Story 5: Comment Feedback Blubles
 > As a user I want to be able to comment on Feedback Bubbles so that I can add an opinion about an existing feedback review.
 
 ![comment_fb](./Docs/comment_fb.png)
 
+#### Acceptance test:
+
 **Scenario: Comment on existing feedbacks**
 
-**Given** I’m on a specific feedback page
+**Given** that *an attendee* is on a specific feedback page
 
-**When** I fullfill the textbox space (and add image if desired) and press the arrow logo,
+**When** they fill out the textbox,
 
-**Then** my comment on that feedback is posted.
+**And** add an image, if they choose so,
 
-***
-#### Story 7:As a host I want to be able to create custom Feedback questions so that I can gather opinions about a specific topic or issue.
+**And** submit the comment
 
-***
-#### Story 8:As a host I want to be able to search feedbacks by category/subject so that I can look for feedback about a specific subject.
+**Then** the app will store the new comment.
 
 ***
-#### Story 9: Selecting Category of my feedback
+
+#### Story 6: Custom notification questions
+> As a host I want to be able to create custom Feedback questions, that will be pushed to all users of the app, so that I can gather opinions about a specific topic or issue.
+
+<!-- ![feedback_notification](./Docs/feedback_notification.png) -->
+
+#### Acceptance test:
+
+**Scenario: Creating custom notification question**
+
+**Given** that an *organization member* is on the *create notification* page
+
+**When** they type out the text,
+
+**And** hit *Submit*,
+
+**Then** the notification is sent to all the users.
+
+
+***
+#### Story 7: Feedback search
+> As a host I want to be able to search feedbacks by category/subject so that I can look for feedback about a specific subject.
+
+<!-- ![feedback_search](./Docs/feedback_search.png) -->
+
+#### Acceptance test:
+
+**Scenario: Searching for feedback**
+
+**Given** that an *organization member* is on the *search for feedback* page
+
+**When** they select all the parameters for their search,
+
+**And** hit *Search*,
+
+**Then** the app will fetch and display the matching results.
+
+
+***
+#### Story 8: Selecting Category of my feedback
 > As a user I want to associate a specific talk, event or area of the organization to my Feedback so that I can better direct my criticism
 
 ![select_category](./Docs/select_category.png)
 
+#### Acceptance test:
+
 **Scenario: Selecting Category of my feedback**
 
-**Given** I’m on the create feedback page
+**Given** that *an attendee* is on the *create feedback* page
 
-**When** choose a category for my feedback (from the ones given),
+**When** they choose a category from the dropdown list,
 
-**Then** my feedback becomes associated with that tag.
+**Then** the app will store that category in the bubble to be uploaded.
+
+***
+
+***
+#### Story 9: Listing of bubbles in subsection
+> As a user I want to be able to see the Feedback Bubbles that exist so far per category so that I know if my "idea" for feedback has already been expressed by someone else.
+
+![select_category](./Docs/select_category.png)
+
+#### Acceptance test:
+
+**Scenario: Seeing bubbles in their categories**
+
+**Given** that *an attendee* is on the *main* page
+
+**When** they click on a category,
+
+**Then** they will see all bubbles grouped in that category.
 
 ***
 
@@ -224,17 +293,15 @@ After the user story text, you should add a draft of the corresponding user inte
 
 ![First look of the Wall](./Docs/UI_1.png)
 
-**Acceptance tests**.
+<!-- **Acceptance tests**.
 For each user story you should write also the acceptance tests (textually in Gherkin), i.e., a description of scenarios (situations) that will help to confirm that the system satisfies the requirements addressed by the user story.
 
 **Value and effort**.
-At the end, it is good to add a rough indication of the value of the user story to the customers (e.g. [MoSCoW](https://en.wikipedia.org/wiki/MoSCoW_method) method) and the team should add an estimation of the effort to implement it, for example, using t-shirt sizes (XS, S, M, L, XL).
+At the end, it is good to add a rough indication of the value of the user story to the customers (e.g. [MoSCoW](https://en.wikipedia.org/wiki/MoSCoW_method) method) and the team should add an estimation of the effort to implement it, for example, using t-shirt sizes (XS, S, M, L, XL). -->
 
 ### Domain model
 
-<!-- 
-To better understand the context of the software system, it is very useful to have a simple UML class diagram with all the key concepts (names, attributes) and relationships involved of the problem domain addressed by your module.
- -->
+![Domain Model](./Docs/domain.png)
 
 ---
 

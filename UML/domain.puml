@@ -1,4 +1,4 @@
-@startuml useCases
+@startuml domain
 skinparam linetype polyline
 skinparam minClassWidth 80
 skinparam groupInheritance 2
