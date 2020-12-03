@@ -242,13 +242,7 @@ To better understand the context of the software system, it is very useful to ha
 
 ### Logical architecture
 ![Logical Architecture](./Docs/logicalArchitecture.png)
-<!-- 
-The purpose of this subsection is to document the high-level logical structure of the code, using a UML diagram with logical packages, without the worry of allocating to components, processes or machines.
-
-It can be beneficial to present the system both in a horizontal or vertical decomposition:
-* horizontal decomposition may define layers and implementation concepts, such as the user interface, business logic and concepts; 
-* vertical decomposition can define a hierarchy of subsystems that cover all layers of implementation.
- -->
+Like most projects of this nature usually do, we adopted the *MVC* pattern. A central "Controller" is in charge of receiving inputs from the user and updating the corresponding model, which in turn triggers changes in the view of this component.
 
 ### Physical architecture
 ![Physical Architecture](./Docs/physicalArchitecture.png)
@@ -257,6 +251,7 @@ Architecturally, our project is split in two parts:
 - The **Server side**, where the *Firebase* database lives and stores all users' data .
 
 The technologies we chose were *Flutter*, so in the end it would be easier to merge with the **open-cx** project and our class' work, and *Firebase*, since it fit well into our needs and would be simpler than handling the *back-end* ourselves.  
+The *FlutterFire* library's components take care of all the communication with the database, and this ease of mind was a major deciding factor for us.
 
 ### Prototype
 

@@ -1,5 +1,4 @@
 @startuml useCases
-scale 200
 skinparam linetype polyline
 skinparam usecaseBackgroundColor WhiteSmoke
 skinparam usecaseBorderColor DarkSlateGrey
@@ -14,7 +13,7 @@ actor Attendee as a <<Anonymous>>
 package RetrospectiveWall {
     usecase bubble as "Create Feedback Bubble
     --
-    - Anonymous or not"
+    Anonymous or not"
     usecase category as "Choose category"
     usecase category_include as "
     Organization personnel

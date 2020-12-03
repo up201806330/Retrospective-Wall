@@ -1,0 +1,46 @@
+@startuml useCases
+skinparam linetype polyline
+skinparam minClassWidth 80
+skinparam groupInheritance 2
+skinparam classBackgroundColor WhiteSmoke
+skinparam classBorderColor DarkSlateGrey
+skinparam ArrowColor Black
+skinparam classAttributeIconSize 0
+hide empty attributes
+hide methods
+hide circles
+
+class User{
+    +username
+    -password
+}
+
+Class Attendee extends User
+Class Organization extends User
+
+Class Bubble{
+    +category
+    +review
+    +anonimity
+    +likes
+    +dislikes
+}
+
+Class Comment{
+    +content
+}
+
+Class Notification{
+    +message
+}
+
+Attendee "  *" -down-- "                *" Bubble : ""
+Comment "*" -up-- "         1" Attendee : ""
+Comment "*" - "1" Bubble : ""
+
+Organization ...> Bubble : " has access to"
+Organization "1" - "*" Notification : ""
+
+
+
+@enduml

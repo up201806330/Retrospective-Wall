@@ -1,17 +1,29 @@
 @startuml logicalArchitecture
-scale 200
 skinparam linetype polyline
-skinparam minClassWidth 100
+skinparam ranksep 10
+skinparam nodesep 20
 skinparam classBackgroundColor WhiteSmoke
 skinparam classBorderColor DarkSlateGrey
 skinparam ArrowColor Black
 hide members
 hide circles
 
-class Controller
-class Model
-class View
+package Controller{
+    class "Database Controller"
+    class "App Controller"
+}
+package Model{
+    class "Bubble Model"    
+    class "Comments Model"
+    class "Like & Dislike Model"
+}
+package View{
+    class "Bubble View"
+    class "Create Bubble Page"
+}
 
-Model <- Controller
-View <-right- Controller
+Controller -[hidden]->Model
+Model <.up.> Controller : Update data
+Controller .right.> View : Data to be sent
+
 @enduml
