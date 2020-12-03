@@ -1,13 +1,36 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:retrospective_wall/comments_list.dart';
 import 'package:retrospective_wall/feedback_text.dart';
 import 'bubble.dart';
 import 'text_section.dart';
 
-class BubbleDetail extends StatelessWidget {
+import 'feedback_stats.dart';
+
+import 'package:like_button/like_button.dart';
+
+class BubbleDetail extends StatefulWidget {
   final DocumentSnapshot _bubble;
 
+  static const double LikeButtonSize = 60;
+
   BubbleDetail(this._bubble);
+
+  @override
+  _BubbleDetail createState() => _BubbleDetail(_bubble);
+}
+
+class _BubbleDetail extends State<BubbleDetail> {
+
+  final DocumentSnapshot _bubble;
+
+  bool thumbsDown = false;
+  bool thumbsUp = false;
+
+  int likeCounter = 10;
+  int dislikeCounter = 2;
+
+  _BubbleDetail(this._bubble);
 
   @override
   Widget build(BuildContext context) {
@@ -18,10 +41,25 @@ class BubbleDetail extends StatelessWidget {
       appBar: AppBar(
         title: Text(bubble.text),
       ),
-      body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: []..add(textSections(bubble))),
+      body: ListView(
+          children: [
+            Column(
+              children: [
+                Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: []..add(textSections(bubble))
+                ),
+                SizedBox(
+                    width: 200.0,
+                    height: 80.0,
+                    child: FeedbackStats(_bubble)
+                ),
+                CommentsList(),
+              ],
+            ),
+          ],
+      ),
     );
   }
 
