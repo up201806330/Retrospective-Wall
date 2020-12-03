@@ -41,6 +41,4 @@ Comment "*" - "1" Bubble : ""
 Organization ...> Bubble : " has access to"
 Organization "1" - "*" Notification : ""
 
-
-
 @enduml
