@@ -53,7 +53,7 @@ class _BubbleDetail extends State<BubbleDetail> {
                     height: 80.0,
                     child: FeedbackStats(_bubble)
                 ),
-                CommentsList(),
+                CommentsList(bubble.id),
               ],
             ),
           ],
