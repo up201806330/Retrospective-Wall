@@ -262,7 +262,6 @@ A user story is a description of desired functionality told from the perspective
 
 ***
 
-***
 #### Story 9: Listing of bubbles in subsection
 > As a user I want to be able to see the Feedback Bubbles that exist so far per category so that I know if my "idea" for feedback has already been expressed by someone else.
 
@@ -280,6 +279,22 @@ A user story is a description of desired functionality told from the perspective
 
 ***
 
+#### Story 9: Seeing Current Data from Database
+> As a user I want to be able to see the current data from the database so that I can see not only my own feedback bubbles but also the ones created by other users.
+
+<!-- ![db](./Docs/db.png) -->
+
+#### Acceptance test:
+
+**Scenario: Keeping app updated with database**
+
+**Given** that *an attendee* is on a *category* page
+
+**When** someone else submits a new bubble,
+
+**Then** they will see the new bubble appear without having to reload the app.
+
+***
 
 <!-- 
 **INVEST in good user stories**. 
