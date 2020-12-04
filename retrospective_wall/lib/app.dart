@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:retrospective_wall/bubble.dart';
 import 'package:retrospective_wall/bubbles_subdivisions.dart';
@@ -17,9 +18,12 @@ const BubbleNewRoute = '/bubble_new';
 const SubdivisionDetailRoute = '/subdivision_detail';
 const BubblesSubdivisionRoute = '/';
 
+User userInfo;
+
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    userInfo = FirebaseAuth.instance.currentUser;
     return MaterialApp(
       onGenerateRoute: _routes(),
       theme: _theme(),

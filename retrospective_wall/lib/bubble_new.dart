@@ -30,7 +30,9 @@ class _BubbleNew extends State<BubbleNew> {
       'text': text,
       'user': user,
       'category': value,
-      'timestamp': DateTime.now().microsecondsSinceEpoch
+      'timestamp': DateTime.now().microsecondsSinceEpoch,
+      'nLikes': 0,
+      'nDislikes': 0,
     });
   }
 
