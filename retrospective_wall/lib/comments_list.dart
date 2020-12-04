@@ -1,27 +1,57 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:retrospective_wall/comment_model.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'app.dart';
 
-List<CommentModel> comments = [
-  new CommentModel("user1", "comment1"),
-  new CommentModel("user2", "comment2"),
-];
 
 class CommentsList extends StatelessWidget {
 
+  String feedbackId;
 
+  CommentsList(this.feedbackId);
+
+  void submitComment(String input){
+    if(userInfo != null && !input.isEmpty) {
+      commentsCollection.add({
+        'feedbackId': feedbackId,
+        'username': userInfo.displayName,
+        'comment' : input,
+        'timestamp' : DateTime.now().microsecondsSinceEpoch
+      });
+    }
+    textEditingController.clear();
+  }
+  TextEditingController textEditingController = TextEditingController();
+  CollectionReference commentsCollection;
   @override
   Widget build(BuildContext context) {
-    // final List<CommentModel> comments = [new CommentModel("user", "comment")];
+    commentsCollection =  FirebaseFirestore.instance.collection("Comments");
 
-    return Padding(
-        padding: const EdgeInsets.only(top: 8.0),
-        child: ExpansionTile(
-            leading: Icon(Icons.comment),
-            trailing: Text(comments.length.toString()),
-            title: Text("Comments"),
-            children: List<Widget>.generate(
-                comments.length, (index) => _SingleComment(index))
-        )
+    return StreamBuilder(stream: commentsCollection.where('feedbackId', isEqualTo: feedbackId).orderBy('timestamp').snapshots() ,
+        builder: (context, AsyncSnapshot<QuerySnapshot> snapshot){
+          if(snapshot.connectionState == ConnectionState.none) {
+            return null;
+          }
+          else if(snapshot.connectionState == ConnectionState.waiting)
+            return const Text(
+              'Loading...',
+              textAlign:TextAlign.center,);
+          else
+            return Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: ExpansionTile(
+                    leading: Icon(Icons.comment),
+                    trailing: Text(snapshot.data.docs.length.toString()),
+                    title: Text(snapshot.data.docs.length > 0 ? "Comments" : "No comments yet, be the first"),
+                    children: (FirebaseAuth.instance.currentUser != null ?
+                    [(TextFormField(decoration: InputDecoration(labelText: 'Add a comment...'),
+                      onFieldSubmitted: (input)=>submitComment(input),
+                      controller: textEditingController,) as Widget)] : List<Widget>()) +
+                        List<Widget>.generate(snapshot.data.docs.length, (index) => _SingleComment(snapshot.data.docs[index]))
+                )
+            );
+        }
     );
   }
 
@@ -31,23 +61,21 @@ class CommentsList extends StatelessWidget {
 
 class _SingleComment extends StatelessWidget {
 
-  final int index;
+  final dynamic comment;
 
-  const _SingleComment(this.index);
+  const _SingleComment(this.comment);
 
 
   @override
   Widget build(BuildContext context) {
-    final CommentModel commentData = new CommentModel("user ", "comment ");
-
     return Container(
       width: double.infinity,
       margin: const EdgeInsets.symmetric(vertical: 8.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children:[
-          Text(commentData.user + index.toString()),
-          Text(commentData.comment + index.toString()),
+          Text(comment['username']),
+          Text(comment['comment']),
         ],
       ),
     );

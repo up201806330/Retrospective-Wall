@@ -6,6 +6,8 @@ import 'package:retrospective_wall/feedback_text.dart';
 
 import 'globals.dart';
 
+
+
 class FeedbackStats extends StatefulWidget {
   final DocumentSnapshot _bubble;
 
@@ -64,7 +66,7 @@ class _FeedbackStats extends State<FeedbackStats> {
 
   @override
   Widget build(BuildContext context) {
-    if (!hasChecked) {
+    if (!hasChecked && FirebaseAuth.instance.currentUser != null) {
       Future<Null> preferences = FirebaseFirestore.instance
           .collection('UsersPreferences')
           .where('userId', isEqualTo: FirebaseAuth.instance.currentUser.uid)
