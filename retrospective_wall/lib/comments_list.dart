@@ -4,6 +4,32 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'app.dart';
 
+showAlertDialog(BuildContext context) {
+  // set up the button
+  Widget okButton = FlatButton(
+    child: Text("OK"),
+    onPressed: () {
+      Navigator.of(context).pop();
+    },
+  );
+
+  // set up the AlertDialog
+  AlertDialog alert = AlertDialog(
+    title: Text("Not Logged in!"),
+    content: Text("You have to be logged in to comment."),
+    actions: [
+      okButton,
+    ],
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
+}
 
 class CommentsList extends StatelessWidget {
 
@@ -11,16 +37,20 @@ class CommentsList extends StatelessWidget {
 
   CommentsList(this.feedbackId);
 
-  void submitComment(String input){
+  void submitComment(String input, context){
     if(userInfo != null && !input.isEmpty) {
       commentsCollection.add({
         'feedbackId': feedbackId,
         'username': userInfo.displayName,
-        'comment' : input,
-        'timestamp' : DateTime.now().microsecondsSinceEpoch
+        'comment': input,
+        'timestamp': DateTime
+            .now()
+            .microsecondsSinceEpoch
       });
+      textEditingController.clear();
     }
-    textEditingController.clear();
+    else if(userInfo == null)
+      showAlertDialog(context);
   }
   TextEditingController textEditingController = TextEditingController();
   CollectionReference commentsCollection;
@@ -44,10 +74,10 @@ class CommentsList extends StatelessWidget {
                     leading: Icon(Icons.comment),
                     trailing: Text(snapshot.data.docs.length.toString()),
                     title: Text(snapshot.data.docs.length > 0 ? "Comments" : "No comments yet, be the first"),
-                    children: (FirebaseAuth.instance.currentUser != null ?
+                    children:
                     [(TextFormField(decoration: InputDecoration(labelText: 'Add a comment...'),
-                      onFieldSubmitted: (input)=>submitComment(input),
-                      controller: textEditingController,) as Widget)] : List<Widget>()) +
+                      onFieldSubmitted: (input)=>submitComment(input, context),
+                      controller: textEditingController,) as Widget)] +
                         List<Widget>.generate(snapshot.data.docs.length, (index) => _SingleComment(snapshot.data.docs[index]))
                 )
             );
