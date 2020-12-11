@@ -126,13 +126,13 @@ A user story is a description of desired functionality told from the perspective
 
 **Scenario: Create feedback buble**
 
-**Given** that a meeting has ended and *an attendee* is on the *create feedback* 
+**Given** that *an attendee* is on the *create feedback* page
 
-**When** they fill out all the details (feedback text, title, category),
+**When** he fills out all the details (feedback text ("I enjoyed the food"), title ("food"), category ("Aprecitions"),
 
 **And** click the *Submit* button,
 
-**Then** the app uploads the feedback they just wrote.
+**Then** the app uploads the feedback he just wrote to the database and returns to the main page.
 
 ***
 #### Story 2:Like or Dislike feedback bubbles
