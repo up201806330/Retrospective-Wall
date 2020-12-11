@@ -78,7 +78,7 @@ Take a look at the following links to learn some techniques:
 * **Actor**. Metting's host
 * **Description**. Host can create questions that pop after the meeting ends in order to get attendees opinion on a specific subject.
 * **Preconditions and Postconditions**. Metting has to end and you need to be logged in.
-- **Normal Flow:**
+- **Normal Flow:** 
  
   - Host creates question
   - System makes it pop up attendees screen.
@@ -91,11 +91,12 @@ Take a look at the following links to learn some techniques:
   - Attendee chooses wich feedback bubble he wants to comment on.
   - Attendee is given a text box to write and an option to phone's gallery if he wishes to add a photo or a gif.
   - Attendee submits his comment.
+- **Alternative Flows and Exceptions:** If you leave comment's page wihtout submiting, your draft will get erased.
 
 #### Create Feedback bubble
 - **Actor:** Attendee.
 - **Description:** The base functionality of the app, the ability to create a bubble describing an issue or idea. These belong to a specific category (*Wishes, Risks, Appreciations, Puzzles*) and may pertain to something more specific inside the event (*a specific talk, branch of the organization, ...*)
-- **Preconditions and Postconditions:** The only precondition is to have the app installed on the device. Since the use of an account is not mandatory, the user can create bubbles from the *get-go*.
+- **Preconditions and Postconditions:** You must be logged in.
 - **Normal Flow:**
   - User provides a title.
   - User chooses category from drop-down list.
