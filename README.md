@@ -108,6 +108,8 @@ Take a look at the following links to learn some techniques:
 
 ### User stories
 
+Our user stories are listed on the [project board](https://github.com/FEUP-ESOF-2020-21/open-cx-t5g2-esotericos/projects/1), along with their UI Mockups and Gherkin acceptance tests.
+
 <!-- 
 This section will contain the requirements of the product described as **user stories**, organized in a global **[user story map](https://plan.io/blog/user-story-mapping/)** with **user roles** or **themes**.
 
@@ -226,26 +228,7 @@ A user story is a description of desired functionality told from the perspective
 
 
 ***
-#### Story 7: Feedback search
-> As a host I want to be able to search feedbacks by category/subject so that I can look for feedback about a specific subject.
-
-<!-- ![feedback_search](./Docs/feedback_search.png) -->
-
-#### Acceptance test:
-
-**Scenario: Searching for feedback**
-
-**Given** that an *organization member* is on the *search for feedback* page
-
-**When** they select all the parameters for their search,
-
-**And** hit *Search*,
-
-**Then** the app will fetch and display the matching results.
-
-
-***
-#### Story 8: Selecting Category of my feedback
+#### Story 7: Selecting Category of my feedback
 > As a user I want to associate a specific talk, event or area of the organization to my Feedback so that I can better direct my criticism
 
 ![select_category](./Docs/select_category.png)
@@ -279,7 +262,7 @@ A user story is a description of desired functionality told from the perspective
 
 ***
 
-#### Story 9: Seeing Current Data from Database
+#### Story 8: Seeing Current Data from Database
 > As a user I want to be able to see the current data from the database so that I can see not only my own feedback bubbles but also the ones created by other users.
 
 <!-- ![db](./Docs/db.png) -->
