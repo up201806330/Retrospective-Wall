@@ -67,7 +67,7 @@ Take a look at the following links to learn some techniques:
 #### Like or Dislike Feedback Bubles
 * **Actor**. Attendees
 * **Description**. Choose to either like or deslike an existing bubble in order to enhance (or not) the feedback credibility. (Liking the bubble will make it grow, while disliking it will make it smaller.
-* **Preconditions and Postconditions**. A feedback bubble must exist so that it can be liked/disliked
+* **Preconditions and Postconditions**. A feedback bubble must exist so that it can be liked/disliked and you need to be logged in.
 - **Normal Flow:**
   - User presses like button on the feedback bubble
     - System will make that bubble bigger
@@ -77,8 +77,8 @@ Take a look at the following links to learn some techniques:
 #### Creating Feedback Pop-up question
 * **Actor**. Metting's host
 * **Description**. Host can create questions that pop after the meeting ends in order to get attendees opinion on a specific subject.
-* **Preconditions and Postconditions**. Metting has to end.
-- **Normal Flow:**
+* **Preconditions and Postconditions**. Metting has to end and you need to be logged in.
+- **Normal Flow:** 
  
   - Host creates question
   - System makes it pop up attendees screen.
@@ -86,16 +86,17 @@ Take a look at the following links to learn some techniques:
  #### Comenting on Feedback bubbles
 * **Actor**. Attendee
 * **Description**. Attendees can comment on other's feedback in order to add some information they think might be needed.
-* **Preconditions and Postconditions**. Feedback buble must exist in so that it can be commented.
+* **Preconditions and Postconditions**. Feedback buble must exist  so that it can be commented and you need to be logged in.
 - **Normal Flow:**
   - Attendee chooses wich feedback bubble he wants to comment on.
   - Attendee is given a text box to write and an option to phone's gallery if he wishes to add a photo or a gif.
   - Attendee submits his comment.
+- **Alternative Flows and Exceptions:** If you leave comment's page wihtout submiting, your draft will get erased.
 
 #### Create Feedback bubble
 - **Actor:** Attendee.
 - **Description:** The base functionality of the app, the ability to create a bubble describing an issue or idea. These belong to a specific category (*Wishes, Risks, Appreciations, Puzzles*) and may pertain to something more specific inside the event (*a specific talk, branch of the organization, ...*)
-- **Preconditions and Postconditions:** The only precondition is to have the app installed on the device. Since the use of an account is not mandatory, the user can create bubbles from the *get-go*.
+- **Preconditions and Postconditions:** You must be logged in.
 - **Normal Flow:**
   - User provides a title.
   - User chooses category from drop-down list.
@@ -127,13 +128,13 @@ A user story is a description of desired functionality told from the perspective
 
 **Scenario: Create feedback buble**
 
-**Given** that a meeting has ended and *an attendee* is on the *create feedback* 
+**Given** that *an attendee* is on the *create feedback* page
 
-**When** they fill out all the details (feedback text, title, category),
+**When** he fills out all the details (feedback text ("I enjoyed the food"), title ("food"), category ("Aprecitions"),
 
 **And** click the *Submit* button,
 
-**Then** the app uploads the feedback they just wrote.
+**Then** the app uploads the feedback he just wrote to the database and returns to the main page.
 
 ***
 #### Story 2:Like or Dislike feedback bubbles
