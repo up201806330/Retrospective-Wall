@@ -34,11 +34,10 @@ Class Notification{
     +message
 }
 
-Attendee "  *" -down-- "                *" Bubble : ""
-Comment "*" -up-- "         1" Attendee : ""
+Attendee "  1" -down-- "                *" Bubble : ""
+Comment "*" -up-- "                1" Attendee : "creates"
 Comment "*" - "1" Bubble : ""
 
-Organization ...> Bubble : " has access to"
-Organization "1" - "*" Notification : ""
+Organization "1" -down- "*" Notification : " creates"
 
 @enduml
