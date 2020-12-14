@@ -66,6 +66,7 @@ class _BubbleNew extends State<BubbleNew> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: Key("NewBubblePage"),
       resizeToAvoidBottomPadding: false,
       appBar: AppBar(
         title: Text("Add Bubble"),
