@@ -25,7 +25,6 @@ dependencies:
     sdk: flutter
   firebase_core: "0.5.2"
   cloud_firestore: "^0.14.3"
-  vibration: ^1.7.2
   firebase_auth: ^0.18.0
   like_button: ^1.0.4
 
