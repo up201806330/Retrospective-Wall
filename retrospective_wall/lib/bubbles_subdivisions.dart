@@ -113,6 +113,7 @@ class _BubblesSubdivision extends State<BubblesSubdivision> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        key: Key("HomePage"),
         appBar: AppBar(
           title: Text('Categories'),
           actions: [signInsignOut()],
@@ -215,6 +216,7 @@ class _BubblesSubdivision extends State<BubblesSubdivision> {
                       Container(
                         height: 50,
                         child: ElevatedButton(
+                          key: Key("newBubbleButton"),
                           onPressed: () {
                             _onNewBubblePress(context);
                           },
