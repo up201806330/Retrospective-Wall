@@ -73,6 +73,7 @@ class _BubblesSubdivision extends State<BubblesSubdivision> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           ElevatedButton(
+            key: Key("LoginButton"),
             onPressed: () {
               _onLoginPress(context);
             },
@@ -92,6 +93,7 @@ class _BubblesSubdivision extends State<BubblesSubdivision> {
   Widget signInsignOut() {
     if (!isLoggedIn) {
       return FlatButton(
+        key: Key("SignInButton"),
         child: Text('Sign in'),
         onPressed: () {
           _onLoginPress(context);
@@ -174,6 +176,7 @@ class _BubblesSubdivision extends State<BubblesSubdivision> {
                       InkWell(
                         child: Container(
                           child: GestureDetector(
+                            key: Key("AppreciationsButton"),
                             child: Text("Appreciations",
                                 style: Theme.of(context).textTheme.bodyText2),
                           ),

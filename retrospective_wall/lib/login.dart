@@ -103,6 +103,7 @@ class _LoginState extends State<Login> {
                   children: [
                     showAlert(),
                     TextFormField(
+                      key: Key("LoginEmailField"),
                       validator: (input) {
                         if (input.isEmpty) {
                           return 'Please type an email';
@@ -114,6 +115,7 @@ class _LoginState extends State<Login> {
                       ),
                     ),
                     TextFormField(
+                      key: Key("LoginPasswordField"),
                       validator: (input) {
                         if (input.length < 6) {
                           return "Password too weak";
@@ -126,6 +128,7 @@ class _LoginState extends State<Login> {
                       obscureText: true,
                     ),
                     ElevatedButton(
+                      key: Key("SignInButtonPage"),
                       onPressed: signIn,
                       child: Text("Sign in"),
                     ),

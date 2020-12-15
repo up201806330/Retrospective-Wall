@@ -6,8 +6,6 @@ import 'package:retrospective_wall/feedback_text.dart';
 
 import 'globals.dart';
 
-
-
 class FeedbackStats extends StatefulWidget {
   final DocumentSnapshot _bubble;
 
@@ -112,6 +110,7 @@ class _FeedbackStats extends State<FeedbackStats> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             LikeButton(
+              key: Key('LikeButton'),
               size: LikeButtonSize,
               circleColor:
                   CircleColor(start: Color(0xff00ddff), end: Color(0xff0099cc)),
@@ -149,6 +148,7 @@ class _FeedbackStats extends State<FeedbackStats> {
               onTap: onLikeButtonTapped,
             ),
             LikeButton(
+              key: Key("DislikeButton"),
               size: LikeButtonSize,
               circleColor:
                   CircleColor(start: Color(0xff00ddff), end: Color(0xff0099cc)),
