@@ -10,7 +10,7 @@ import 'steps/like_dislike_steps.dart';
 Future<void> main() {
   final config = FlutterTestConfiguration()
     ..features = [
-      Glob(r"test_driver/features/like_dislike.feature")
+      Glob(r"test_driver/features/**.feature")
     ] // ..features = [Glob(r"test_driver/features/**.feature")]
     ..reporters = [ProgressReporter()]
     ..stepDefinitions = [
