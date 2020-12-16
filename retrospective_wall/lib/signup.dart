@@ -58,7 +58,8 @@ class _SignupState extends State<Signup> {
   Future<void> signUp() async {
     final formState = _formKey.currentState;
     UserCredential credential;
-    CollectionReference userDataCollection =  FirebaseFirestore.instance.collection("UserData");
+    // CollectionReference userDataCollection =  FirebaseFirestore.instance.collection("UserData");
+
     if (formState.validate()) {
       formState.save();
       try {
@@ -66,7 +67,11 @@ class _SignupState extends State<Signup> {
         credential = await FirebaseAuth.instance
             .createUserWithEmailAndPassword(email: _email, password: _password);
         FirebaseAuth.instance.currentUser.updateProfile(displayName: _username);
-        userDataCollection.add({'userId': FirebaseAuth.instance.currentUser.uid, 'isOrganization': _isOrganization});
+
+        DocumentReference ref = FirebaseFirestore.instance.doc("UserData/" + FirebaseAuth.instance.currentUser.uid);
+        ref.set({'isOrganization': _isOrganization});
+        // userDataCollection.add({'userId': FirebaseAuth.instance.currentUser.uid, <'isOrganization': _isOrganization}>);
+
       } on FirebaseAuthException catch (e) {
         credential = null;
         setState(() {

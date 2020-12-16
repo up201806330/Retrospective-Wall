@@ -61,13 +61,17 @@ class _LoginState extends State<Login> {
         print("Logging in");
         credential = await FirebaseAuth.instance
             .signInWithEmailAndPassword(email: _email, password: _password);
-        Future<Null> preferences = FirebaseFirestore.instance.
-        collection('UserData').where('userId', isEqualTo: credential.user.uid).get().
-        then((value) {
-          _isOrganization = value.docs[0]['isOrganization'];
-        });
+        // var document = FirebaseFirestore.instance.doc('UserData')
+        // collection('UserData').where('userId', isEqualTo: credential.user.uid).snapshots();
+
+        DocumentSnapshot variable = await FirebaseFirestore.instance.collection('UserData').doc(credential.user.uid).get();
+
+        _isOrganization = variable['isOrganization'];
+
+
       } on FirebaseAuthException catch (e) {
         credential = null;
+        _isOrganization = false;
         setState(() {
           _error = e.message;
         });
@@ -78,9 +82,9 @@ class _LoginState extends State<Login> {
         }
       }
     }
-    /*isOrganization = _isOrganization;*/
-    isOrganization = true;
-
+    isOrganization = _isOrganization;
+    // isOrganization = true;
+    print("idk");
     print(_isOrganization);
     UserCredential result = credential;
     if (credential != null) Navigator.pop(context, result);

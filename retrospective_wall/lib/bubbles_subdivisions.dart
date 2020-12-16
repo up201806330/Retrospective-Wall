@@ -115,6 +115,7 @@ class _BubblesSubdivision extends State<BubblesSubdivision> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        resizeToAvoidBottomPadding: false,
         key: Key("HomePage"),
         appBar: AppBar(
           title: Text('Categories'),
@@ -217,7 +218,7 @@ class _BubblesSubdivision extends State<BubblesSubdivision> {
                       ),
                       SizedBox(height: 1),
 
-                      !isOrganization ?
+                      !(isOrganization == true) ?
                         Container(
                           height: 50,
                           child: ElevatedButton(
