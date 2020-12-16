@@ -22,7 +22,6 @@ class ThenDislike extends ThenWithWorld<FlutterWorld> {
 
 class GivenBubblePage extends GivenWithWorld<FlutterWorld> {
   navigateToBubblePage() async {
-    print("Entered navigate function");
     final loginButtonFinder = find.byValueKey("SignInButton");
 
     await FlutterDriverUtils.tap(world.driver, loginButtonFinder);

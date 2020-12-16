@@ -6,7 +6,6 @@ import 'package:retrospective_wall/globals.dart';
 class CheckGivenWidgets extends Given1WithWorld<String, FlutterWorld> {
   @override
   Future<void> executeStep(String input1) async {
-    print("Test Given!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
     final newBubbleFinder = find.byValueKey(input1);
     final bool login = isLoggedIn;
     if (login)
@@ -43,7 +42,6 @@ class CheckIfPresentNewBubblePage extends Then1WithWorld<String, FlutterWorld> {
 
 class CheckGivenWidgetsNew extends Given1WithWorld<String, FlutterWorld> {
   navigateToNewBubblePage() async {
-    print("Entered navigate function");
     final loginButtonFinder = find.byValueKey("SignInButton");
 
     await FlutterDriverUtils.tap(world.driver, loginButtonFinder);
