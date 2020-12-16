@@ -1,6 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:retrospective_wall/app.dart';
+
+import 'globals.dart';
 
 // teste@gmail.com    teste123
 
@@ -51,12 +54,18 @@ class _LoginState extends State<Login> {
   Future<void> signIn() async {
     final formState = _formKey.currentState;
     UserCredential credential;
+    bool _isOrganization;
     if (formState.validate()) {
       formState.save();
       try {
         print("Logging in");
         credential = await FirebaseAuth.instance
             .signInWithEmailAndPassword(email: _email, password: _password);
+        Future<Null> preferences = FirebaseFirestore.instance.
+        collection('UserData').where('userId', isEqualTo: credential.user.uid).get().
+        then((value) {
+          _isOrganization = value.docs[0]['isOrganization'];
+        });
       } on FirebaseAuthException catch (e) {
         credential = null;
         setState(() {
@@ -69,7 +78,12 @@ class _LoginState extends State<Login> {
         }
       }
     }
-    if (credential != null) Navigator.pop(context, credential);
+    /*isOrganization = _isOrganization;*/
+    isOrganization = true;
+
+    print(_isOrganization);
+    UserCredential result = credential;
+    if (credential != null) Navigator.pop(context, result);
   }
 
   @override
