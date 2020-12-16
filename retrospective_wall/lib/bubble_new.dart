@@ -33,6 +33,7 @@ class _BubbleNew extends State<BubbleNew> {
       'timestamp': DateTime.now().microsecondsSinceEpoch,
       'nLikes': 0,
       'nDislikes': 0,
+      'nComments': 0,
     });
   }
 

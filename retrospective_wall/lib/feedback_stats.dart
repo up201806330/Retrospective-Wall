@@ -133,9 +133,9 @@ class _FeedbackStats extends State<FeedbackStats> {
                     print(isLiked); print('\n');*/
                 var color = isLiked ? Colors.blue : Colors.grey;
                 Widget result;
-                if (count == 0) {
+                if (count < 0) {
                   result = Text(
-                    "likes",
+                    "no likes",
                     style: TextStyle(color: color),
                   );
                 } else
@@ -170,9 +170,9 @@ class _FeedbackStats extends State<FeedbackStats> {
               countBuilder: (int count, bool isLiked, String text) {
                 var color = isLiked ? Colors.orange : Colors.grey;
                 Widget result;
-                if (count == 0) {
+                if (count < 1) {
                   result = Text(
-                    "like",
+                    "no dislikes",
                     style: TextStyle(color: color),
                   );
                 } else

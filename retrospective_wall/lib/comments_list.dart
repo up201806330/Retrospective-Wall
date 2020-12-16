@@ -54,9 +54,12 @@ class CommentsList extends StatelessWidget {
   }
   TextEditingController textEditingController = TextEditingController();
   CollectionReference commentsCollection;
+  CollectionReference bubblesCollection;
+
   @override
   Widget build(BuildContext context) {
     commentsCollection =  FirebaseFirestore.instance.collection("Comments");
+    bubblesCollection = FirebaseFirestore.instance.collection("Bubbles");
 
     return StreamBuilder(stream: commentsCollection.where('feedbackId', isEqualTo: feedbackId).orderBy('timestamp').snapshots() ,
         builder: (context, AsyncSnapshot<QuerySnapshot> snapshot){
@@ -68,6 +71,7 @@ class CommentsList extends StatelessWidget {
               'Loading...',
               textAlign:TextAlign.center,);
           else
+            updateCommentCount(feedbackId, snapshot.data.docs.length);
             return Padding(
                 padding: const EdgeInsets.only(top: 8.0),
                 child: ExpansionTile(
@@ -82,6 +86,14 @@ class CommentsList extends StatelessWidget {
                 )
             );
         }
+    );
+  }
+
+  void updateCommentCount(String feedbackId, int length) {
+    bubblesCollection.doc(feedbackId).update(
+      {
+        'nComments': length
+      }
     );
   }
 

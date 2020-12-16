@@ -3,6 +3,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+import 'globals.dart';
+
 class Signup extends StatefulWidget {
   @override
   _SignupState createState() => _SignupState();
@@ -16,6 +18,7 @@ class _SignupState extends State<Signup> {
   String _password;
   String _error;
   String _username;
+  bool _isOrganization = false;
 
   _onSignupPressed() {
     // Write to database
@@ -55,6 +58,8 @@ class _SignupState extends State<Signup> {
   Future<void> signUp() async {
     final formState = _formKey.currentState;
     UserCredential credential;
+    // CollectionReference userDataCollection =  FirebaseFirestore.instance.collection("UserData");
+
     if (formState.validate()) {
       formState.save();
       try {
@@ -62,6 +67,11 @@ class _SignupState extends State<Signup> {
         credential = await FirebaseAuth.instance
             .createUserWithEmailAndPassword(email: _email, password: _password);
         FirebaseAuth.instance.currentUser.updateProfile(displayName: _username);
+
+        DocumentReference ref = FirebaseFirestore.instance.doc("UserData/" + FirebaseAuth.instance.currentUser.uid);
+        ref.set({'isOrganization': _isOrganization});
+        // userDataCollection.add({'userId': FirebaseAuth.instance.currentUser.uid, <'isOrganization': _isOrganization}>);
+
       } on FirebaseAuthException catch (e) {
         credential = null;
         setState(() {
@@ -74,7 +84,9 @@ class _SignupState extends State<Signup> {
         }
       }
     }
-    if (credential != null) Navigator.pop(context, credential);
+    isOrganization = _isOrganization;
+    UserCredential result = credential;
+    if (credential != null) Navigator.pop(context, result);
   }
 
   @override
@@ -171,7 +183,17 @@ class _SignupState extends State<Signup> {
                                 ),
                                 obscureText: true,
                               ),
-                              SizedBox(height: 50),
+                              Row(
+                                children: [
+                                  Checkbox(value: _isOrganization, onChanged: (bool value){
+                                    setState(() {
+                                      _isOrganization = value;
+                                    });
+                                  }),
+                                  Text("Organization member")
+                                ],
+                              ),
+
                               ElevatedButton(
                                 onPressed: signUp,
                                 child: Text("Sign Up"),
