@@ -15,25 +15,18 @@ left to right direction
 
 node "Database Server" as database <<device>>{
   [Firebase API] <<component>> as firebaseApi
-  [Firebase Database] <<component>> as firebaseDb
   Interface " " as int1
 }
 
 node "Client" as client <<device>> {
-  component Flutter as app <<framework>>
-  component "Bubble" as dp <<component>>
-  component "Login & Signup" as login <<component>>
-  component "FlutterFire" as flutterfire <<library>>
+  component "RetrospectiveWall" as maincomp <<component>>
 }
 
 client -[hidden]up-> database
 
 firebaseApi -down- int1
-int1 <.down. flutterfire
+int1 <.down. maincomp
 
-firebaseApi <- firebaseDb
 
-flutterfire <.down. dp
-flutterfire <.down. login
 
 @enduml

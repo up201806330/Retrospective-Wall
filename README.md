@@ -67,7 +67,7 @@ Take a look at the following links to learn some techniques:
 #### Like or Dislike Feedback Bubles
 * **Actor**. Attendees
 * **Description**. Choose to either like or deslike an existing bubble in order to enhance (or not) the feedback credibility. (Liking the bubble will make it grow, while disliking it will make it smaller.
-* **Preconditions and Postconditions**. A feedback bubble must exist so that it can be liked/disliked
+* **Preconditions and Postconditions**. A feedback bubble must exist so that it can be liked/disliked and you need to be logged in.
 - **Normal Flow:**
   - User presses like button on the feedback bubble
     - System will make that bubble bigger
@@ -77,8 +77,8 @@ Take a look at the following links to learn some techniques:
 #### Creating Feedback Pop-up question
 * **Actor**. Metting's host
 * **Description**. Host can create questions that pop after the meeting ends in order to get attendees opinion on a specific subject.
-* **Preconditions and Postconditions**. Metting has to end.
-- **Normal Flow:**
+* **Preconditions and Postconditions**. Metting has to end and you need to be logged in.
+- **Normal Flow:** 
  
   - Host creates question
   - System makes it pop up attendees screen.
@@ -86,16 +86,17 @@ Take a look at the following links to learn some techniques:
  #### Comenting on Feedback bubbles
 * **Actor**. Attendee
 * **Description**. Attendees can comment on other's feedback in order to add some information they think might be needed.
-* **Preconditions and Postconditions**. Feedback buble must exist in so that it can be commented.
+* **Preconditions and Postconditions**. Feedback buble must exist  so that it can be commented and you need to be logged in.
 - **Normal Flow:**
   - Attendee chooses wich feedback bubble he wants to comment on.
   - Attendee is given a text box to write and an option to phone's gallery if he wishes to add a photo or a gif.
   - Attendee submits his comment.
+- **Alternative Flows and Exceptions:** If you leave comment's page wihtout submiting, your draft will get erased.
 
 #### Create Feedback bubble
 - **Actor:** Attendee.
 - **Description:** The base functionality of the app, the ability to create a bubble describing an issue or idea. These belong to a specific category (*Wishes, Risks, Appreciations, Puzzles*) and may pertain to something more specific inside the event (*a specific talk, branch of the organization, ...*)
-- **Preconditions and Postconditions:** The only precondition is to have the app installed on the device. Since the use of an account is not mandatory, the user can create bubbles from the *get-go*.
+- **Preconditions and Postconditions:** You must be logged in.
 - **Normal Flow:**
   - User provides a title.
   - User chooses category from drop-down list.
@@ -108,6 +109,8 @@ Take a look at the following links to learn some techniques:
 
 ### User stories
 
+Our user stories are listed on the [project board](https://github.com/FEUP-ESOF-2020-21/open-cx-t5g2-esotericos/projects/1), along with their UI Mockups and Gherkin acceptance tests.
+
 <!-- 
 This section will contain the requirements of the product described as **user stories**, organized in a global **[user story map](https://plan.io/blog/user-story-mapping/)** with **user roles** or **themes**.
 
@@ -115,184 +118,6 @@ For each theme, or role, you may add a small description. User stories should be
 
 A user story is a description of desired functionality told from the perspective of the user or customer. A starting template for the description of a user story is  
 -->
-
-#### Story 1: Feedback Bubbles's creation
-> As a user I want to be able to create Feedback Bubbles so that I can express my review about the meeting.
-
-![new_feedback](./Docs/new_feedback.png)
-
-## Acceptance test:
-
-**Scenario: Create feedback buble**
-
-**Given** that a meeting has ended and *an attendee* is on the *create feedback* 
-
-**When** they fill out all the details (feedback text, title, category),
-
-**And** click the *Submit* button,
-
-**Then** the app uploads the feedback they just wrote.
-
-***
-#### Story 2:Like or Dislike feedback bubbles
-> As a user I want to be able to like or dislike existing feedback bubbles so that I show my agreement/disagreement with others.
-
-![like_fb](./Docs/like_fb.png)
-
-####  Acceptance test:
-
-**Scenario: Like or Dislike feedback bubles**
-
-**Given** that *an attendee* is on the page of a *specific* feedback
-
-**When** they click the upvote(1)/downvote(2) buttons,
-
-**Then** the app updates the number of votes on the feedback.
-
-***
-#### Story 3: Anonymous review
-> As a user I want to able to have the option to hide my identity so that the feedback can be anonymous.
-
-![anon_opt](./Docs/anon_opt.png)
-
-#### Acceptance test:
-
-**Scenario: Give feedback anonymously**
-
-**Given** that *an attendee* is on the *create feedback* page
-
-**When** they check the *anonymous review* box,
-
-**And** they click *submit* the feedback
-
-**Then** the app will register it without the users' information.
-
-***
-#### Story 4: Add Images/Gifs
-> As a user I want to be able to add images or gif to my feedback/comment so that I can better express my opinion.
-
-![add_photo](./Docs/add_photo.png)
-
-#### Acceptance test:
-
-**Scenario: Add images/gifs to feedback**
-
-**Given** that *an attendee* is on the *create feedback* page
-
-**When** they click the photo icon,
-
-**And** select a valid image,
-
-**Then** the app will store their image in the bubble to be uploaded.
-
-***
-#### Story 5: Comment Feedback Blubles
-> As a user I want to be able to comment on Feedback Bubbles so that I can add an opinion about an existing feedback review.
-
-![comment_fb](./Docs/comment_fb.png)
-
-#### Acceptance test:
-
-**Scenario: Comment on existing feedbacks**
-
-**Given** that *an attendee* is on a specific feedback page
-
-**When** they fill out the textbox,
-
-**And** add an image, if they choose so,
-
-**And** submit the comment
-
-**Then** the app will store the new comment.
-
-***
-
-#### Story 6: Custom notification questions
-> As a host I want to be able to create custom Feedback questions, that will be pushed to all users of the app, so that I can gather opinions about a specific topic or issue.
-
-<!-- ![feedback_notification](./Docs/feedback_notification.png) -->
-
-#### Acceptance test:
-
-**Scenario: Creating custom notification question**
-
-**Given** that an *organization member* is on the *create notification* page
-
-**When** they type out the text,
-
-**And** hit *Submit*,
-
-**Then** the notification is sent to all the users.
-
-
-***
-#### Story 7: Feedback search
-> As a host I want to be able to search feedbacks by category/subject so that I can look for feedback about a specific subject.
-
-<!-- ![feedback_search](./Docs/feedback_search.png) -->
-
-#### Acceptance test:
-
-**Scenario: Searching for feedback**
-
-**Given** that an *organization member* is on the *search for feedback* page
-
-**When** they select all the parameters for their search,
-
-**And** hit *Search*,
-
-**Then** the app will fetch and display the matching results.
-
-
-***
-#### Story 8: Selecting Category of my feedback
-> As a user I want to associate a specific talk, event or area of the organization to my Feedback so that I can better direct my criticism
-
-![select_category](./Docs/select_category.png)
-
-#### Acceptance test:
-
-**Scenario: Selecting Category of my feedback**
-
-**Given** that *an attendee* is on the *create feedback* page
-
-**When** they choose a category from the dropdown list,
-
-**Then** the app will store that category in the bubble to be uploaded.
-
-***
-
-#### Story 9: Listing of bubbles in subsection
-> As a user I want to be able to see the Feedback Bubbles that exist so far per category so that I know if my "idea" for feedback has already been expressed by someone else.
-
-![subsections](./Docs/subsections.png)
-
-#### Acceptance test:
-
-**Scenario: Seeing bubbles in their categories**
-
-**Given** that *an attendee* is on the *main* page
-
-**When** they click on a category,
-
-**Then** they will see all bubbles grouped in that category.
-
-***
-
-#### Story 9: Seeing Current Data from Database
-> As a user I want to be able to see the current data from the database so that I can see not only my own feedback bubbles but also the ones created by other users.
-
-<!-- ![db](./Docs/db.png) -->
-
-#### Acceptance test:
-
-**Scenario: Keeping app updated with database**
-
-**Given** that *an attendee* is on a *category* page
-
-**When** someone else submits a new bubble,
-
-**Then** they will see the new bubble appear without having to reload the app.
 
 ***
 

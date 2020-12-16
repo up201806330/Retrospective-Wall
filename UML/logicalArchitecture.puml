@@ -2,28 +2,32 @@
 skinparam linetype polyline
 skinparam ranksep 10
 skinparam nodesep 20
-skinparam classBackgroundColor WhiteSmoke
-skinparam classBorderColor DarkSlateGrey
+skinparam componentBackgroundColor WhiteSmoke
+skinparam componentBorderColor DarkSlateGrey
+skinparam componentFontColor Black
 skinparam ArrowColor Black
 hide members
 hide circles
 
 package Controller{
-    class "Database Controller"
-    class "App Controller"
+    component "Database Controller"
+    component "App Controller"
 }
 package Model{
-    class "Bubble Model"    
-    class "Comments Model"
-    class "Like & Dislike Model"
+    component "Bubble Model"    
+    component "Comments Model"
+    component "Like & Dislike Model"
 }
 package View{
-    class "Bubble View"
-    class "Create Bubble Page"
+    component "Bubble View"
+    component "Bubble Creation View"
+    component "Comment View"
+    component "Comment Creation View"
 }
 
+View -[hidden]->Controller
 Controller -[hidden]->Model
-Model <.up.> Controller : Update data
-Controller .right.> View : Data to be sent
+Model <.. Controller : Changes data stored
+Controller .left.> View : Changes components seen by user
 
 @enduml
