@@ -80,85 +80,109 @@ class _SignupState extends State<Signup> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.bottomRight,
-            end: Alignment.topLeft,
-            colors: [Colors.lightBlue, Colors.lightBlueAccent, Colors.blue],
+      /*resizeToAvoidBottomInset: false,*/
+      appBar: AppBar(
+        title: Text('Sign up'),
+      ),
+      body: SingleChildScrollView(
+        physics: NeverScrollableScrollPhysics(),
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            minWidth: MediaQuery.of(context).size.width,
+            minHeight: MediaQuery.of(context).size.height,
           ),
-        ),
-        child: Center(
-          child: Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [Colors.cyan, Colors.cyanAccent],
+          child: IntrinsicHeight(
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topRight,
+                  end: Alignment.bottomLeft,
+                  colors: [Colors.blue.shade50, Colors.blue.shade600],
+                ),
               ),
-            ),
-            height: 400,
-            width: 400,
-            padding: EdgeInsets.all(20.0),
-            margin: EdgeInsets.all(20.0),
-            child: Form(
-              key: _formKey,
-              child: Column(
-                children: [
-                  showAlert(),
-                  TextFormField(
-                    validator: (input) {
-                      if (input.isEmpty) {
-                        return 'Please type an username';
-                      }
-                    },
-                    onSaved: (input) => _username = input,
-                    decoration: InputDecoration(
-                      labelText: "Username",
+              child: Center(
+                child: Column(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                          gradient: LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [Colors.white, Colors.white],
+                          ),
+                        ),
+                        /*height: 400,
+                        width: 400,*/
+                        padding: EdgeInsets.all(20.0),
+                        margin: EdgeInsets.fromLTRB(20.0, 50.0, 20.0, 300.0),
+                        child: Form(
+                          key: _formKey,
+                          child: Column(
+                            children: [
+                              showAlert(),
+                              Text("Create an account"),
+                              TextFormField(
+                                validator: (input) {
+                                  if (input.isEmpty) {
+                                    return 'Please type an username';
+                                  }
+                                },
+                                onSaved: (input) => _username = input,
+                                decoration: InputDecoration(
+                                  labelText: "Username",
+                                ),
+                              ),
+                              TextFormField(
+                                validator: (input) {
+                                  if (input.isEmpty) {
+                                    return 'Please type an email';
+                                  }
+                                },
+                                onSaved: (input) => _email = input,
+                                decoration: InputDecoration(
+                                  labelText: "Email",
+                                ),
+                              ),
+                              TextFormField(
+                                key: passwordKey,
+                                validator: (input) {
+                                  if (input.length < 6) {
+                                    return "Password too weak";
+                                  }
+                                },
+                                onSaved: (input) => _password = input,
+                                decoration: InputDecoration(
+                                  labelText: "Password",
+                                ),
+                                obscureText: true,
+                              ),
+                              TextFormField(
+                                validator: (input) {
+                                  var password = passwordKey.currentState.value;
+                                  if (input != password) {
+                                    return "Passwords do not match";
+                                  }
+                                },
+                                onSaved: (input) => _password = input,
+                                decoration: InputDecoration(
+                                  labelText: "Confirm password",
+                                ),
+                                obscureText: true,
+                              ),
+                              SizedBox(height: 50),
+                              ElevatedButton(
+                                onPressed: signUp,
+                                child: Text("Sign Up"),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
                     ),
-                  ),
-                  TextFormField(
-                    validator: (input) {
-                      if (input.isEmpty) {
-                        return 'Please type an email';
-                      }
-                    },
-                    onSaved: (input) => _email = input,
-                    decoration: InputDecoration(
-                      labelText: "Email",
-                    ),
-                  ),
-                  TextFormField(
-                    key: passwordKey,
-                    validator: (input) {
-                      if (input.length < 6) {
-                        return "Password too weak";
-                      }
-                    },
-                    onSaved: (input) => _password = input,
-                    decoration: InputDecoration(
-                      labelText: "Password",
-                    ),
-                    obscureText: true,
-                  ),
-                  TextFormField(
-                    validator: (input) {
-                      var password = passwordKey.currentState.value;
-                      if (input != password) {
-                        return "Passwords do not match";
-                      }
-                    },
-                    onSaved: (input) => _password = input,
-                    decoration: InputDecoration(
-                      labelText: "Confirm password",
-                    ),
-                    obscureText: true,
-                  ),
-                  ElevatedButton(
-                    onPressed: signUp,
-                    child: Text("Sign Up"),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
