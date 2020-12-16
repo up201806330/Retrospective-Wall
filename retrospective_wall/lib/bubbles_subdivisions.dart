@@ -216,19 +216,38 @@ class _BubblesSubdivision extends State<BubblesSubdivision> {
                         onTap: () => _onSubdivisionTap(context, 4),
                       ),
                       SizedBox(height: 1),
+
+                      isOrganization ?
+                        Container(
+                          height: 50,
+                          child: ElevatedButton(
+                            key: Key("newBubbleButton"),
+                            onPressed: () {
+                              _onNewBubblePress(context);
+                            },
+                            child: Text(
+                              "New Bubble",
+                              style: TextStyle(fontSize: 25),
+                            ),
+                          ),
+                        )
+
+                      :
+
                       Container(
                         height: 50,
                         child: ElevatedButton(
-                          key: Key("newBubbleButton"),
+                          // key: Key("newBubbleButton"),
                           onPressed: () {
-                            _onNewBubblePress(context);
+                            _onSeeStatsPress(context);
                           },
                           child: Text(
-                            "New Bubble",
+                            "See Stats",
                             style: TextStyle(fontSize: 25),
                           ),
                         ),
-                      ),
+                      )
+
                     ],
                   )),
                 ],
@@ -247,6 +266,10 @@ class _BubblesSubdivision extends State<BubblesSubdivision> {
     } else {
       await Navigator.pushNamed(context, BubbleNewRoute);
     }
+  }
+
+  _onSeeStatsPress(BuildContext context) async {
+    await Navigator.pushNamed(context, StatsRoute);
   }
 
   _onLoginPress(BuildContext context) async {
