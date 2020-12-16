@@ -19,6 +19,7 @@ class _SubdivisionDetail extends State<SubdivisionDetail> {
 
   Widget _buildListItem(BuildContext context, DocumentSnapshot document) {
     return GestureDetector(
+      key: Key("Bubble" + document.id.substring(0, 5)),
       child: Container(
         child: Text(document['title'],
             style: Theme.of(context).textTheme.bodyText2),

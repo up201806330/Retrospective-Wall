@@ -66,6 +66,7 @@ class _BubbleNew extends State<BubbleNew> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: Key("NewBubblePage"),
       resizeToAvoidBottomPadding: false,
       appBar: AppBar(
         title: Text("Add Bubble"),
@@ -96,6 +97,7 @@ class _BubbleNew extends State<BubbleNew> {
                   ),
                   child: DropdownButtonHideUnderline(
                     child: DropdownButton(
+                        key: Key("CategoriesDropdown"),
                         value: _value,
                         items: [
                           DropdownMenuItem(
@@ -109,6 +111,7 @@ class _BubbleNew extends State<BubbleNew> {
                             value: 2,
                           ),
                           DropdownMenuItem(
+                            key: Key("Appreciations"),
                             child: Text("Appreciations",
                                 style: TextStyle(fontSize: 25)),
                             value: 3,
@@ -128,6 +131,7 @@ class _BubbleNew extends State<BubbleNew> {
                 ),
                 SizedBox(height: 20),
                 CheckboxListTile(
+                  key: Key("IsAnonymousField"),
                   title: Text("Anonymous Review: "),
                   value: isAnonymous,
                   onChanged: (newValue) {
@@ -139,6 +143,7 @@ class _BubbleNew extends State<BubbleNew> {
                 ),
                 SizedBox(height: 20),
                 TextFormField(
+                  key: Key("TitleField"),
                   style: TextStyle(color: Colors.black, fontSize: 25),
                   keyboardType: TextInputType.text,
                   minLines: 1,
@@ -153,6 +158,7 @@ class _BubbleNew extends State<BubbleNew> {
                 ),
                 SizedBox(height: 20),
                 TextFormField(
+                  key: Key("FeedbackTextField"),
                   style: TextStyle(color: Colors.black, fontSize: 25),
                   keyboardType: TextInputType.multiline,
                   minLines: 1,
@@ -170,6 +176,7 @@ class _BubbleNew extends State<BubbleNew> {
                   child: Container(
                     height: 50,
                     child: ElevatedButton(
+                      key: Key("NewBubbleButton"),
                       child: Text("Submit", style: TextStyle(fontSize: 25)),
                       onPressed: () {
                         if (controllerHeading.text.isEmpty) {
