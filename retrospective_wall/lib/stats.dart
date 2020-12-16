@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -51,33 +52,73 @@ class _Stats extends State<Stats> {
                                   ),
 
                                 ),
-                                Container(
-                                  child: Text("Average Likes: "),
-                                  margin: new EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
-                                  padding: new EdgeInsets.all(20.0),
-                                  alignment: Alignment(0.0, 0.3),
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                Container(
-                                  child: Text("Average Dislikes: "),
-                                  margin: new EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
-                                  padding: new EdgeInsets.all(20.0),
-                                  alignment: Alignment(0.0, 0.3),
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                Container(
-                                  child: Text("Average Comments: "),
-                                  margin: new EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
-                                  padding: new EdgeInsets.all(20.0),
-                                  alignment: Alignment(0.0, 0.3),
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
 
-                                  ),
+                                StreamBuilder(
+                                  stream: FirebaseFirestore.instance.collection("Bubbles").where("category", isEqualTo: 1).snapshots(),
+                                  builder:
+                                    (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+
+                                        if (snapshot.connectionState == ConnectionState.none) {
+                                          return Text("something went wrong. try again later");
+                                        }
+                                        else if (snapshot.connectionState ==
+                                            ConnectionState.waiting)
+                                          return const Text(
+                                            'Loading...',
+                                            textAlign: TextAlign.center,
+                                          );
+
+
+                                        var avgLikes = 0.0;
+                                        var avgDislikes = 0.0;
+                                        var avgComments = 0.0;
+
+                                        var size = snapshot.data.docs.length;
+
+                                        for (dynamic bubble in snapshot.data.docs) {
+                                          avgLikes += bubble['nLikes'];
+                                          avgDislikes += bubble['nDislikes'];
+                                          avgComments += bubble['nComments'];
+                                        }
+
+                                        avgLikes /= size;
+                                        avgDislikes /= size;
+                                        avgComments /= size;
+
+                                        return Column(
+                                          children: [
+                                            Container(
+                                              child: Text("Average Likes: " + avgLikes.toStringAsFixed(2)),
+                                              margin: new EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+                                              padding: new EdgeInsets.all(20.0),
+                                              alignment: Alignment(0.0, 0.3),
+                                              decoration: BoxDecoration(
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                            Container(
+                                              child: Text("Average Dislikes: " + avgDislikes.toStringAsFixed(2)),
+                                              margin: new EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+                                              padding: new EdgeInsets.all(20.0),
+                                              alignment: Alignment(0.0, 0.3),
+                                              decoration: BoxDecoration(
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                            Container(
+                                              child: Text("Average Comments: " + avgComments.toStringAsFixed(2)),
+                                              margin: new EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+                                              padding: new EdgeInsets.all(20.0),
+                                              alignment: Alignment(0.0, 0.3),
+                                              decoration: BoxDecoration(
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                          ],
+                                        );
+
+                                      return Text(snapshot.connectionState.toString());
+                                    }
                                 ),
                               ],
                             ),
@@ -102,17 +143,74 @@ class _Stats extends State<Stats> {
                                       borderRadius: BorderRadius.circular(10),
                                     ),
                                   ),
-
                                 ),
-                                Container(
-                                  child: Text("Average Likes: "),
-                                  margin: new EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
-                                  padding: new EdgeInsets.all(20.0),
-                                  alignment: Alignment(0.0, 0.3),
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
+
+                                StreamBuilder(
+                                    stream: FirebaseFirestore.instance.collection("Bubbles").where("category", isEqualTo: 2).snapshots(),
+                                    builder:
+                                        (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+
+                                      if (snapshot.connectionState == ConnectionState.none) {
+                                        return Text("something went wrong. try again later");
+                                      }
+                                      else if (snapshot.connectionState ==
+                                          ConnectionState.waiting)
+                                        return const Text(
+                                          'Loading...',
+                                          textAlign: TextAlign.center,
+                                        );
+
+
+                                      var avgLikes = 0.0;
+                                      var avgDislikes = 0.0;
+                                      var avgComments = 0.0;
+
+                                      var size = snapshot.data.docs.length;
+
+                                      for (dynamic bubble in snapshot.data.docs) {
+                                        avgLikes += bubble['nLikes'];
+                                        avgDislikes += bubble['nDislikes'];
+                                        avgComments += bubble['nComments'];
+                                      }
+
+                                      avgLikes /= size;
+                                      avgDislikes /= size;
+                                      avgComments /= size;
+
+                                      return Column(
+                                        children: [
+                                          Container(
+                                            child: Text("Average Likes: " + avgLikes.toStringAsFixed(2)),
+                                            margin: new EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+                                            padding: new EdgeInsets.all(20.0),
+                                            alignment: Alignment(0.0, 0.3),
+                                            decoration: BoxDecoration(
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                          Container(
+                                            child: Text("Average Dislikes: " + avgDislikes.toStringAsFixed(2)),
+                                            margin: new EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+                                            padding: new EdgeInsets.all(20.0),
+                                            alignment: Alignment(0.0, 0.3),
+                                            decoration: BoxDecoration(
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                          Container(
+                                            child: Text("Average Comments: " + avgComments.toStringAsFixed(2)),
+                                            margin: new EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+                                            padding: new EdgeInsets.all(20.0),
+                                            alignment: Alignment(0.0, 0.3),
+                                            decoration: BoxDecoration(
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                        ],
+                                      );
+
+                                      return Text(snapshot.connectionState.toString());
+                                    }
                                 ),
                               ],
                             ),
@@ -123,7 +221,7 @@ class _Stats extends State<Stats> {
                                   child: Text("Appreciations",
                                       style: Theme.of(context).textTheme.bodyText2),
                                 ),
-                                margin: new EdgeInsets.all(20.0),
+                                margin: new EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 0.0),
                                 padding: new EdgeInsets.all(20.0),
                                 alignment: Alignment(0.0, 0.3),
                                 decoration: BoxDecoration(
@@ -135,8 +233,76 @@ class _Stats extends State<Stats> {
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                               ),
-
                             ),
+
+                            StreamBuilder(
+                                stream: FirebaseFirestore.instance.collection("Bubbles").where("category", isEqualTo: 3).snapshots(),
+                                builder:
+                                    (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+
+                                  if (snapshot.connectionState == ConnectionState.none) {
+                                    return Text("something went wrong. try again later");
+                                  }
+                                  else if (snapshot.connectionState ==
+                                      ConnectionState.waiting)
+                                    return const Text(
+                                      'Loading...',
+                                      textAlign: TextAlign.center,
+                                    );
+
+
+                                  var avgLikes = 0.0;
+                                  var avgDislikes = 0.0;
+                                  var avgComments = 0.0;
+
+                                  var size = snapshot.data.docs.length;
+
+                                  for (dynamic bubble in snapshot.data.docs) {
+                                    avgLikes += bubble['nLikes'];
+                                    avgDislikes += bubble['nDislikes'];
+                                    avgComments += bubble['nComments'];
+                                  }
+
+                                  avgLikes /= size;
+                                  avgDislikes /= size;
+                                  avgComments /= size;
+
+                                  return Column(
+                                    children: [
+                                      Container(
+                                        child: Text("Average Likes: " + avgLikes.toStringAsFixed(2)),
+                                        margin: new EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+                                        padding: new EdgeInsets.all(20.0),
+                                        alignment: Alignment(0.0, 0.3),
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      Container(
+                                        child: Text("Average Dislikes: " + avgDislikes.toStringAsFixed(2)),
+                                        margin: new EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+                                        padding: new EdgeInsets.all(20.0),
+                                        alignment: Alignment(0.0, 0.3),
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      Container(
+                                        child: Text("Average Comments: " + avgComments.toStringAsFixed(2)),
+                                        margin: new EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+                                        padding: new EdgeInsets.all(20.0),
+                                        alignment: Alignment(0.0, 0.3),
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ],
+                                  );
+
+                                  return Text(snapshot.connectionState.toString());
+                                }
+                            ),
+
                             InkWell(
                               child: Container(
                                 child: GestureDetector(
@@ -144,7 +310,7 @@ class _Stats extends State<Stats> {
                                       style: Theme.of(context).textTheme.bodyText2),
                                   // onTap: () => _onSubdivisionTap(context, 4),
                                 ),
-                                margin: new EdgeInsets.all(20.0),
+                                margin: new EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 0.0),
                                 padding: new EdgeInsets.all(20.0),
                                 alignment: Alignment(0.0, 0.3),
                                 decoration: BoxDecoration(
@@ -158,6 +324,74 @@ class _Stats extends State<Stats> {
                               ),
 
                             ),
+                            StreamBuilder(
+                                stream: FirebaseFirestore.instance.collection("Bubbles").where("category", isEqualTo: 4).snapshots(),
+                                builder:
+                                    (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+
+                                  if (snapshot.connectionState == ConnectionState.none) {
+                                    return Text("something went wrong. try again later");
+                                  }
+                                  else if (snapshot.connectionState ==
+                                      ConnectionState.waiting)
+                                    return const Text(
+                                      'Loading...',
+                                      textAlign: TextAlign.center,
+                                    );
+
+
+                                  var avgLikes = 0.0;
+                                  var avgDislikes = 0.0;
+                                  var avgComments = 0.0;
+
+                                  var size = snapshot.data.docs.length;
+
+                                  for (dynamic bubble in snapshot.data.docs) {
+                                    avgLikes += bubble['nLikes'];
+                                    avgDislikes += bubble['nDislikes'];
+                                    avgComments += bubble['nComments'];
+                                  }
+
+                                  avgLikes /= size;
+                                  avgDislikes /= size;
+                                  avgComments /= size;
+
+                                  return Column(
+                                    children: [
+                                      Container(
+                                        child: Text("Average Likes: " + avgLikes.toStringAsFixed(2)),
+                                        margin: new EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+                                        padding: new EdgeInsets.all(20.0),
+                                        alignment: Alignment(0.0, 0.3),
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      Container(
+                                        child: Text("Average Dislikes: " + avgDislikes.toStringAsFixed(2)),
+                                        margin: new EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+                                        padding: new EdgeInsets.all(20.0),
+                                        alignment: Alignment(0.0, 0.3),
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      Container(
+                                        child: Text("Average Comments: " + avgComments.toStringAsFixed(2)),
+                                        margin: new EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 20.0),
+                                        padding: new EdgeInsets.all(20.0),
+                                        alignment: Alignment(0.0, 0.3),
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ],
+                                  );
+
+                                  return Text(snapshot.connectionState.toString());
+                                }
+                            ),
+
                             SizedBox(height: 1),
 
 

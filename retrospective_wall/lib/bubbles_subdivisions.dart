@@ -217,7 +217,7 @@ class _BubblesSubdivision extends State<BubblesSubdivision> {
                       ),
                       SizedBox(height: 1),
 
-                      isOrganization ?
+                      !isOrganization ?
                         Container(
                           height: 50,
                           child: ElevatedButton(
