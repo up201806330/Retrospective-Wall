@@ -75,70 +75,94 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.bottomRight,
-            end: Alignment.topLeft,
-            colors: [Colors.lightBlue, Colors.lightBlueAccent, Colors.blue],
+      appBar: AppBar(
+        title: Text('Log In'),
+      ),
+      body: SingleChildScrollView(
+        physics: NeverScrollableScrollPhysics(),
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            minWidth: MediaQuery.of(context).size.width,
+            minHeight: MediaQuery.of(context).size.height,
           ),
-        ),
-        child: Center(
-          child: Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [Colors.cyan, Colors.cyanAccent],
+          child: IntrinsicHeight(
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topRight,
+                  end: Alignment.bottomLeft,
+                  colors: [Colors.blue.shade50, Colors.blue.shade600],
+                ),
               ),
-            ),
-            height: 400,
-            width: 400,
-            padding: EdgeInsets.all(20.0),
-            margin: EdgeInsets.all(20.0),
-            child: Center(
-              child: Form(
-                key: _formKey,
+              child: Center(
                 child: Column(
                   children: [
-                    showAlert(),
-                    TextFormField(
-                      validator: (input) {
-                        if (input.isEmpty) {
-                          return 'Please type an email';
-                        }
-                      },
-                      onSaved: (input) => _email = input,
-                      decoration: InputDecoration(
-                        labelText: "Email",
+                    Expanded(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                          gradient: LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [Colors.white, Colors.white],
+                          ),
+                        ),
+                        /*height: 400,
+                        width: 400,*/
+                        padding: EdgeInsets.all(20.0),
+                        margin: EdgeInsets.fromLTRB(20.0, 50.0, 20.0, 300.0),
+                        child: Center(
+                          child: Form(
+                            key: _formKey,
+                            child: Column(
+                              children: [
+                                showAlert(),
+                                Text("Log In To Your Account"),
+                                TextFormField(
+                                  validator: (input) {
+                                    if (input.isEmpty) {
+                                      return 'Please type an email';
+                                    }
+                                  },
+                                  onSaved: (input) => _email = input,
+                                  decoration: InputDecoration(
+                                    labelText: "Email",
+                                  ),
+                                ),
+                                TextFormField(
+                                  validator: (input) {
+                                    if (input.length < 6) {
+                                      return "Password too weak";
+                                    }
+                                  },
+                                  onSaved: (input) => _password = input,
+                                  decoration: InputDecoration(
+                                    labelText: "Password",
+                                  ),
+                                  obscureText: true,
+                                ),
+                                SizedBox(height: 30),
+                                ElevatedButton(
+                                  onPressed: signIn,
+                                  child: Text("Sign in"),
+                                ),
+                                SizedBox(height: 30),
+                                InkWell(
+                                    child: new Text('Create an account',
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          decoration: TextDecoration.underline,
+                                          fontSize: 20.0,
+                                        )),
+                                    onTap: () {
+                                      Navigator.pushNamed(context, SignupRoute);
+                                    }),
+                              ],
+                            ),
+                          ),
+                        ),
                       ),
                     ),
-                    TextFormField(
-                      validator: (input) {
-                        if (input.length < 6) {
-                          return "Password too weak";
-                        }
-                      },
-                      onSaved: (input) => _password = input,
-                      decoration: InputDecoration(
-                        labelText: "Password",
-                      ),
-                      obscureText: true,
-                    ),
-                    ElevatedButton(
-                      onPressed: signIn,
-                      child: Text("Sign in"),
-                    ),
-                    InkWell(
-                        child: new Text('Create an account',
-                            style: TextStyle(
-                              color: Colors.black,
-                              decoration: TextDecoration.underline,
-                              fontSize: 20.0,
-                            )),
-                        onTap: () {
-                          Navigator.pushNamed(context, SignupRoute);
-                        }),
                   ],
                 ),
               ),
