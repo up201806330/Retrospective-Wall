@@ -49,7 +49,7 @@ class _BubbleDetail extends State<BubbleDetail> {
                     children: []..add(textSections(bubble))
                 ),
                 SizedBox(
-                    width: 200.0,
+                    width: 250.0,
                     height: 80.0,
                     child: FeedbackStats(_bubble)
                 ),
