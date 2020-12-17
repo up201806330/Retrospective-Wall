@@ -180,15 +180,29 @@ Use cross-links to the code repository and only embed real fragments of code whe
 
 ---
 ## Test
-<!-- 
-There are several ways of documenting testing activities, and quality assurance in general, being the most common: a strategy, a plan, test case specifications, and test checklists.
 
-In this section it is only expected to include the following:
-* test plan describing the list of features to be tested and the testing methods and tools;
-* test case specifications to verify the functionalities, using unit tests and acceptance tests.
- 
-A good practice is to simplify this, avoiding repetitions, and automating the testing actions as much as possible.
- -->
+To test the behaviour of our app's features, we implemented acceptance tests using the **_gherkin_** package. These tests are divided in two parts, the features and the steps. The features are described in **.feature** files using certain keywords, like *Given*, *When* and *Then* and also using natural language. The steps are defined in the **Dart** language and are responsible for performing certain actions described in the features.
+We have implemented automated acceptance tests for most important features of our application, like the following:
+* Creation of feedback bubbles
+* Hiding the identity of the user upon feedback bubble creation
+* Liking and disliking other people's feedback bubbles
+* Seeing the list of bubbles of a certain category
+
+In order to develop these tests, the **_gherkin_** package was used to write the test scenarios and the **_flutter_driver_** package was also used in the steps' implementation.
+
+Here are some screenshots of the tests:
+![Categories test](./Docs/acceptance_test_categories.png "Categories test passed")
+
+![User identity test](./Docs/acceptance_test_anonymous.png "User identity test passed")
+
+![Create bubble test](./Docs/acceptance_tests_create_bubble.png "Create bubble test passed")
+
+![New bubble navigation test](./Docs/acceptance_test_new_bubble.png "New bubble navigation test passed")
+
+![Liking test](./Docs/acceptance_test_like.png "Liking test passed")
+
+![Disliking test](./Docs/acceptance_test_dislike.png "Disliking test passed")
+
 
 ---
 ## Configuration and change management
