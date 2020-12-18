@@ -66,6 +66,7 @@ class _LoginState extends State<Login> {
 
         DocumentSnapshot variable = await FirebaseFirestore.instance.collection('UserData').doc(credential.user.uid).get();
 
+        userInfo = FirebaseAuth.instance.currentUser;
         _isOrganization = variable['isOrganization'];
 
 

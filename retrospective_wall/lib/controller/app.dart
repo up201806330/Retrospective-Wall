@@ -25,7 +25,7 @@ User userInfo;
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    userInfo = FirebaseAuth.instance.currentUser;
+    userInfo = null;
     return MaterialApp(
       onGenerateRoute: _routes(),
       theme: _theme(),

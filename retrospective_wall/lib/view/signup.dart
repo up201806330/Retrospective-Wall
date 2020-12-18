@@ -72,6 +72,12 @@ class _SignupState extends State<Signup> {
         ref.set({'isOrganization': _isOrganization});
         // userDataCollection.add({'userId': FirebaseAuth.instance.currentUser.uid, <'isOrganization': _isOrganization}>);
 
+        FirebaseFirestore.instance.collection('UsersPreferences').add({
+          'userId': credential.user.uid,
+          'dislikeIds': [],
+          'likeIds': [],
+        });
+
       } on FirebaseAuthException catch (e) {
         credential = null;
         setState(() {

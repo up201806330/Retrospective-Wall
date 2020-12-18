@@ -270,7 +270,11 @@ class _BubblesSubdivision extends State<BubblesSubdivision> {
   }
 
   _onSeeStatsPress(BuildContext context) async {
-    await Navigator.pushNamed(context, StatsRoute);
+    if (!isLoggedIn) {
+      showAlertDialog(context);
+    } else {
+      await Navigator.pushNamed(context, StatsRoute);
+    }
   }
 
   _onLoginPress(BuildContext context) async {
@@ -290,6 +294,7 @@ class _BubblesSubdivision extends State<BubblesSubdivision> {
     FirebaseAuth.instance.signOut();
     setState(() {
       isLoggedIn = false;
+      userInfo = null;
     });
   }
 

@@ -42,6 +42,7 @@ class _SubdivisionDetail extends State<SubdivisionDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        resizeToAvoidBottomPadding: false,
         appBar: AppBar(
           title: Text('Subdivisions Detail'),
         ),
