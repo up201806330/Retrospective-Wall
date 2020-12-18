@@ -14,7 +14,6 @@ You can find here detailed about the (sub)product, hereby mentioned as module, f
 * Architecture and Design
   * [Logical architecture](#Logical-architecture)
   * [Physical architecture](#Physical-architecture)
-  * [Prototype](#Prototype)
 * [Implementation](#Implementation)
 * [Test](#Test)
 * [Configuration and change management](#Configuration-and-change-management)
@@ -160,14 +159,6 @@ Architecturally, our project is split in two parts:
 The technologies we chose were *Flutter*, so in the end it would be easier to merge with the **open-cx** project and our class' work, and *Firebase*, since it fit well into our needs and would be simpler than handling the *back-end* ourselves.  
 The *FlutterFire* library's components take care of all the communication with the database, and this ease of mind was a major deciding factor for us.
 
-### Prototype
-
-<!-- 
-To help on validating all the architectural, design and technological decisions made, we usually implement a vertical prototype, a thin vertical slice of the system.
-
-In this subsection please describe in more detail which, and how, user(s) story(ies) were implemented.
- -->
----
 
 ## Implementation
 <!-- 
@@ -177,6 +168,11 @@ While not necessary, sometimes it might be useful to explain a few aspects of th
 
 Use cross-links to the code repository and only embed real fragments of code when strictly needed, since they tend to become outdated very soon.
  -->
+
+* [Iteration 1](https://github.com/FEUP-ESOF-2020-21/open-cx-t5g2-esotericos/releases/tag/retrospective-wall-v0.1)
+* [Iteration 2](https://github.com/FEUP-ESOF-2020-21/open-cx-t5g2-esotericos/releases/tag/v0.2-alpha)
+* [Iteration 3](https://github.com/FEUP-ESOF-2020-21/open-cx-t5g2-esotericos/releases/tag/retrospective-wall-v0.1)
+* Iteration 4
 
 ---
 ## Test
@@ -213,6 +209,11 @@ Configuration and change management are key activities to control change to, and
 For the purpose of ESOF, we will use a very simple approach, just to manage feature requests, bug fixes, and improvements, using GitHub issues and following the [GitHub flow](https://guides.github.com/introduction/flow/).
  -->
 
+Configuration and change management are key activities to control change to, and maintain the integrity of, a project’s artifacts (code, models, documents).
+
+For the purpose of ESOF, we used a very simple approach, just to manage feature requests, bug fixes, and improvements, using GitHub issues and following the [GitHub flow](https://guides.github.com/introduction/flow/).
+
+In addition we used [github actions](https://github.com/FEUP-ESOF-2020-21/open-cx-t5g2-esotericos/actions) to automate generation of png from plantuml files.
 
 ---
 
@@ -233,12 +234,5 @@ Example of tools to do this are:
 We recommend to use the simplest tool that can possibly work for the team.
  -->
 
+During the development of this project we used Github Projects to estimate the workload, to keep track of what was yet to be finished, in progress or already done and who were the responsibles for each task and.
 See our progress through our [project board](https://github.com/FEUP-ESOF-2020-21/open-cx-t5g2-esotericos/projects/1).
-
-
----
-
-## Evolution - contributions to open-cx
-<!-- 
-Describe your contribution to open-cx (iteration 5), linking to the appropriate pull requests, issues, documentation. 
--->
