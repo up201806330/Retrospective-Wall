@@ -14,7 +14,6 @@ You can find here detailed about the (sub)product, hereby mentioned as module, f
 * Architecture and Design
   * [Logical architecture](#Logical-architecture)
   * [Physical architecture](#Physical-architecture)
-  * [Prototype](#Prototype)
 * [Implementation](#Implementation)
 * [Test](#Test)
 * [Configuration and change management](#Configuration-and-change-management)
@@ -160,14 +159,6 @@ Architecturally, our project is split in two parts:
 The technologies we chose were *Flutter*, so in the end it would be easier to merge with the **open-cx** project and our class' work, and *Firebase*, since it fit well into our needs and would be simpler than handling the *back-end* ourselves.  
 The *FlutterFire* library's components take care of all the communication with the database, and this ease of mind was a major deciding factor for us.
 
-### Prototype
-
-<!-- 
-To help on validating all the architectural, design and technological decisions made, we usually implement a vertical prototype, a thin vertical slice of the system.
-
-In this subsection please describe in more detail which, and how, user(s) story(ies) were implemented.
- -->
----
 
 ## Implementation
 <!-- 
@@ -178,17 +169,36 @@ While not necessary, sometimes it might be useful to explain a few aspects of th
 Use cross-links to the code repository and only embed real fragments of code when strictly needed, since they tend to become outdated very soon.
  -->
 
+* [Iteration 1](https://github.com/FEUP-ESOF-2020-21/open-cx-t5g2-esotericos/releases/tag/retrospective-wall-v0.1)
+* [Iteration 2](https://github.com/FEUP-ESOF-2020-21/open-cx-t5g2-esotericos/releases/tag/v0.2-alpha)
+* [Iteration 3](https://github.com/FEUP-ESOF-2020-21/open-cx-t5g2-esotericos/releases/tag/retrospective-wall-v0.1)
+* Iteration 4
+
 ---
 ## Test
-<!-- 
-There are several ways of documenting testing activities, and quality assurance in general, being the most common: a strategy, a plan, test case specifications, and test checklists.
 
-In this section it is only expected to include the following:
-* test plan describing the list of features to be tested and the testing methods and tools;
-* test case specifications to verify the functionalities, using unit tests and acceptance tests.
- 
-A good practice is to simplify this, avoiding repetitions, and automating the testing actions as much as possible.
- -->
+To test the behaviour of our app's features, we implemented acceptance tests using the **_gherkin_** package. These tests are divided in two parts, the features and the steps. The features are described in **.feature** files using certain keywords, like *Given*, *When* and *Then* and also using natural language. The steps are defined in the **Dart** language and are responsible for performing certain actions described in the features.
+We have implemented automated acceptance tests for most important features of our application, like the following:
+* Creation of feedback bubbles
+* Hiding the identity of the user upon feedback bubble creation
+* Liking and disliking other people's feedback bubbles
+* Seeing the list of bubbles of a certain category
+
+In order to develop these tests, the **_gherkin_** package was used to write the test scenarios and the **_flutter_driver_** package was also used in the steps' implementation.
+
+Here are some screenshots of the tests:
+![Categories test](./Docs/acceptance_test_categories.png "Categories test passed")
+
+![User identity test](./Docs/acceptance_test_anonymous.png "User identity test passed")
+
+![Create bubble test](./Docs/acceptance_tests_create_bubble.png "Create bubble test passed")
+
+![New bubble navigation test](./Docs/acceptance_test_new_bubble.png "New bubble navigation test passed")
+
+![Liking test](./Docs/acceptance_test_like.png "Liking test passed")
+
+![Disliking test](./Docs/acceptance_test_dislike.png "Disliking test passed")
+
 
 ---
 ## Configuration and change management
@@ -199,6 +209,11 @@ Configuration and change management are key activities to control change to, and
 For the purpose of ESOF, we will use a very simple approach, just to manage feature requests, bug fixes, and improvements, using GitHub issues and following the [GitHub flow](https://guides.github.com/introduction/flow/).
  -->
 
+Configuration and change management are key activities to control change to, and maintain the integrity of, a project’s artifacts (code, models, documents).
+
+For the purpose of ESOF, we used a very simple approach, just to manage feature requests, bug fixes, and improvements, using GitHub issues and following the [GitHub flow](https://guides.github.com/introduction/flow/).
+
+In addition we used [github actions](https://github.com/FEUP-ESOF-2020-21/open-cx-t5g2-esotericos/actions) to automate generation of png from plantuml files.
 
 ---
 
@@ -219,12 +234,5 @@ Example of tools to do this are:
 We recommend to use the simplest tool that can possibly work for the team.
  -->
 
+During the development of this project we used Github Projects to estimate the workload, to keep track of what was yet to be finished, in progress or already done and who were the responsibles for each task and.
 See our progress through our [project board](https://github.com/FEUP-ESOF-2020-21/open-cx-t5g2-esotericos/projects/1).
-
-
----
-
-## Evolution - contributions to open-cx
-<!-- 
-Describe your contribution to open-cx (iteration 5), linking to the appropriate pull requests, issues, documentation. 
--->
