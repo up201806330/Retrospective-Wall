@@ -172,7 +172,7 @@ Use cross-links to the code repository and only embed real fragments of code whe
 * [Iteration 1](https://github.com/FEUP-ESOF-2020-21/open-cx-t5g2-esotericos/releases/tag/retrospective-wall-v0.1)
 * [Iteration 2](https://github.com/FEUP-ESOF-2020-21/open-cx-t5g2-esotericos/releases/tag/v0.2-alpha)
 * [Iteration 3](https://github.com/FEUP-ESOF-2020-21/open-cx-t5g2-esotericos/releases/tag/retrospective-wall-v0.1)
-* Iteration 4
+* [Iteration 4](https://github.com/FEUP-ESOF-2020-21/open-cx-t5g2-esotericos/releases/tag/v0.4)
 
 ---
 ## Test
