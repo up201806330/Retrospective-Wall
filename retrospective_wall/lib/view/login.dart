@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:retrospective_wall/app.dart';
+import 'package:retrospective_wall/controller/app.dart';
 
-import 'globals.dart';
+import '../globals.dart';
 
 // teste@gmail.com    teste123
 

@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'app.dart';
+import '../controller/app.dart';
 
 class SubdivisionDetail extends StatefulWidget {
   final int _category;
@@ -57,7 +57,7 @@ class _SubdivisionDetail extends State<SubdivisionDetail> {
                 Column(children: [
                   Container(
                       padding: const EdgeInsets.fromLTRB(16.0, 10.0, 16.0, 0),
-                      height: MediaQuery.of(context).size.height * 0.80,
+                      height: MediaQuery.of(context).size.height * 0.89,
                       width: MediaQuery.of(context).size.width,
                       child: StreamBuilder(
                           stream: FirebaseFirestore.instance

@@ -1,4 +1,4 @@
-import 'package:retrospective_wall/feedback_text.dart';
+import 'package:retrospective_wall/model/feedback_text.dart';
 import 'feedback_text.dart';
 
 class Bubble {

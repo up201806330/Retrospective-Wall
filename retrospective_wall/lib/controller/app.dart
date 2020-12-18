@@ -1,16 +1,16 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:retrospective_wall/bubble.dart';
-import 'package:retrospective_wall/bubbles_subdivisions.dart';
-import 'package:retrospective_wall/login.dart';
-import 'package:retrospective_wall/stats.dart';
+import 'package:retrospective_wall/model/bubble.dart';
+import 'package:retrospective_wall/view/bubbles_subdivisions.dart';
+import 'package:retrospective_wall/view/login.dart';
+import 'package:retrospective_wall/view/stats.dart';
 import 'package:retrospective_wall/style.dart';
-import 'package:retrospective_wall/subdivision_detail.dart';
-import 'bubble_detail.dart';
-import 'bubble_new.dart';
-import 'feedback_text.dart';
-import 'package:retrospective_wall/signup.dart';
+import 'package:retrospective_wall/view/subdivision_detail.dart';
+import '../view/bubble_detail.dart';
+import '../view/bubble_new.dart';
+import '../model/feedback_text.dart';
+import 'package:retrospective_wall/view/signup.dart';
 
 const LoginRoute = '/login';
 const SignupRoute = '/login/signup';

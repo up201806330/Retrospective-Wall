@@ -1,11 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:retrospective_wall/comments_list.dart';
-import 'package:retrospective_wall/feedback_text.dart';
-import 'bubble.dart';
+import 'package:retrospective_wall/view/comments_list.dart';
+import 'package:retrospective_wall/model/feedback_text.dart';
+import '../model/bubble.dart';
 import 'text_section.dart';
 
-import 'feedback_stats.dart';
+import '../widgets/feedback_stats.dart';
 
 class BubbleDetail extends StatefulWidget {
   final DocumentSnapshot _bubble;

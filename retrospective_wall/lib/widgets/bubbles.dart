@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'app.dart';
-import 'bubble.dart';
+import '../controller/app.dart';
+import '../model/bubble.dart';
 
 class Bubbles extends StatefulWidget {
   @override

@@ -2,9 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:like_button/like_button.dart';
-import 'package:retrospective_wall/feedback_text.dart';
+import 'package:retrospective_wall/model/feedback_text.dart';
 
-import 'globals.dart';
+import '../globals.dart';
 
 class FeedbackStats extends StatefulWidget {
   final DocumentSnapshot _bubble;
@@ -28,7 +28,7 @@ class _FeedbackStats extends State<FeedbackStats> {
   int likeCounter;
   int dislikeCounter;
 
-  static const double LikeButtonSize = 60;
+  static const double LikeButtonSize = 40;
 
   _FeedbackStats(this._bubble) {
     this.likeCounter = _bubble['nLikes'];
@@ -133,7 +133,7 @@ class _FeedbackStats extends State<FeedbackStats> {
                     print(isLiked); print('\n');*/
                 var color = isLiked ? Colors.blue : Colors.grey;
                 Widget result;
-                if (count < 0) {
+                if (count < 1) {
                   result = Text(
                     "no likes",
                     style: TextStyle(color: color),

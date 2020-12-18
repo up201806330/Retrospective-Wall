@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:retrospective_wall/comment_model.dart';
+import 'package:retrospective_wall/model/comment_model.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'app.dart';
+import '../controller/app.dart';
 
 showAlertDialog(BuildContext context) {
   // set up the button
