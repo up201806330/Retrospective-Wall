@@ -1,4 +1,19 @@
-# openCX-RetrospectiveWall Development Report
+# openCX-RetrospectiveWall 
+
+- **Project name:** Restrospective Wall
+- **Short description:** App created in the context of the [openCX project](https://github.com/open-cx/open-cx)
+- **Tools:** Dart, Flutter, Gherkin, PlantUML, Firebase
+- **Institution:** [FEUP](https://sigarra.up.pt/feup/en/web_page.Inicial)
+- **Course:** [ESOF](https://sigarra.up.pt/feup/en/ucurr_geral.ficha_uc_view?pv_ocorrencia_id=272705) (Software Engineering)
+- **Project grade:** 18.2/20.0
+- **Group members:**
+    - [Iohan Xavier Sardinha Dutra Soares](https://github.com/IohanSardinha) ([up201801011@fe.up.pt](mailto:up201801011@fe.up.pt))
+    - [João António Cardoso Vieira e Basto de Sousa](https://github.com/JoaoASousa) ([up201806613@fe.up.pt](mailto:up201806613@fe.up.pt))
+    - [João Luís Cardoso Rodrigo](https://github.com/JoaoRodrigo99) ([up201705110@fe.up.pt](mailto:up201705110@fe.up.pt))
+    - [Rafael Soares Ribeiro](https://github.com/up201806330) ([up201806330@fe.up.pt](mailto:up201806330@fe.up.pt))
+    - [Tomás Costa Fontes](https://github.com/supertommc) ([up201806252@fe.up.pt](mailto:up201806252@fe.up.pt))
+
+# Development Report
 
 Welcome to the documentation pages of the *RetrospectiveWall* of **openCX**!
 
